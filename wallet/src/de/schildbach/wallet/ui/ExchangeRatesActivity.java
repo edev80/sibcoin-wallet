@@ -18,7 +18,7 @@
 package de.schildbach.wallet.ui;
 
 import android.os.Bundle;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 import android.view.MenuItem;
 
 /**

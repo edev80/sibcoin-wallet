@@ -58,7 +58,7 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 
 import de.schildbach.wallet.camera.CameraManager;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach

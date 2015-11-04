@@ -33,7 +33,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach

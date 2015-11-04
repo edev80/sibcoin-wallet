@@ -76,7 +76,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.concurrent.TimeUnit;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach

@@ -20,7 +20,7 @@ package de.schildbach.wallet.ui.preference;
 import java.util.List;
 
 import android.view.MenuItem;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach

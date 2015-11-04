@@ -24,7 +24,7 @@ import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 import de.schildbach.wallet.util.ViewPagerTabs;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach

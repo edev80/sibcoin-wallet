@@ -28,7 +28,7 @@ import android.text.style.ScaleXSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import de.schildbach.wallet.Constants;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 import de.schildbach.wallet.util.MonetarySpannable;
 
 /**

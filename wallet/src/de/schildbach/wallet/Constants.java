@@ -20,7 +20,7 @@ package de.schildbach.wallet;
 import android.os.Build;
 import android.os.Environment;
 import android.text.format.DateUtils;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 import org.bitcoinj.core.CoinDefinition;
 import org.bitcoinj.core.NetworkParameters;
 import org.bitcoinj.params.MainNetParams;

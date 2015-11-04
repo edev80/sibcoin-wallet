@@ -31,7 +31,7 @@ import android.view.View;
 import android.widget.ImageView;
 import de.schildbach.wallet.ui.DialogBuilder;
 import de.schildbach.wallet.util.Qr;
-import hashengineering.darkcoin.wallet.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach
