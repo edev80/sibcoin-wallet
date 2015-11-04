@@ -434,6 +434,68 @@ public class ExchangeRatesProvider extends ContentProvider
         return null;
     }
 
+	private static Object getCoinValueBTC_YOBIT()
+    {
+        Double btcRate = 0.0;
+        String currency = CoinDefinition.cryptsyMarketCurrency;
+        String url = "http://yobit.net/api/3/ticker/"+ CoinDefinition.coinTicker.toLowerCase() + "_" + CoinDefinition.cryptsyMarketCurrency.toLowerCase();
+
+        try {
+            final URL URL_yobit = new URL(url);
+            final HttpURLConnection connection = (HttpURLConnection)URL_yobit.openConnection();
+            connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+            connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+            connection.connect();
+
+            final StringBuilder content = new StringBuilder();
+
+            Reader reader = null;
+            try
+            {
+                reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
+                Io.copy(reader, content);
+                final JSONObject head = new JSONObject(content.toString());
+                String result = head.getString("result");
+                if(result.equals("true"))
+                {
+
+                    Double averageTrade = head.getDouble("avg");
+                    Double last = head.getDouble("last");
+                    Double buy = head.getDouble("buy");
+                    Double sell = head.getDouble("sell");
+                    Double current;
+
+                    if ( last <= sell && last >= buy)
+                        current = (sell+buy+last)/3;
+                    else
+                        current = (sell+buy)/2;
+
+                    if(currency.equalsIgnoreCase("BTC"))
+                        btcRate = (averageTrade + current)/2;
+                }
+                return btcRate;
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.close();
+            }
+
+        }
+        catch (final IOException x)
+        {
+            x.printStackTrace();
+        }
+        catch (final JSONException x)
+        {
+            x.printStackTrace();
+        }
+
+
+        return null;
+	}
+
+
 
 	private static Map<String, ExchangeRate> requestExchangeRates(final URL url, final String userAgent, final String source, final String... fields)
 	{
@@ -447,14 +509,16 @@ public class ExchangeRatesProvider extends ContentProvider
 
             Double btcRate = 0.0;
             boolean cryptsyValue = true;
-            Object result = getCoinValueBTC();
+            Object result = getCoinValueBTC_YOBIT();
 
             if(result == null)
             {
-                result = getCoinValueBTC_BTER();
-                cryptsyValue = false;
-                if(result == null)
-                    return null;
+                // We have only one exchange now
+                return null;
+//                result = getCoinValueBTC_BTER();
+//                cryptsyValue = false;
+//                if(result == null)
+//                    return null;
             }
 
             btcRate = (Double)result;
