@@ -438,7 +438,8 @@ public class ExchangeRatesProvider extends ContentProvider
     {
         Double btcRate = 0.0;
         String currency = CoinDefinition.cryptsyMarketCurrency;
-        String url = "http://yobit.net/api/3/ticker/"+ CoinDefinition.coinTicker.toLowerCase() + "_" + CoinDefinition.cryptsyMarketCurrency.toLowerCase();
+		String tickerName = CoinDefinition.coinTicker.toLowerCase() + "_" + CoinDefinition.cryptsyMarketCurrency.toLowerCase();
+        String url = "http://yobit.net/api/3/ticker/"+ tickerName;
 
         try {
             final URL URL_yobit = new URL(url);
@@ -455,24 +456,22 @@ public class ExchangeRatesProvider extends ContentProvider
                 reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
                 Io.copy(reader, content);
                 final JSONObject head = new JSONObject(content.toString());
-                String result = head.getString("result");
-                if(result.equals("true"))
-                {
+                final JSONObject res = head.getJSONObject(tickerName);
 
-                    Double averageTrade = head.getDouble("avg");
-                    Double last = head.getDouble("last");
-                    Double buy = head.getDouble("buy");
-                    Double sell = head.getDouble("sell");
-                    Double current;
+                Double averageTrade = res.getDouble("avg");
+                Double last = res.getDouble("last");
+                Double buy = res.getDouble("buy");
+                Double sell = res.getDouble("sell");
+                Double current;
 
-                    if ( last <= sell && last >= buy)
-                        current = (sell+buy+last)/3;
-                    else
-                        current = (sell+buy)/2;
+                if ( last <= sell && last >= buy)
+                    current = (sell+buy+last)/3;
+                else
+                    current = (sell+buy)/2;
 
-                    if(currency.equalsIgnoreCase("BTC"))
-                        btcRate = (averageTrade + current)/2;
-                }
+                if(currency.equalsIgnoreCase("BTC"))
+                    btcRate = (averageTrade + current)/2;
+
                 return btcRate;
             }
             finally
