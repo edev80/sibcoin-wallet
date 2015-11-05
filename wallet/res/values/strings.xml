@@ -227,6 +227,8 @@
 	<string name="preferences_activity_title">Settings</string>
 	<string name="preferences_category_diagnostics">Diagnostics</string>
 	<string name="preferences_category_labs">Labs</string>
+	<string name="preferences_labs_warning_title">Warning</string>
+	<string name="preferences_labs_warning_summary">This is all unfinished stuff. Use at your own risk!!!</string>
 	<string name="preferences_precision_title">Denomination and precision</string>
 	<string name="preferences_precision_summary">Unit to show amounts in. This does not affect computations.</string>
 	<string name="preferences_precision_labels_8">SIB, 8 decimal places</string>

@@ -205,8 +205,17 @@
   <string name="preferences_activity_title">Настройки</string>
   <string name="preferences_category_diagnostics">Диагностика</string>
   <string name="preferences_category_labs">Лаборатория</string>
+  <string name="preferences_labs_warning_title">Внимание</string>
+  <string name="preferences_labs_warning_summary">Экспериментальные настройки. Используйте на свой страх и риск!</string>
   <string name="preferences_precision_title">Деноминация и точность</string>
   <string name="preferences_precision_summary">Единицы, в которых отображаются суммы. Не влияет на вычисления.</string>
+  <string name="preferences_precision_labels_8">SIB, 8 десятичных знаков</string>
+  <string name="preferences_precision_labels_6">SIB, 6 десятичных знаков</string>
+  <string name="preferences_precision_labels_4">SIB, 4 десятичных знаков</string>
+  <string name="preferences_precision_labels_2_3">mSIB, 2 десятичных знака</string>
+  <string name="preferences_precision_labels_0_6">µSIB, без десятичных знаков</string>
+  <string name="preferences_own_name_title">Собственное имя</string>
+  <string name="preferences_own_name_summary">Ваше имя, которое будет добавлено в запросы платежей. Должно быть максимально коротким.</string>
   <string name="preferences_connectivity_notification_title">Индикатор подключения</string>
   <string name="preferences_connectivity_notification_summary">Показать текущее число подключений в области уведомлений.</string>
   <string name="preferences_trusted_peer_title">Доверенный узел</string>

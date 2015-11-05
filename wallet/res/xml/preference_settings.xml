@@ -43,6 +43,7 @@
 	<PreferenceCategory android:title="@string/preferences_category_labs" >
 		<Preference
 			android:icon="@drawable/ic_warning_grey600_24dp"
+            android:key="labs_warning"
 			android:summary="This is all unfinished stuff. Use at your own risk!"
 			android:title="Warning" />
 		<!--CheckBoxPreference
