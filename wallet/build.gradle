@@ -1,6 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'androidsvgdrawable'
 
+android{
+    defaultConfig{
+        applicationId "rusapps.sibcoin.wallet"
+    }
+}
+
+
 def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
 repositories {
     maven { url localMavenRepo }
