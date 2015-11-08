@@ -229,6 +229,10 @@
 	<string name="preferences_category_labs">Labs</string>
 	<string name="preferences_labs_warning_title">Warning</string>
 	<string name="preferences_labs_warning_summary">This is all unfinished stuff. Use at your own risk!!!</string>
+	<string name="preferences_labs_disclaimer_title">Show disclaimer</string>
+	<string name="preferences_labs_disclaimer_summary">Have you really read the safety notes? Did you already back up your private keys to a safe place?</string>
+	<string name="preferences_labs_payment_request_title">BIP70 for scan-to-pay</string>
+	<string name="preferences_labs_payment_request_summary">Use payment protocol for QR-code initiated payments</string>
 	<string name="preferences_precision_title">Denomination and precision</string>
 	<string name="preferences_precision_summary">Unit to show amounts in. This does not affect computations.</string>
 	<string name="preferences_precision_labels_8">SIB, 8 decimal places</string>
@@ -321,6 +325,6 @@
 	<string name="error_http">HTTP error %1$s:\n%2$s</string>
 	<string name="error_bluetooth">Bluetooth error: %1$s</string>
 
-<string name="transaction_fragment_confirmations_label">Confirmations</string>
+	<string name="transaction_fragment_confirmations_label">Confirmations</string>
 
 </resources>

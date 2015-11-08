@@ -84,6 +84,10 @@
   <string name="send_coins_sent_msg">Отправлено!</string>
   <string name="send_coins_failed_msg">Не удалось!</string>
   <string name="send_coins_error_msg">Проблема с отправкой червонцев!</string>
+  <string name="send_coins_options_fee_category">Комиссия</string>
+  <string name="send_coins_options_fee_category_economic">Эконом</string>
+  <string name="send_coins_options_fee_category_normal">Стандарт</string>
+  <string name="send_coins_options_fee_category_priority">Приоритет</string>
   <string name="send_coins_options_empty">Опустошить кошелёк</string>
   <string name="sweep_wallet_activity_title">Забрать с бумажного кошелька</string>
   <string name="sweep_wallet_fragment_intro">Вы собираетесь забрать с бумажного кошелька или купона. Это перенесет все червонцы с бумаги на ваш кошелек на этом устройстве. Когда эта транзакция пройдет, бумажный носитель будет бесполезен и не должен быть повторно использован в целях безопасности.</string>
@@ -207,6 +211,10 @@
   <string name="preferences_category_labs">Лаборатория</string>
   <string name="preferences_labs_warning_title">Внимание</string>
   <string name="preferences_labs_warning_summary">Экспериментальные настройки. Используйте на свой страх и риск!</string>
+  <string name="preferences_labs_disclaimer_title">Показывать предупреждения</string>
+  <string name="preferences_labs_disclaimer_summary">Вы действительно прочитали все замечания по безопасности? Вы уже сделали резервную копию ваших приватных ключей и сохранили ее в безопасном месте?</string>
+  <string name="preferences_labs_payment_request_title">BIP70 для оплаты в магазинах</string>
+  <string name="preferences_labs_payment_request_summary">Использовать специальный платежный протокол для инициации платежей с помощью QR кода</string>
   <string name="preferences_precision_title">Деноминация и точность</string>
   <string name="preferences_precision_summary">Единицы, в которых отображаются суммы. Не влияет на вычисления.</string>
   <string name="preferences_precision_labels_8">SIB, 8 десятичных знаков</string>
