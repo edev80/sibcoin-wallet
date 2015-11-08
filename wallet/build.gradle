@@ -104,9 +104,9 @@ tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
         pkgTask.jniFolders.add(new File(buildDir, 'native-libs'))
 }
 
-task svgToPng(type: fr.avianey.androidsvgdrawable.gradle.SvgDrawableTask) {
-    from = file('graphics')
-    to = file('res')
-    targetedDensities = ['hdpi', 'xhdpi', 'xxhdpi']
-    outputFormat = 'PNG'
-}
+//task svgToPng(type: fr.avianey.androidsvgdrawable.gradle.SvgDrawableTask) {
+//    from = file('graphics')
+//    to = file('res')
+//    targetedDensities = ['hdpi', 'xhdpi', 'xxhdpi']
+//    outputFormat = 'PNG'
+//}
