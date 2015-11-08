@@ -17,12 +17,6 @@
 
 package de.schildbach.wallet.ui;
 
-import javax.annotation.Nullable;
-
-import org.bitcoinj.core.Coin;
-import org.bitcoinj.core.Monetary;
-import org.bitcoinj.utils.MonetaryFormat;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Paint;
@@ -39,15 +33,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.bitcoinj.core.Coin;
+import org.bitcoinj.core.Monetary;
+import org.bitcoinj.utils.MonetaryFormat;
+
+import javax.annotation.Nullable;
+
 import de.schildbach.wallet.util.GenericUtils;
-import rusapps.sibcoin.wallet.R;
 import de.schildbach.wallet.util.MonetarySpannable;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach
  */
-public final class CurrencyAmountView extends FrameLayout
+public final class CurrencyAmountView extends RelativeLayout
 {
 	public static interface Listener
 	{
@@ -67,6 +69,8 @@ public final class CurrencyAmountView extends FrameLayout
 	private boolean validateAmount = true;
 
 	private TextView textView;
+	// Slit up textView and currencyDrawable to be able to put code postfix
+	private TextView currencyTextView;
 	private View contextButton;
 	private Listener listener;
 	private OnClickListener contextButtonClickListener;
@@ -99,7 +103,9 @@ public final class CurrencyAmountView extends FrameLayout
 
 		final Context context = getContext();
 
-		textView = (TextView) getChildAt(0);
+		FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frameLayout);
+
+		textView = (TextView) frameLayout.getChildAt(0);
 		textView.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		textView.setHintTextColor(lessSignificantColor);
 		textView.setHorizontalFadingEdgeEnabled(true);
@@ -107,6 +113,12 @@ public final class CurrencyAmountView extends FrameLayout
 		setValidateAmount(textView instanceof EditText);
 		textView.addTextChangedListener(textViewListener);
 		textView.setOnFocusChangeListener(textViewListener);
+
+
+		final FrameLayout.LayoutParams chooseViewParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+		chooseViewParams.gravity = Gravity.RIGHT;
+
+        currencyTextView = (TextView) findViewById(R.id.localcurrency_textview);
 
 		contextButton = new View(context)
 		{
@@ -116,10 +128,9 @@ public final class CurrencyAmountView extends FrameLayout
 				setMeasuredDimension(textView.getCompoundPaddingRight(), textView.getMeasuredHeight());
 			}
 		};
-		final LayoutParams chooseViewParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-		chooseViewParams.gravity = Gravity.RIGHT;
+
 		contextButton.setLayoutParams(chooseViewParams);
-		this.addView(contextButton);
+		frameLayout.addView(contextButton);
 
 		updateAppearance();
 	}
@@ -148,6 +159,17 @@ public final class CurrencyAmountView extends FrameLayout
 			final float smallerTextSize = textSize * (20f / 24f);
 			currencySymbolDrawable = new CurrencySymbolDrawable(currencySymbol, smallerTextSize, lessSignificantColor, textSize * 0.37f);
 			localCurrencyCode = currencyCode;
+
+			// Local case for RUR. Show code postfix rather than prefix
+			if (localCurrencyCode.toLowerCase().startsWith("rub") ||
+			    localCurrencyCode.toLowerCase().startsWith("rur")) {
+
+				// Don't draw code as compound drawable
+				currencySymbolDrawable = null;
+
+				currencyTextView.setText(currencySymbol);
+				currencyTextView.setVisibility(VISIBLE);
+			}
 		}
 		else
 		{
