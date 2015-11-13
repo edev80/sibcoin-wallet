@@ -31,11 +31,7 @@
 
 			<FrameLayout
 				android:id="@+id/frameLayout"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignParentLeft="true"
-				android:layout_toLeftOf="@id/localcurrency_textview"
-				android:layout_alignWithParentIfMissing="true">
+				style="@style/CurrencyAmountView_framelayout">
 
 				<EditText
 					android:id="@+id/request_coins_amount_edittext"
@@ -49,14 +45,7 @@
 
 			<TextView
 				android:id="@+id/localcurrency_textview"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBottom="@id/frameLayout"
-				android:layout_alignParentRight="true"
-				android:layout_marginLeft="2dp"
-				android:layout_marginBottom="12dp"
-				android:textColor="@color/fg_insignificant"
-				android:textSize="@dimen/font_size_normal"/>
+				style="@style/CurrencyAmountView_localcurrency_textview"/>
 
 		</de.schildbach.wallet.ui.CurrencyAmountView>
 
@@ -69,11 +58,7 @@
 
 			<FrameLayout
 				android:id="@id/frameLayout"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignParentLeft="true"
-				android:layout_toLeftOf="@id/localcurrency_textview"
-				android:layout_alignWithParentIfMissing="true">
+				style="@style/CurrencyAmountView_framelayout">
 
 				<EditText
 					android:id="@id/request_coins_amount_edittext"
@@ -87,15 +72,8 @@
 
 			<TextView
 				android:id="@id/localcurrency_textview"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBottom="@id/frameLayout"
-				android:layout_alignParentRight="true"
-				android:layout_marginLeft="2dp"
-				android:layout_marginBottom="12dp"
 				android:text="XXX"
-				android:textColor="@color/fg_insignificant"
-				android:textSize="@dimen/font_size_normal"/>
+				style="@style/CurrencyAmountView_localcurrency_textview"/>
 
 		</de.schildbach.wallet.ui.CurrencyAmountView>
 	</LinearLayout>

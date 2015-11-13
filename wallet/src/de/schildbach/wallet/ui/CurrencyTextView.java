@@ -17,19 +17,22 @@
 
 package de.schildbach.wallet.ui;
 
-import org.bitcoinj.core.Monetary;
-import org.bitcoinj.utils.MonetaryFormat;
-
 import android.content.Context;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.ScaleXSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import org.bitcoinj.core.Monetary;
+import org.bitcoinj.utils.MonetaryFormat;
+
 import de.schildbach.wallet.Constants;
-import rusapps.sibcoin.wallet.R;
+import de.schildbach.wallet.util.GenericUtils;
 import de.schildbach.wallet.util.MonetarySpannable;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach
@@ -39,10 +42,12 @@ public final class CurrencyTextView extends TextView
 	private Monetary amount = null;
 	private MonetaryFormat format = null;
 	private boolean alwaysSigned = false;
-	private RelativeSizeSpan prefixRelativeSizeSpan = null;
-	private ScaleXSpan prefixScaleXSpan = null;
-	private ForegroundColorSpan prefixColorSpan = null;
+	private boolean isCodePositionPrefix = true;
+	private RelativeSizeSpan codeRelativeSizeSpan = null;
+	private ScaleXSpan codeScaleXSpan = null;
+	private ForegroundColorSpan codeColorSpan = null;
 	private RelativeSizeSpan insignificantRelativeSizeSpan = null;
+	private Drawable currencySymbolDrawable;
 
 	public CurrencyTextView(final Context context)
 	{
@@ -62,6 +67,38 @@ public final class CurrencyTextView extends TextView
 
 	public void setFormat(final MonetaryFormat format)
 	{
+		if (format.code() != null) {
+			// Special case for SIB
+			if (format.code().equalsIgnoreCase(MonetaryFormat.CODE_BTC)) {
+				currencySymbolDrawable = getResources().getDrawable(R.drawable.currency_symbol_btc);
+			} else if (format.code().equalsIgnoreCase(MonetaryFormat.CODE_MBTC)) {
+				currencySymbolDrawable = getResources().getDrawable(R.drawable.currency_symbol_mbtc);
+			} else if (format.code().equalsIgnoreCase(MonetaryFormat.CODE_UBTC)) {
+				currencySymbolDrawable = getResources().getDrawable(R.drawable.currency_symbol_ubtc);
+			} else if (format.code().equalsIgnoreCase(Constants.PREFIX_ALMOST_EQUAL_TO + "rub") ||
+			           format.code().equalsIgnoreCase(Constants.PREFIX_ALMOST_EQUAL_TO + "rur")) {
+
+				final String localCurrencyCode = format.code().substring(2); // remove ~ sign
+
+				final String currencySymbol = GenericUtils.currencySymbol(localCurrencyCode);
+				final float textSize = getTextSize();
+//				final float smallerTextSize = textSize * (20f / 24f);
+				final float smallerTextSize = textSize * (24f / 24f);
+
+				// Don't draw code as compound drawable
+				isCodePositionPrefix = false;
+				currencySymbolDrawable = new CurrencySymbolDrawable(currencySymbol, smallerTextSize,
+				                                                    getResources().getColor(R.color.fg_less_significant),
+				                                                    textSize * 0.37f);
+
+//				this.format = Constants.LOCAL_FORMAT.code(0, Constants.PREFIX_ALMOST_EQUAL_TO);
+//				currencyTextView.setText(currencySymbol);
+//				currencyTextView.setVisibility(VISIBLE);
+			} else {
+				currencySymbolDrawable = null;
+			}
+		}
+
 		this.format = format.codeSeparator(Constants.CHAR_HAIR_SPACE);
 		updateView();
 	}
@@ -84,25 +121,31 @@ public final class CurrencyTextView extends TextView
 	{
 		if (insignificantRelativeSize != 1)
 		{
-			this.prefixRelativeSizeSpan = new RelativeSizeSpan(insignificantRelativeSize);
+			this.codeRelativeSizeSpan = new RelativeSizeSpan(insignificantRelativeSize);
 			this.insignificantRelativeSizeSpan = new RelativeSizeSpan(insignificantRelativeSize);
 		}
 		else
 		{
-			this.prefixRelativeSizeSpan = null;
+			this.codeRelativeSizeSpan = null;
 			this.insignificantRelativeSizeSpan = null;
 		}
 	}
 
-	public void setPrefixColor(final int prefixColor)
+	public void setCodeColor(final int prefixColor)
 	{
-		this.prefixColorSpan = new ForegroundColorSpan(prefixColor);
+		this.codeColorSpan = new ForegroundColorSpan(prefixColor);
 		updateView();
 	}
 
-	public void setPrefixScaleX(final float prefixScaleX)
+	public void setCodeScaleX(final float prefixScaleX)
 	{
-		this.prefixScaleXSpan = new ScaleXSpan(prefixScaleX);
+		this.codeScaleXSpan = new ScaleXSpan(prefixScaleX);
+		updateView();
+	}
+
+	public void setCodePosition(final boolean isPrefix)
+	{
+		isCodePositionPrefix = isPrefix;
 		updateView();
 	}
 
@@ -111,9 +154,9 @@ public final class CurrencyTextView extends TextView
 	{
 		super.onFinishInflate();
 
-		setPrefixColor(getResources().getColor(R.color.fg_less_significant));
-		setPrefixScaleX(1);
-		setInsignificantRelativeSize(0.85f);
+		setCodeColor(getResources().getColor(R.color.fg_less_significant));
+		setCodeScaleX(1);
+//		setInsignificantRelativeSize(0.85f);
 		setSingleLine();
 	}
 
@@ -121,11 +164,26 @@ public final class CurrencyTextView extends TextView
 	{
 		final MonetarySpannable text;
 
-		if (amount != null)
-			text = new MonetarySpannable(format, alwaysSigned, amount).applyMarkup(new Object[] { prefixRelativeSizeSpan, prefixScaleXSpan,
-					prefixColorSpan }, new Object[] { insignificantRelativeSizeSpan });
-		else
+		if (amount != null) {
+
+			// draw currency code drawable instead of its text representation
+			if (currencySymbolDrawable != null) {
+				setCompoundDrawablePadding(5);
+				format = format.noCode();
+			}
+			text = new MonetarySpannable(format, alwaysSigned, amount)
+			         .applyMarkup(new Object[]{codeRelativeSizeSpan, codeScaleXSpan, codeColorSpan},
+			                      new Object[]{insignificantRelativeSizeSpan});
+
+			if (isCodePositionPrefix) {
+				setCompoundDrawablesWithIntrinsicBounds(currencySymbolDrawable, null, null, null);
+			} else {
+				setCompoundDrawablesWithIntrinsicBounds(null, null, currencySymbolDrawable, null);
+			}
+
+		} else {
 			text = null;
+		}
 
 		setText(text);
 	}

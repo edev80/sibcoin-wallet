@@ -344,6 +344,7 @@ public final class CurrencyAmountView extends RelativeLayout
 
 		contextButton.requestLayout();
 
+		textView.setCompoundDrawablePadding(5);
 		textView.setTextColor(!validateAmount || isValidAmount(true) ? significantColor : errorColor);
 
 		final Spannable hintSpannable = new MonetarySpannable(hintFormat, hint != null ? hint : Coin.ZERO).applyMarkup(null,
