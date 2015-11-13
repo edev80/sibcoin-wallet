@@ -24,6 +24,7 @@
   <string name="exchange_rates_fragment_source">Цена получена с %s</string>
   <string name="exchange_rates_options_search">Поиск обменного курса</string>
   <string name="exchange_rates_context_set_as_default_title">Установить как валюту по умолчанию</string>
+  <string name="wallet_transactions_options_filter">Фильтр</string>
   <string name="wallet_transactions_options_filter_received">Получено</string>
   <string name="wallet_transactions_options_filter_all">Все</string>
   <string name="wallet_transactions_options_filter_sent">Отправлено</string>
@@ -89,6 +90,11 @@
   <string name="send_coins_options_fee_category_normal">Стандарт</string>
   <string name="send_coins_options_fee_category_priority">Приоритет</string>
   <string name="send_coins_options_empty">Опустошить кошелёк</string>
+  <string name="raise_fee_dialog_title">Увеличить комиссию</string>
+  <string name="raise_fee_dialog_message">Вы хотите увеличить комиссию для данной транзакции на %s? Это позволит подтвердить платеж быстрее.</string>
+  <string name="raise_fee_dialog_state_decrypting">Расшифровываем…</string>
+  <string name="raise_fee_dialog_state_done">Готово.</string>
+  <string name="raise_fee_dialog_button_raise">Увеличить</string>
   <string name="sweep_wallet_activity_title">Забрать с бумажного кошелька</string>
   <string name="sweep_wallet_fragment_intro">Вы собираетесь забрать с бумажного кошелька или купона. Это перенесет все червонцы с бумаги на ваш кошелек на этом устройстве. Когда эта транзакция пройдет, бумажный носитель будет бесполезен и не должен быть повторно использован в целях безопасности.</string>
   <string name="sweep_wallet_fragment_hint">Бумажные кошельки наиболее часто используются для холодного хранения. Некоторые банкоматы печатают их на бумаге, а не посылают червонцы на мобильное устройство напрямую. Некоторые люди используют предварительно заряженные бумажные кошельки чтобы передавать червонцы. (это не рекомендуется)</string>
@@ -136,6 +142,8 @@
   <string name="address_book_row_message_compromised_key">Этот адрес мог быть скомпрометирован. Не используйте его больше для получения средств.</string>
   <string name="edit_address_book_entry_dialog_title_add">Добавить адрес</string>
   <string name="edit_address_book_entry_dialog_title_edit">Изменить адрес</string>
+  <string name="edit_address_book_entry_dialog_title_add_receive">Добавить метку к вашему адресу</string>
+  <string name="edit_address_book_entry_dialog_title_edit_receive">Изменить метку вашего адреса</string>
   <string name="edit_address_book_entry_dialog_address_label">Адрес</string>
   <string name="edit_address_book_entry_dialog_label_label">Имя</string>
   <string name="edit_address_book_entry_dialog_button_edit">Сохранить</string>
