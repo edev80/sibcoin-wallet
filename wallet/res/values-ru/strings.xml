@@ -307,4 +307,5 @@
   <string name="error_parse">Ошибка обработки: %s</string>
   <string name="error_http">Ошибка HTTP %1$s:\n%2$s</string>
   <string name="error_bluetooth">Ошибка Bluetooth: %1$s</string>
+  <string name="widget_label">Баланс Червонцев</string>
 </resources>

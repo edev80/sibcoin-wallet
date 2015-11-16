@@ -326,5 +326,6 @@
 	<string name="error_bluetooth">Bluetooth error: %1$s</string>
 
 	<string name="transaction_fragment_confirmations_label">Confirmations</string>
+	<string name="widget_label">Sibcoin Wallet Balance</string>
 
 </resources>
