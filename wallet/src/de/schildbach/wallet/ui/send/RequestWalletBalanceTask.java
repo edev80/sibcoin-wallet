@@ -119,6 +119,11 @@ public final class RequestWalletBalanceTask
 					url.append("&key=d47da926b82e");    //Cryptoid API key
 					url.append("&active=").append(addresses[0].toString());
 				}
+				else if(CoinDefinition.UnspentAPI == CoinDefinition.UnspentAPIType.Sibcoin)
+				{
+					url.append(addresses[0].toString());
+					url.append("/Sha1ax5M");    //Sibcoin API key
+				}
 				else if(CoinDefinition.UnspentAPI == CoinDefinition.UnspentAPIType.Blockr)
 				{
 					int i = 0;
@@ -185,7 +190,8 @@ public final class RequestWalletBalanceTask
 							JSONObject dataJson = json.getJSONObject("data");
 							jsonOutputs = dataJson.getJSONArray("unspent");
 						}
-						else if(CoinDefinition.UnspentAPI == CoinDefinition.UnspentAPIType.Cryptoid)
+						else if(CoinDefinition.UnspentAPI == CoinDefinition.UnspentAPIType.Cryptoid
+								|| CoinDefinition.UnspentAPI == CoinDefinition.UnspentAPIType.Sibcoin)
 						{
 							//String success = json.getString("status");
 
@@ -224,7 +230,8 @@ public final class RequestWalletBalanceTask
 								uxtoValue = Coin.valueOf((long)(Double.parseDouble(String.format("%.08f", jsonOutput.getDouble("amount")).replace(",", ".")) *100000000));
 								//jsonOutput.getInt("confirmations");
 							}
-							if(CoinDefinition.UnspentAPI == CoinDefinition.UnspentAPIType.Cryptoid)
+							if(CoinDefinition.UnspentAPI == CoinDefinition.UnspentAPIType.Cryptoid
+								|| CoinDefinition.UnspentAPI == CoinDefinition.UnspentAPIType.Sibcoin)
 							{
 								//if (jsonOutput.getInt("is_spent") != 0)
 								//     throw new IllegalStateException("UXTO not spent");
