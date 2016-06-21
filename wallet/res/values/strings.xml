@@ -155,6 +155,9 @@
 	<string name="edit_address_book_entry_dialog_address_label">Address</string>
 	<string name="edit_address_book_entry_dialog_label_label">Label</string>
 	<string name="edit_address_book_entry_dialog_button_edit">Save</string>
+	<string name="transaction_to_card">Top-up Card</string>
+	<string name="transaction_to_phone">Top-up Phone</string>
+	<string name="transaction_to_buysib">Buy Sibcoins</string>
 	<string name="transaction_row_fee">Network fee</string>
 	<string name="transaction_row_message_purpose_key_rotation">This transaction strengthens your wallet against theft. &lt;u&gt;More info.&lt;/u&gt;</string>
 	<string name="transaction_row_message_purpose_raise_fee">This transaction raises the network fee for a previous payment.</string>

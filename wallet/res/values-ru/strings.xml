@@ -308,4 +308,8 @@
   <string name="error_http">Ошибка HTTP %1$s:\n%2$s</string>
   <string name="error_bluetooth">Ошибка Bluetooth: %1$s</string>
   <string name="widget_label">Баланс Червонцев</string>
+  <!--to phone or card-->
+  <string name="transaction_to_card">На карту</string>
+  <string name="transaction_to_phone">На телефон</string>
+  <string name="transaction_to_buysib">Купить червонцы</string>
 </resources>
