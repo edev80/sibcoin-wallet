@@ -32,6 +32,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.bitcoinj.core.Address;
 import org.bitcoinj.core.AddressFormatException;
 import org.bitcoinj.core.Transaction;
 import org.bitcoinj.core.VerificationException;
@@ -336,6 +337,32 @@ public final class WalletActivity extends AbstractWalletActivity
 	{
 		EncryptKeysDialogFragment.show(getFragmentManager());
 	}
+
+
+	public void buttonToCardClick(View view)
+	{
+		goToUrl("https://coinex.im/?from=SIB&to=QIWI_RUR_2CARD&start=1");
+	}
+
+	public void buttonToPhoneClick(View view)
+	{
+		goToUrl("https://coinex.im/?from=SIB&to=QIWI_RUR_2PHONE&start=1");
+	}
+
+	public void buttonToBuyClick(View view)
+	{
+		Address address = wallet.currentReceiveAddress();
+		goToUrl("https://coinex.im/?from=QIWI_RUR_P2P&to=SIB&start=1&account="+address.toString());
+	}
+
+	private void goToUrl (String url)
+	{
+		Uri uriUrl = Uri.parse(url);
+		Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+		startActivity(launchBrowser);
+	}
+
+
     private void handleDisconnect()
     {
     	getWalletApplication().stopBlockchainService();
