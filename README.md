@@ -1,4 +1,4 @@
-Welcome to _Dash Wallet_, a standalone Dash payment app for your Android device!
+Welcome to _Sibcoin Wallet_, a standalone Sibcoin payment app for your Android device!
 
 This project contains several sub-projects:
 
