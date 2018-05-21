@@ -48,6 +48,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -127,7 +128,21 @@ public final class WalletActivity extends AbstractWalletActivity
 	}
 
 	private void maybeShowPrivacyDialog() {
-		PrivacyDialogFragment.page(getFragmentManager(), R.string.privacy_dialog_text);
+        final String PREFS_KEY_ACCEPT_PRIVACY_POLICY = "did_accept_privacy_policy";
+        final SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+        final boolean didAcceptPrivacyPolicy = prefs.getBoolean(PREFS_KEY_ACCEPT_PRIVACY_POLICY, false);
+
+        if (!didAcceptPrivacyPolicy) {
+            PrivacyDialogFragment.page(getFragmentManager(), R.string.privacy_dialog_text, new DialogInterface() {
+				@Override
+				public void cancel() {}
+
+				@Override
+				public void dismiss() {
+					prefs.edit().putBoolean(PREFS_KEY_ACCEPT_PRIVACY_POLICY, true).apply();
+				}
+			});
+        }
 	}
 
 	@Override

@@ -24,6 +24,7 @@ import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.text.method.LinkMovementMethod;
 import android.view.KeyEvent;
 import android.widget.TextView;
@@ -37,15 +38,19 @@ public final class PrivacyDialogFragment extends DialogFragment
 
 	private static final String KEY_MESSAGE = "message";
 
-	public static void page(final FragmentManager fm, final int messageResId)
+	@Nullable
+	private DialogInterface onDismissCallback;
+
+	public static void page(final FragmentManager fm, final int messageResId, DialogInterface onDissmissCallback)
 	{
-		final DialogFragment newFragment = PrivacyDialogFragment.instance(messageResId);
+		final DialogFragment newFragment = PrivacyDialogFragment.instance(messageResId, onDissmissCallback);
 		newFragment.show(fm, FRAGMENT_TAG);
 	}
 
-	private static PrivacyDialogFragment instance(final int messageResId)
+	private static PrivacyDialogFragment instance(final int messageResId, DialogInterface onDismissCallback)
 	{
 		final PrivacyDialogFragment fragment = new PrivacyDialogFragment();
+		fragment.onDismissCallback = onDismissCallback;
 
 		final Bundle args = new Bundle();
 		args.putInt(KEY_MESSAGE, messageResId);
@@ -91,5 +96,14 @@ public final class PrivacyDialogFragment extends DialogFragment
 		});
 
 		return alertDialog;
+	}
+
+	@Override
+	public void onDismiss(DialogInterface dialog) {
+		super.onDismiss(dialog);
+
+		if (onDismissCallback != null) {
+			onDismissCallback.dismiss();
+		}
 	}
 }
