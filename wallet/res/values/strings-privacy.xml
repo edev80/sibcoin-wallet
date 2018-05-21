@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+
+    <string name="privacy_dialog_text">
+			Please read and accept our
+			<a href="https://github.com/HashEngineering/dash-wallet/wiki/PrivacyPolicy">
+			Privacy Policy
+			</a>
+			before using the application.
+    </string>
+    <string name="privacy_dialog_ok">I have read and accept Privacy Policy</string>
+</resources>

@@ -122,6 +122,12 @@ public final class WalletActivity extends AbstractWalletActivity
 		handleIntent(getIntent());
 
 		MaybeMaintenanceFragment.add(getFragmentManager());
+
+		maybeShowPrivacyDialog();
+	}
+
+	private void maybeShowPrivacyDialog() {
+		PrivacyDialogFragment.page(getFragmentManager(), R.string.privacy_dialog_text);
 	}
 
 	@Override
