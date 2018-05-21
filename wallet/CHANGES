@@ -1,5 +1,70 @@
-
 Dash Wallet
+v5.18
+* Lock Feature - for security and privacy
+* BIP44 support
+* Use latest DASH price for exchange rates
+* Allow sending coins from 0-conf transactions
+
+v5.17.6
+* Fix crashing keyboard bug
+* Prevent activating exchange rates from exchange rates activity
+
+v5.17.5
+* Disable sending free transactions (was buggy)
+* Updated Translations
+* Fixed Exchange Rates screen crash
+* Fixed formatting on smaller devices
+* Ensure InstantSend rules are followed completely
+* Tapping the balance opens Exchange Rates
+
+v5.17.4
+* Fixed bug from showing local currency for transaction Fee.
+* Fixed Send/Request buttons covering transactions.
+* Fixed double action bars on Address book.
+
+v5.17.3
+* Update Translations
+* Add local currency amount for fees in the SendCoinsFragment
+* Disable RBF menu
+
+v5.17.2
+* Updated translations
+* DIP0001 support (Lower transaction Fees, larger blocks)
+
+v5.17.1
+* Fix crash on exchange rate retrieval (rare)
+
+v5.17.0
+* Dash Core 12.2 support
+* Add backup site for exchange rates.
+* Fixes for Bugs.
+
+v5.15.5
+* Fix the crash when viewing a QR code and pressing home.
+
+v5.14.4
+* Fix multiple screen rotations after scanning when using the generic scan button. Pulled from Bitcoin Wallet 5.32.
+* Updated Translations - 4 languages
+
+v5.14.3
+* Fixed bug that was related to retrieving Bitcoin fees.  Disabled as is unnecessary.
+* Add log information on sweep wallet.
+
+v5.14.2
+* Fix crashing from recycle view
+* Fix crash on showing keyboard on Restore from recovery seed
+* Replace BTC with DASH on leftovers from last merge.
+* Fix Italian translation
+* Prevent another crash with numbers entered
+
+v5.14.1
+* update electrum servers
+* More memory leak support for debug versions
+* Memory Leak fix
+
+v5.14.0
+* Fixes for compiling
+
 v5.14
 * Updated to Bitcoin Wallet 5.14
 * Added Recovery Seed Support
@@ -125,6 +190,20 @@ v1.00
 
 Bitcoin Wallet
 =======
+v5.17
+
+* Bugfix.
+
+v5.16
+
+* Improve app startup time.
+* Fix 'raise fee' was raising the fee too much.
+
+v5.15
+
+* Block sending payments while blockchain replay is in progress.
+
+>>>>>>> v5.17
 v5.14
 
 * Update translations from Transifex.

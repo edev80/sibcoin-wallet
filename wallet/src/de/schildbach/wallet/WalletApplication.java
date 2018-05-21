@@ -32,9 +32,8 @@ import org.bitcoinj.core.VerificationException;
 import org.bitcoinj.core.VersionMessage;
 import org.bitcoinj.crypto.LinuxSecureRandom;
 import org.bitcoinj.crypto.MnemonicCode;
-import org.bitcoinj.crypto.MnemonicException;
-import org.bitcoinj.store.FlatDB;
 import org.bitcoinj.utils.Threading;
+import org.bitcoinj.wallet.DeterministicKeyChain;
 import org.bitcoinj.wallet.Protos;
 import org.bitcoinj.wallet.UnreadableWalletException;
 import org.bitcoinj.wallet.Wallet;
@@ -44,12 +43,15 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Stopwatch;
 import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
+import de.schildbach.wallet.data.WalletLock;
 import de.schildbach.wallet.service.BlockchainService;
 import de.schildbach.wallet.service.BlockchainServiceImpl;
 import de.schildbach.wallet.util.CrashReporter;
 import de.schildbach.wallet_test.R;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.Application;
@@ -59,6 +61,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Process;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
@@ -72,12 +76,11 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.rolling.RollingFileAppender;
 import ch.qos.logback.core.rolling.TimeBasedRollingPolicy;
 
-import static de.schildbach.wallet.Constants.HEX;
-
 /**
  * @author Andreas Schildbach
  */
-public class WalletApplication extends Application {
+public class WalletApplication extends Application implements Application.ActivityLifecycleCallbacks {
+    private static WalletApplication instance;
     private Configuration config;
     private ActivityManager activityManager;
 
@@ -89,6 +92,8 @@ public class WalletApplication extends Application {
     private Wallet wallet;
     private PackageInfo packageInfo;
 
+    private int numStarted;
+
     public static final String ACTION_WALLET_REFERENCE_CHANGED = WalletApplication.class.getPackage().getName()
             + ".wallet_reference_changed";
 
@@ -98,6 +103,13 @@ public class WalletApplication extends Application {
 
     private static final Logger log = LoggerFactory.getLogger(WalletApplication.class);
 
+    private RefWatcher refWatcher;
+
+    public static RefWatcher getRefWatcher(Context context) {
+        WalletApplication application = (WalletApplication) context.getApplicationContext();
+        return application.refWatcher;
+    }
+
     @Override
     public void onCreate() {
         //Memory Leak Detection
@@ -106,7 +118,11 @@ public class WalletApplication extends Application {
             // You should not init your app in this process.
             return;
         }
-        LeakCanary.install(this);
+        instance = this;
+        refWatcher = LeakCanary.install(this);
+
+        registerActivityLifecycleCallbacks(this);
+
         new LinuxSecureRandom(); // init proper random number generator
 
         initLogging();
@@ -171,7 +187,20 @@ public class WalletApplication extends Application {
         wallet.autosaveToFile(walletFile, Constants.Files.WALLET_AUTOSAVE_DELAY_MS, TimeUnit.MILLISECONDS, null);
 
         // clean up spam
-        wallet.cleanup();
+        try {
+            wallet.cleanup();
+        }
+        catch(IllegalStateException x) {
+            //Catch an inconsistent exception here and reset the blockchain.  This is for loading older wallets that had
+            //txes with fees that were too low or dust that were stuck and could not be sent.  In a later version
+            //the fees were fixed, then those stuck transactions became inconsistant and the exception is thrown.
+        	if(x.getMessage().contains("Inconsistent spent tx:"))
+            {
+             	File blockChainFile = new File(getDir("blockstore", Context.MODE_PRIVATE), Constants.Files.BLOCKCHAIN_FILENAME);
+            	blockChainFile.delete();
+            }
+            else throw x;
+        }
 
         // make sure there is at least one recent backup
         if (!getFileStreamPath(Constants.Files.WALLET_KEY_BACKUP_PROTOBUF).exists())
@@ -257,7 +286,6 @@ public class WalletApplication extends Application {
                 final Stopwatch watch = Stopwatch.createStarted();
                 walletStream = new FileInputStream(walletFile);
                 wallet = new WalletProtobufSerializer().readWallet(walletStream);
-                watch.stop();
 
                 if (!wallet.getParams().equals(Constants.NETWORK_PARAMETERS))
                     throw new UnreadableWalletException("bad wallet network parameters: " + wallet.getParams().getId());
@@ -295,6 +323,7 @@ public class WalletApplication extends Application {
                 throw new Error("bad wallet network parameters: " + wallet.getParams().getId());
         } else {
             wallet = new Wallet(Constants.NETWORK_PARAMETERS);
+            wallet.addKeyChain(Constants.BIP44_PATH);
 
             saveWallet();
             backupWallet();
@@ -315,6 +344,8 @@ public class WalletApplication extends Application {
 
             if (!wallet.isConsistent())
                 throw new Error("inconsistent backup");
+
+            wallet.addKeyChain(Constants.BIP44_PATH);
 
             resetBlockchain();
 
@@ -520,4 +551,92 @@ public void updateDashMode()
 		context.setAllowInstantXinLiteMode(config.getInstantXEnabled());
 		context.setLiteMode(config.getLiteMode());
 		}
+
+    private void lockWalletIfNeeded() {
+        WalletLock walletLock = WalletLock.getInstance();
+        if (wallet.isEncrypted() && !walletLock.isWalletLocked(wallet)) {
+            walletLock.setWalletLocked(true);
+        }
+    }
+
+    @Override
+    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public void onActivityStarted(Activity activity) {
+        if (numStarted == 0) {
+            lockWalletIfNeeded();
+        }
+        numStarted++;
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+        numStarted--;
+        if (numStarted == 0) {
+            // app went to background
+        }
+    }
+
+    @Override
+    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+
+    }
+
+    private void clearApplicationData() {
+        File cacheDirectory = getCacheDir();
+        File applicationDirectory = new File(cacheDirectory.getParent());
+        if (applicationDirectory.exists()) {
+            String[] fileNames = applicationDirectory.list();
+            for (String fileName : fileNames) {
+                if (!fileName.equals("lib")) {
+                    deleteFile(new File(applicationDirectory, fileName));
+                }
+            }
+        }
+    }
+
+    private static boolean deleteFile(File file) {
+        boolean deletedAll = true;
+        if (file != null) {
+            if (file.isDirectory()) {
+                String[] children = file.list();
+                for (int i = 0; i < children.length; i++) {
+                    deletedAll = deleteFile(new File(file, children[i])) && deletedAll;
+                }
+            } else {
+                deletedAll = file.delete();
+            }
+        }
+
+        return deletedAll;
+    }
+
+    public void clearDataAndExit() {
+        clearApplicationData();
+        Process.killProcess(Process.myPid());
+        System.exit(1);
+    }
+
+    public static WalletApplication getInstance() {
+        return instance;
+    }
+
 }

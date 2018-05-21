@@ -30,6 +30,7 @@ import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.WalletBalanceWidgetProvider;
 import de.schildbach.wallet.data.ExchangeRate;
 import de.schildbach.wallet.data.ExchangeRatesProvider;
+import de.schildbach.wallet.data.WalletLock;
 import de.schildbach.wallet.service.BlockchainState;
 import de.schildbach.wallet.service.BlockchainStateLoader;
 import de.schildbach.wallet_test.R;
@@ -67,7 +68,7 @@ import android.widget.ViewAnimator;
  * @author Andreas Schildbach
  */
 public final class ExchangeRatesFragment extends Fragment implements OnSharedPreferenceChangeListener {
-    private AbstractWalletActivity activity;
+    private AbstractBindServiceActivity activity;
     private WalletApplication application;
     private Configuration config;
     private Wallet wallet;
@@ -90,7 +91,7 @@ public final class ExchangeRatesFragment extends Fragment implements OnSharedPre
     public void onAttach(final Activity activity) {
         super.onAttach(activity);
 
-        this.activity = (AbstractWalletActivity) activity;
+        this.activity = (AbstractBindServiceActivity) activity;
         this.application = (WalletApplication) activity.getApplication();
         this.config = application.getConfiguration();
         this.wallet = application.getWallet();
@@ -154,6 +155,9 @@ public final class ExchangeRatesFragment extends Fragment implements OnSharedPre
     public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
         inflater.inflate(R.menu.exchange_rates_fragment_options, menu);
 
+        MenuItem walletLockMenuItem = menu.findItem(R.id.wallet_options_lock);
+        walletLockMenuItem.setVisible(WalletLock.getInstance().isWalletLocked(wallet));
+
         final SearchView searchView = (SearchView) menu.findItem(R.id.exchange_rates_options_search).getActionView();
         searchView.setOnQueryTextListener(new OnQueryTextListener() {
             @Override
@@ -205,7 +209,12 @@ public final class ExchangeRatesFragment extends Fragment implements OnSharedPre
             if (adapter.getItemCount() == 0 && query == null) {
                 viewGroup.setDisplayedChild(1);
             } else if (adapter.getItemCount() == 0 && query != null) {
-                viewGroup.setDisplayedChild(2);
+                viewGroup.getHandler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewGroup.setDisplayedChild(2);
+                    }
+                });
             } else {
                 viewGroup.setDisplayedChild(3);
                 final int positionToScrollTo = adapter.getDefaultCurrencyPosition();

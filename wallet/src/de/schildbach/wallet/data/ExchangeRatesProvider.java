@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Nullable;
 
@@ -44,6 +45,7 @@ import com.squareup.okhttp.Response;
 import de.schildbach.wallet.Configuration;
 import de.schildbach.wallet.Constants;
 import de.schildbach.wallet.WalletApplication;
+import de.schildbach.wallet.ui.preference.PinRetryController;
 import de.schildbach.wallet.util.GenericUtils;
 
 import android.content.ContentProvider;
@@ -71,6 +73,7 @@ public class ExchangeRatesProvider extends ContentProvider {
 
     private Configuration config;
     private String userAgent;
+    private PinRetryController pinRetryController;
 
     @Nullable
     private Map<String, ExchangeRate> exchangeRates = null;
@@ -78,18 +81,21 @@ public class ExchangeRatesProvider extends ContentProvider {
 
     private static final HttpUrl BITCOINAVERAGE_URL = HttpUrl
             .parse("https://apiv2.bitcoinaverage.com/indices/global/ticker/short?crypto=BTC");
+    private static final HttpUrl BITCOINAVERAGE_DASHBTC_URL = HttpUrl
+            .parse("https://apiv2.bitcoinaverage.com/indices/crypto/ticker/DASHBTC");
     private static final String BITCOINAVERAGE_SOURCE = "BitcoinAverage.com";
 
     private static final HttpUrl POLONIEX_URL = HttpUrl.parse("https://poloniex.com/public?command=returnTradeHistory&currencyPair="+CoinDefinition.cryptsyMarketCurrency +"_" + CoinDefinition.coinTicker);
     private static final String POLONIEX_SOURCE = "Poloniex";
 
-    private static final long UPDATE_FREQ_MS = 10 * DateUtils.MINUTE_IN_MILLIS;
+    private static final long UPDATE_FREQ_MS = TimeUnit.SECONDS.toMillis(30);
 
     private static final Logger log = LoggerFactory.getLogger(ExchangeRatesProvider.class);
 
     @Override
     public boolean onCreate() {
         final Context context = getContext();
+        this.pinRetryController = new PinRetryController(getContext());
 
         this.config = new Configuration(PreferenceManager.getDefaultSharedPreferences(context), context.getResources());
         this.userAgent = WalletApplication.httpUserAgent(WalletApplication.packageInfoFromContext(context).versionName);
@@ -226,8 +232,21 @@ public class ExchangeRatesProvider extends ContentProvider {
         throw new UnsupportedOperationException();
     }
 
-    private Map<String, ExchangeRate> requestExchangeRates() {
-        Double dashPerBTC = requestExchangeRatesForDash();
+     private Map<String, ExchangeRate> requestExchangeRates() {
+         Double dashPerBTC = 0.0;
+         try {
+             dashPerBTC = requestExchangeRateOfDashInBTC_poloniex();
+
+             if (dashPerBTC == null) {
+                 Map<String, ExchangeRate> dashRates = requestExchangeRatesForDashInBTC();
+                 dashPerBTC = Double.parseDouble(dashRates.get("DASH").rate.fiat.toString()) / Double.parseDouble(dashRates.get("DASH").rate.coin.toString());
+             }
+         }
+         catch(Exception x)
+         {
+             log.warn("problem fetching exchange rates from " + BITCOINAVERAGE_DASHBTC_URL, x);
+             return null;
+         }
 
         final Stopwatch watch = Stopwatch.createStarted();
 
@@ -239,6 +258,7 @@ public class ExchangeRatesProvider extends ContentProvider {
         try {
             final Response response = call.execute();
             if (response.isSuccessful()) {
+                pinRetryController.storeSecureTime(response.headers().getDate("date"));
                 final String content = response.body().string();
                 final JSONObject head = new JSONObject(content);
                 final Map<String, ExchangeRate> rates = new TreeMap<String, ExchangeRate>();
@@ -251,9 +271,9 @@ public class ExchangeRatesProvider extends ContentProvider {
                                 && !fiatCurrencyCode.equals(MonetaryFormat.CODE_MBTC)
                                 && !fiatCurrencyCode.equals(MonetaryFormat.CODE_UBTC)) {
                             final JSONObject exchangeRate = head.getJSONObject(currencyCode);
-                            final JSONObject averages = exchangeRate.getJSONObject("averages");
+                            final String average = exchangeRate.getString("last");
                             try {
-                                Double _rate = dashPerBTC * averages.getDouble("day");
+                                Double _rate = dashPerBTC * Double.parseDouble(average);
                                 final Fiat rate = parseFiatInexact(fiatCurrencyCode, _rate.toString());
                                 if (rate.signum() > 0)
                                     rates.put(fiatCurrencyCode, new ExchangeRate(
@@ -281,7 +301,7 @@ public class ExchangeRatesProvider extends ContentProvider {
         return null;
     }
 
-    private Double requestExchangeRatesForDash() {
+    private Double requestExchangeRateOfDashInBTC_poloniex() {
         final Stopwatch watch = Stopwatch.createStarted();
 
         final Request.Builder request = new Request.Builder();
@@ -292,6 +312,7 @@ public class ExchangeRatesProvider extends ContentProvider {
         try {
             final Response response = call.execute();
             if (response.isSuccessful()) {
+                pinRetryController.storeSecureTime(response.headers().getDate("date"));
                 final String content = response.body().string();
 
                 JSONArray recenttrades = new JSONArray(content);
@@ -321,6 +342,48 @@ public class ExchangeRatesProvider extends ContentProvider {
             }
         } catch (final Exception x) {
             log.warn("problem fetching exchange rates from " + POLONIEX_SOURCE, x);
+        }
+
+        return null;
+    }
+
+    private Map<String, ExchangeRate> requestExchangeRatesForDashInBTC() {
+        final Stopwatch watch = Stopwatch.createStarted();
+
+        final Request.Builder request = new Request.Builder();
+        request.url(BITCOINAVERAGE_DASHBTC_URL);
+        request.header("User-Agent", userAgent);
+
+        final Call call = Constants.HTTP_CLIENT.newCall(request.build());
+        try {
+            final Response response = call.execute();
+            if (response.isSuccessful()) {
+                pinRetryController.storeSecureTime(response.headers().getDate("date"));
+                final String content = response.body().string();
+                final JSONObject head = new JSONObject(content);
+                final Map<String, ExchangeRate> rates = new TreeMap<String, ExchangeRate>();
+
+                final JSONObject averages = head.getJSONObject("averages");
+                try {
+                    final Fiat rate = parseFiatInexact("DASH",  averages.getString("day"));
+                    if (rate.signum() > 0)
+                        rates.put("DASH", new ExchangeRate(
+                                new org.bitcoinj.utils.ExchangeRate(rate), BITCOINAVERAGE_SOURCE));
+                } catch (final IllegalArgumentException x) {
+                    log.warn("problem fetching {} exchange rate from {}: {}", "DASH",
+                            BITCOINAVERAGE_DASHBTC_URL, x.getMessage());
+                }
+
+                watch.stop();
+                log.info("fetched exchange rates from {}, {} chars, took {}", BITCOINAVERAGE_DASHBTC_URL, content.length(),
+                        watch);
+
+                return rates;
+            } else {
+                log.warn("http status {} when fetching exchange rates from {}", response.code(), BITCOINAVERAGE_DASHBTC_URL);
+            }
+        } catch (final Exception x) {
+            log.warn("problem fetching exchange rates from " + BITCOINAVERAGE_DASHBTC_URL, x);
         }
 
         return null;

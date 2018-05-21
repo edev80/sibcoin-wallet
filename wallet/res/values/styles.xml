@@ -13,10 +13,21 @@
 		<item name="android:checkboxStyle">@style/My.Widget.CompoundButton.CheckBox</item>
 		<item name="android:spinnerStyle">@style/My.Widget.Spinner</item>
 		<item name="android:windowContentOverlay">@null</item>
+		<item name="windowActionModeOverlay">true</item>
+		<item name="actionModeBackground">@drawable/toolbar_background</item>
 	</style>
 
 	<style name="My.Theme.NoStatusBar" parent="My.Theme.NoActionBar">
 
+	</style>
+
+	<style name="My.Theme.Transparent" parent="android:Theme">
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowBackground">@android:color/transparent</item>
+		<item name="android:windowContentOverlay">@null</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowIsFloating">true</item>
+		<item name="android:backgroundDimEnabled">false</item>
 	</style>
 
     <style name="NewDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -72,7 +83,7 @@
 
 	<style name="My.Theme.Fullscreen" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
 
-	<style name="My.Theme.Dialog" parent="@android:style/Theme.Holo.Light.Dialog" />
+	<style name="My.Theme.Dialog" parent="Theme.AppCompat.Light.Dialog.Alert" />
 
 	<style name="My.Widget.TextView" parent="@android:style/Widget.Holo.Light.TextView">
 		<item name="android:textColor">@color/fg_significant</item>
@@ -166,7 +177,7 @@
     <style name="My.Widget.ActionButton" parent="@android:style/Widget.Holo.ActionButton">
         <item name="android:minHeight">?android:attr/actionBarSize</item>
         <item name="android:minWidth">48dp</item>
-        <item name="android:drawablePadding">6dp</item>
+        <item name="android:drawablePadding">4dp</item>
     </style>
 	<!--
     <style name="My.Widget.ActionButton.Overflow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
