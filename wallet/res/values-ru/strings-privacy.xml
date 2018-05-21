@@ -6,7 +6,7 @@
 			<a href="https://github.com/HashEngineering/dash-wallet/wiki/PrivacyPolicy">
 			Политику Конфиденциальности
 			</a>
-			перед тем как пользоваться приложением.
+			прежде чем пользоваться приложением.
     </string>
     <string name="privacy_dialog_ok">Я прочёл и принимаю Политику Конфиденциальности</string>
 </resources>
