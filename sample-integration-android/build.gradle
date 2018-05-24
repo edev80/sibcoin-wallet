@@ -13,8 +13,8 @@ repositories {
 
 
 android {
-    compileSdkVersion 'android-10'
-    buildToolsVersion '22.0.1'
+    compileSdkVersion 'android-27'
+    buildToolsVersion '27.0.3'
 
     lintOptions { abortOnError false }
 
