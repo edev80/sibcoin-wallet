@@ -3,8 +3,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	package="rusapps.sibcoin.wallet"
 	android:installLocation="internalOnly"
-	android:versionCode="40030"
-	android:versionName="4.40.12d" >
+	android:versionCode="40031"
+	android:versionName="4.40.12e" >
 	<uses-sdk
 		android:minSdkVersion="15"
 		android:targetSdkVersion="16"
