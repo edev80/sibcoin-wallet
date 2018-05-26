@@ -170,9 +170,9 @@ public class ExchangeRatesProvider extends ContentProvider
 		{
 			Map<String, ExchangeRate> newExchangeRates = null;
 			if (newExchangeRates == null)
-				newExchangeRates = requestExchangeRates(BITCOINAVERAGE_URL, userAgent, BITCOINAVERAGE_SOURCE, BITCOINAVERAGE_FIELDS);
-			if (newExchangeRates == null)
 				newExchangeRates = requestExchangeRates(BLOCKCHAININFO_URL, userAgent, BLOCKCHAININFO_SOURCE, BLOCKCHAININFO_FIELDS);
+			if (newExchangeRates == null)
+				newExchangeRates = requestExchangeRates(BITCOINAVERAGE_URL, userAgent, BITCOINAVERAGE_SOURCE, BITCOINAVERAGE_FIELDS);
 
 			if (newExchangeRates != null)
 			{
@@ -495,6 +495,125 @@ public class ExchangeRatesProvider extends ContentProvider
 	}
 
 
+	private static Object getCoinValueBTC_BITTREX()
+	{
+		Double btcRate = 0.0;
+		String currency = CoinDefinition.cryptsyMarketCurrency;
+		String tickerName = CoinDefinition.cryptsyMarketCurrency.toUpperCase() + "-" + CoinDefinition.coinTicker.toUpperCase();
+		String url = "https://bittrex.com/api/v1.1/public/getticker?market="+ tickerName;
+
+		try {
+			final URL URL_bittrex = new URL(url);
+			final HttpURLConnection connection = (HttpURLConnection)URL_bittrex.openConnection();
+			connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+			connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+			connection.connect();
+
+			final StringBuilder content = new StringBuilder();
+
+			Reader reader = null;
+			try
+			{
+				reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
+				Io.copy(reader, content);
+				final JSONObject head = new JSONObject(content.toString());
+
+				if(head.getBoolean("success") == true){
+
+					final JSONObject res = head.getJSONObject("result");
+
+					Double last = res.getDouble("Last");
+					Double buy = res.getDouble("Bid");
+					Double sell = res.getDouble("Ask");
+
+					if ( last <= sell && last >= buy)
+						btcRate = (sell+buy+last)/3;
+					else
+						btcRate = (sell+buy)/2;
+
+					return btcRate;
+				}
+			}
+			finally
+			{
+				if (reader != null)
+					reader.close();
+			}
+
+		}
+		catch (final IOException x)
+		{
+			x.printStackTrace();
+		}
+		catch (final JSONException x)
+		{
+			x.printStackTrace();
+		}
+
+
+		return null;
+	}
+
+
+	private static Object getCoinValueBTC_LIVECOIN()
+	{
+		Double btcRate = 0.0;
+		String currency = CoinDefinition.cryptsyMarketCurrency;
+		String tickerName = CoinDefinition.coinTicker.toUpperCase() + "/" + CoinDefinition.cryptsyMarketCurrency.toUpperCase();
+		String url = "https://api.livecoin.net/exchange/ticker?currencyPair="+ tickerName;
+
+		try {
+			final URL URL_bittrex = new URL(url);
+			final HttpURLConnection connection = (HttpURLConnection)URL_bittrex.openConnection();
+			connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+			connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+			connection.connect();
+
+			final StringBuilder content = new StringBuilder();
+
+			Reader reader = null;
+			try
+			{
+				reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
+				Io.copy(reader, content);
+				final JSONObject head = new JSONObject(content.toString());
+
+				if(head.getDouble("last") > 0.0){
+
+					Double last = head.getDouble("last");
+					Double buy = head.getDouble("best_bid");
+					Double sell = head.getDouble("best_ask");
+
+					if ( last <= sell && last >= buy)
+						btcRate = (sell+buy+last)/3;
+					else
+						btcRate = (sell+buy)/2;
+
+					return btcRate;
+				}
+			}
+			finally
+			{
+				if (reader != null)
+					reader.close();
+			}
+
+		}
+		catch (final IOException x)
+		{
+			x.printStackTrace();
+		}
+		catch (final JSONException x)
+		{
+			x.printStackTrace();
+		}
+
+
+		return null;
+	}
+
+
+
 
 	private static Map<String, ExchangeRate> requestExchangeRates(final URL url, final String userAgent, final String source, final String... fields)
 	{
@@ -508,16 +627,19 @@ public class ExchangeRatesProvider extends ContentProvider
 
             Double btcRate = 0.0;
             boolean cryptsyValue = true;
-            Object result = getCoinValueBTC_YOBIT();
+            Object result = getCoinValueBTC_BITTREX();
 
             if(result == null)
             {
-                // We have only one exchange now
-                return null;
-//                result = getCoinValueBTC_BTER();
-//                cryptsyValue = false;
-//                if(result == null)
-//                    return null;
+                result = getCoinValueBTC_LIVECOIN();
+
+                if(result == null){
+                    result = getCoinValueBTC_YOBIT();
+
+                    if(result == null)
+                        return null;
+                }
+
             }
 
             btcRate = (Double)result;
