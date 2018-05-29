@@ -9,6 +9,7 @@ dependencies {
         exclude(group: 'com.google.android', module: 'android')
     }
     compile 'org.dashj:dashj-core:0.14.4.3'
+    // compile 'org.bitcoinj:sibcoinj-core:0.13.2'
 }
 
 android {

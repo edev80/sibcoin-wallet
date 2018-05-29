@@ -23,6 +23,7 @@ import de.schildbach.wallet.Constants;
 import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet_test.BuildConfig;
 import de.schildbach.wallet_test.R;
+// import rusapps.sibcoin.wallet.R;
 
 import android.app.Activity;
 import android.content.Intent;

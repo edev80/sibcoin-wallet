@@ -14,14 +14,54 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
+        android:background="@color/bg_bright"
         android:gravity="center"
         android:textSize="@dimen/font_size_small" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/wallet_transactions_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:animateLayoutChanges="false"/>
+	<LinearLayout
+		android:id="@+id/wallet_transactions_and_buttons"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+		<Button
+			android:id="@+id/button_tocard"
+			android:text="@string/transaction_to_card"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:onClick="buttonToCardClick"
+			android:clickable="true"
+			android:linksClickable="true"
+			android:drawableRight="@drawable/creditcard"
+			/>
+
+		<Button
+			android:id="@+id/button_tophone"
+			android:text="@string/transaction_to_phone"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:onClick="buttonToPhoneClick"
+			android:clickable="true"
+			android:linksClickable="true"
+			android:drawableRight="@drawable/phone"
+			/>
+
+		<Button
+			android:id="@+id/button_buysib"
+			android:text="@string/transaction_to_buysib"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:onClick="buttonToBuyClick"
+			android:clickable="true"
+			android:linksClickable="true"
+			android:drawableRight="@drawable/checash"
+			/>
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/wallet_transactions_list"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scrollbars="vertical"
+            android:animateLayoutChanges="false" />
+	</LinearLayout>
 
 </ViewAnimator>

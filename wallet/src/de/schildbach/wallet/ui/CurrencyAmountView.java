@@ -17,17 +17,6 @@
 
 package de.schildbach.wallet.ui;
 
-import javax.annotation.Nullable;
-
-import org.bitcoinj.core.Coin;
-import org.bitcoinj.core.Monetary;
-import org.bitcoinj.utils.MonetaryFormat;
-
-import de.schildbach.wallet.Constants;
-import de.schildbach.wallet.util.GenericUtils;
-import de.schildbach.wallet.util.MonetarySpannable;
-import de.schildbach.wallet_test.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Paint;
@@ -44,12 +33,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.bitcoinj.core.Coin;
+import org.bitcoinj.core.Monetary;
+import org.bitcoinj.utils.MonetaryFormat;
+
+import javax.annotation.Nullable;
+
+import de.schildbach.wallet.Constants;
+import de.schildbach.wallet.util.GenericUtils;
+import de.schildbach.wallet.util.MonetarySpannable;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach
  */
-public final class CurrencyAmountView extends FrameLayout {
+public final class CurrencyAmountView extends RelativeLayout {
     public static interface Listener {
         void changed();
 
@@ -66,10 +67,12 @@ public final class CurrencyAmountView extends FrameLayout {
     private boolean amountSigned = false;
     private boolean validateAmount = true;
 
-    private TextView textView;
-    private View contextButton;
-    private Listener listener;
-    private OnClickListener contextButtonClickListener;
+	private TextView textView;
+	// Slit up textView and currencyDrawable to be able to put code postfix
+	private TextView currencyTextView;
+	private View contextButton;
+	private Listener listener;
+	private OnClickListener contextButtonClickListener;
 
     public CurrencyAmountView(final Context context) {
         super(context);
@@ -95,26 +98,31 @@ public final class CurrencyAmountView extends FrameLayout {
 
         final Context context = getContext();
 
-        textView = (TextView) getChildAt(0);
-        textView.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        textView.setHintTextColor(lessSignificantColor);
-        textView.setHorizontalFadingEdgeEnabled(true);
-        textView.setSingleLine();
-        setValidateAmount(textView instanceof EditText);
-        textView.addTextChangedListener(textViewListener);
-        textView.setOnFocusChangeListener(textViewListener);
+		FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frameLayout);
 
-        contextButton = new View(context) {
-            @Override
-            protected void onMeasure(final int wMeasureSpec, final int hMeasureSpec) {
-                setMeasuredDimension(textView.getCompoundPaddingRight(), textView.getMeasuredHeight());
-            }
-        };
-        final LayoutParams chooseViewParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        chooseViewParams.gravity = Gravity.RIGHT;
-        contextButton.setLayoutParams(chooseViewParams);
-        this.addView(contextButton);
+		textView = (TextView) frameLayout.getChildAt(0);
+		textView.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+		textView.setHintTextColor(lessSignificantColor);
+		textView.setHorizontalFadingEdgeEnabled(true);
+		textView.setSingleLine();
+		setValidateAmount(textView instanceof EditText);
+		textView.addTextChangedListener(textViewListener);
+		textView.setOnFocusChangeListener(textViewListener);
+
+        currencyTextView = (TextView) findViewById(R.id.localcurrency_textview);
+
+		contextButton = new View(context) {
+			@Override
+			protected void onMeasure(final int wMeasureSpec, final int hMeasureSpec) {
+				setMeasuredDimension(textView.getCompoundPaddingRight(), textView.getMeasuredHeight());
+			}
+		};
+
+		final FrameLayout.LayoutParams chooseViewParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+		chooseViewParams.gravity = Gravity.RIGHT;
+
+		contextButton.setLayoutParams(chooseViewParams);
+		frameLayout.addView(contextButton);
 
         updateAppearance();
     }
@@ -137,6 +145,17 @@ public final class CurrencyAmountView extends FrameLayout {
             currencySymbolDrawable = new CurrencySymbolDrawable(currencySymbol, smallerTextSize, lessSignificantColor,
                     textSize * 0.37f);
             localCurrencyCode = currencyCode;
+
+            // Local case for RUR. Show code postfix rather than prefix
+            if (localCurrencyCode.toLowerCase().startsWith("rub") ||
+                    localCurrencyCode.toLowerCase().startsWith("rur")) {
+
+                // Don't draw code as compound drawable
+                currencySymbolDrawable = null;
+
+                currencyTextView.setText(currencySymbol);
+                currencyTextView.setVisibility(VISIBLE);
+            }
         } else {
             currencySymbolDrawable = null;
             localCurrencyCode = null;
@@ -285,7 +304,8 @@ public final class CurrencyAmountView extends FrameLayout {
 
         contextButton.requestLayout();
 
-        textView.setTextColor(!validateAmount || isValidAmount(true) ? significantColor : errorColor);
+		textView.setCompoundDrawablePadding(5);
+		textView.setTextColor(!validateAmount || isValidAmount(true) ? significantColor : errorColor);
 
         final Spannable hintSpannable = new MonetarySpannable(hintFormat, hint != null ? hint : Coin.ZERO)
                 .applyMarkup(null, MonetarySpannable.STANDARD_INSIGNIFICANT_SPANS);

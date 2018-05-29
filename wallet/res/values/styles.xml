@@ -246,4 +246,24 @@
 
     <style name="My.Widget.PopupMenu" parent="@android:style/Widget.Holo.Light.PopupMenu" /-->
 
+	<style name="CurrencyAmountView_localcurrency_textview">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_alignBottom">@id/frameLayout</item>
+		<item name="android:layout_alignParentRight">true</item>
+		<item name="android:layout_marginLeft">2dp</item>
+		<item name="android:layout_marginBottom">12dp</item>
+		<item name="android:visibility">gone</item>
+		<item name="android:textColor">@color/fg_insignificant</item>
+		<item name="android:textSize">@dimen/font_size_normal</item>
+	</style>
+
+	<style name="CurrencyAmountView_framelayout">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_alignParentLeft">true</item>
+		<item name="android:layout_toLeftOf">@id/localcurrency_textview</item>
+		<item name="android:layout_alignWithParentIfMissing">true</item>
+	</style>
+
 </resources>

@@ -31,11 +31,11 @@ public final class BitcoinIntegration {
     private static final String INTENT_EXTRA_PAYMENT = "payment";
     private static final String INTENT_EXTRA_TRANSACTION_HASH = "transaction_hash";
 
-    private static final String MIMETYPE_PAYMENTREQUEST = "application/dash-paymentrequest"; // BIP 71
+	private static final String MIMETYPE_PAYMENTREQUEST = "application/sibcoin-paymentrequest"; // BIP 71
 
     /**
      * Request any amount of Bitcoins (probably a donation) from user, without feedback from the app.
-     * 
+     *
      * @param context
      *            Android context
      * @param address
@@ -49,7 +49,7 @@ public final class BitcoinIntegration {
 
     /**
      * Request specific amount of Bitcoins from user, without feedback from the app.
-     * 
+     *
      * @param context
      *            Android context
      * @param address
@@ -65,7 +65,7 @@ public final class BitcoinIntegration {
 
     /**
      * Request payment from user, without feedback from the app.
-     * 
+     *
      * @param context
      *            Android context
      * @param paymentRequest
@@ -82,10 +82,10 @@ public final class BitcoinIntegration {
      * intent can be received by overriding {@link android.app.Activity#onActivityResult()}. Result indicates
      * either {@link Activity#RESULT_OK} or {@link Activity#RESULT_CANCELED}. In the success case, use
      * {@link #transactionHashFromResult(Intent)} to read the transaction hash from the intent.
-     * 
+     *
      * Warning: A success indication is no guarantee! To be on the safe side, you must drive your own Bitcoin
      * infrastructure and validate the transaction.
-     * 
+     *
      * @param activity
      *            Calling Android activity
      * @param requestCode
@@ -105,10 +105,10 @@ public final class BitcoinIntegration {
      * received by overriding {@link android.app.Activity#onActivityResult()}. Result indicates either
      * {@link Activity#RESULT_OK} or {@link Activity#RESULT_CANCELED}. In the success case, use
      * {@link #transactionHashFromResult(Intent)} to read the transaction hash from the intent.
-     * 
+     *
      * Warning: A success indication is no guarantee! To be on the safe side, you must drive your own Bitcoin
      * infrastructure and validate the transaction.
-     * 
+     *
      * @param activity
      *            Calling Android activity
      * @param requestCode
@@ -129,10 +129,10 @@ public final class BitcoinIntegration {
      * {@link android.app.Activity#onActivityResult()}. Result indicates either {@link Activity#RESULT_OK} or
      * {@link Activity#RESULT_CANCELED}. In the success case, use {@link #transactionHashFromResult(Intent)}
      * to read the transaction hash from the intent.
-     * 
+     *
      * Warning: A success indication is no guarantee! To be on the safe side, you must drive your own Bitcoin
      * infrastructure and validate the transaction.
-     * 
+     *
      * @param activity
      *            Calling Android activity
      * @param requestCode
@@ -149,7 +149,7 @@ public final class BitcoinIntegration {
 
     /**
      * Get payment request from intent. Meant for usage by applications accepting payment requests.
-     * 
+     *
      * @param intent
      *            intent
      * @return payment request or null
@@ -162,7 +162,7 @@ public final class BitcoinIntegration {
 
     /**
      * Put BIP70 payment message into result intent. Meant for usage by Bitcoin wallet applications.
-     * 
+     *
      * @param result
      *            result intent
      * @param payment
@@ -175,10 +175,10 @@ public final class BitcoinIntegration {
     /**
      * Get BIP70 payment message from result intent. Meant for usage by applications initiating a Bitcoin
      * payment.
-     * 
+     *
      * You can use the transactions contained in the payment to validate the payment. For this, you need your
      * own Bitcoin infrastructure though. There is no guarantee that the payment will ever confirm.
-     * 
+     *
      * @param result
      *            result intent
      * @return payment message
@@ -191,7 +191,7 @@ public final class BitcoinIntegration {
 
     /**
      * Put transaction hash into result intent. Meant for usage by Bitcoin wallet applications.
-     * 
+     *
      * @param result
      *            result intent
      * @param txHash
@@ -203,11 +203,11 @@ public final class BitcoinIntegration {
 
     /**
      * Get transaction hash from result intent. Meant for usage by applications initiating a Bitcoin payment.
-     * 
+     *
      * You can use this hash to request the transaction from the Bitcoin network, in order to validate. For
      * this, you need your own Bitcoin infrastructure though. There is no guarantee that the transaction has
      * ever been broadcasted to the Bitcoin network.
-     * 
+     *
      * @param result
      *            result intent
      * @return transaction hash
@@ -221,7 +221,7 @@ public final class BitcoinIntegration {
     private static final int SATOSHIS_PER_COIN = 100000000;
 
     private static Intent makeBitcoinUriIntent(final String address, final Long amount) {
-        final StringBuilder uri = new StringBuilder("dash:");
+        final StringBuilder uri = new StringBuilder("sibcoin:");
         if (address != null)
             uri.append(address);
         if (amount != null)
@@ -258,13 +258,13 @@ public final class BitcoinIntegration {
     }
 
     private static void redirectToDownload(final Context context) {
-        Toast.makeText(context, "No Dash application found.\nPlease install Dash Wallet.", Toast.LENGTH_LONG)
+        Toast.makeText(context, "No sibcoin application found.\nPlease install sibcoin Wallet.", Toast.LENGTH_LONG)
                 .show();
 
         final Intent marketIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("market://details?id=hashengineering.darkcoin.wallet"));
+                Uri.parse("market://details?id=rusapps.sibcoin.wallet"));
         final Intent binaryIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://github.com/HashEngineering/dash-wallet/releases"));
+                Uri.parse("https://github.com/edev80/sibcoin-wallet/releases"));
 
         final PackageManager pm = context.getPackageManager();
         if (pm.resolveActivity(marketIntent, 0) != null)

@@ -31,28 +31,52 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="1" >
 
-			<EditText
-				android:id="@+id/request_coins_amount_btc_edittext"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:imeOptions="flagNoExtractUi"
-				android:textSize="@dimen/font_size_large"
-				tools:ignore="TextFields" />
+			<FrameLayout
+				android:id="@+id/frameLayout"
+				style="@style/CurrencyAmountView_framelayout">
+
+				<EditText
+					android:id="@+id/request_coins_amount_edittext"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:imeOptions="flagNoExtractUi"
+					android:textSize="@dimen/font_size_large"
+					tools:ignore="TextFields" />
+
+			</FrameLayout>
+
+			<TextView
+				android:id="@+id/localcurrency_textview"
+				style="@style/CurrencyAmountView_localcurrency_textview"/>
+
 		</de.schildbach.wallet.ui.CurrencyAmountView>
 
 		<de.schildbach.wallet.ui.CurrencyAmountView
 			android:id="@+id/request_coins_amount_local"
 			android:layout_width="0px"
 			android:layout_height="wrap_content"
-			android:layout_weight="1" >
+			android:layout_weight="1"
+			android:paddingRight="0dp">
 
-			<EditText
-				android:id="@+id/request_coins_amount_local_edittext"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:imeOptions="flagNoExtractUi"
-				android:textSize="@dimen/font_size_large"
-				tools:ignore="TextFields" />
+			<FrameLayout
+				android:id="@id/frameLayout"
+				style="@style/CurrencyAmountView_framelayout">
+
+				<EditText
+					android:id="@id/request_coins_amount_edittext"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:imeOptions="flagNoExtractUi"
+					android:textSize="@dimen/font_size_large"
+					tools:ignore="TextFields"/>
+
+			</FrameLayout>
+
+			<TextView
+				android:id="@id/localcurrency_textview"
+				android:text="XXX"
+				style="@style/CurrencyAmountView_localcurrency_textview"/>
+
 		</de.schildbach.wallet.ui.CurrencyAmountView>
 	</LinearLayout>
 

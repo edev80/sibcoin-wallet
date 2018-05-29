@@ -31,7 +31,7 @@
 			android:layout_marginLeft="@dimen/list_entry_padding_horizontal_lax"
 			android:layout_marginRight="@dimen/list_entry_padding_horizontal_lax"
 			android:layout_marginTop="8dp"
-			android:singleLine="true" />
+			android:maxLines="1" />
 
 		<TextView
 			android:id="@+id/send_coins_payee_verified_by"
@@ -39,9 +39,9 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="@dimen/list_entry_padding_horizontal_lax"
 			android:layout_marginRight="@dimen/list_entry_padding_horizontal_lax"
-			android:singleLine="true"
 			android:textColor="@color/fg_less_significant"
-			android:textSize="@dimen/font_size_small" />
+			android:textSize="@dimen/font_size_small"
+			android:maxLines="1" />
 
 		<AutoCompleteTextView
 			android:id="@+id/send_coins_receiving_address"
@@ -52,7 +52,7 @@
 			android:completionThreshold="1"
 			android:hint="@string/send_coins_fragment_receiving_address_hint"
 			android:imeOptions="flagNoExtractUi"
-			android:singleLine="true" />
+			android:maxLines="1" />
 
 		<LinearLayout
 			android:id="@+id/send_coins_receiving_static"
@@ -72,7 +72,6 @@
 				android:layout_weight="1"
 				android:ellipsize="end"
 				android:maxLines="3"
-				android:singleLine="false"
 				android:textStyle="bold" />
 
 			<TextView
@@ -114,13 +113,25 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="1" >
 
-				<EditText
-					android:id="@+id/send_coins_amount_btc_edittext"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:imeOptions="flagNoExtractUi"
-					android:textSize="@dimen/font_size_large"
-					tools:ignore="TextFields" />
+				<FrameLayout
+					android:id="@id/frameLayout"
+					style="@style/CurrencyAmountView_framelayout">
+
+					<EditText
+						android:id="@+id/send_coins_amount_btc_edittext"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:imeOptions="flagNoExtractUi"
+						android:textSize="@dimen/font_size_large"
+						tools:ignore="TextFields" />
+
+				</FrameLayout>
+
+				<TextView
+					android:id="@+id/btc_currency_textview"
+					style="@style/CurrencyAmountView_localcurrency_textview"/>
+
+
 			</de.schildbach.wallet.ui.CurrencyAmountView>
 
 			<de.schildbach.wallet.ui.CurrencyAmountView
@@ -129,14 +140,26 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="1" >
 
-				<EditText
-					android:id="@+id/send_coins_amount_local_edittext"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:imeOptions="flagNoExtractUi"
-					android:textSize="@dimen/font_size_large"
-					tools:ignore="TextFields" />
+				<FrameLayout
+					android:id="@id/frameLayout"
+					style="@style/CurrencyAmountView_framelayout">
+					<EditText
+						android:id="@+id/send_coins_amount_local_edittext"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:imeOptions="flagNoExtractUi"
+						android:textSize="@dimen/font_size_large"
+						tools:ignore="TextFields" />
+
+				</FrameLayout>
+
+				<TextView
+					android:id="@+id/localcurrency_textview"
+					style="@style/CurrencyAmountView_localcurrency_textview"/>
+
+
 			</de.schildbach.wallet.ui.CurrencyAmountView>
+
 		</LinearLayout>
 	</LinearLayout>
 

@@ -29,6 +29,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.bitcoinj.core.Address;
 import org.bitcoinj.core.Transaction;
 import org.bitcoinj.core.VerificationException;
 import org.bitcoinj.core.VersionedChecksummedBytes;
@@ -68,6 +69,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -168,6 +170,26 @@ public final class WalletActivity extends AbstractBindServiceActivity
         if (savedInstanceState == null) {
             //Add BIP44 support and PIN if missing
             upgradeWalletKeyChains(Constants.BIP44_PATH, false);
+        }
+
+        maybeShowPrivacyDialog();
+    }
+
+    private void maybeShowPrivacyDialog() {
+        final String PREFS_KEY_ACCEPT_PRIVACY_POLICY = "did_accept_privacy_policy";
+        final SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+        final boolean didAcceptPrivacyPolicy = prefs.getBoolean(PREFS_KEY_ACCEPT_PRIVACY_POLICY, false);
+
+        if (!didAcceptPrivacyPolicy) {
+            PrivacyDialogFragment.page(getFragmentManager(), R.string.privacy_dialog_text, new DialogInterface() {
+                @Override
+                public void cancel() {}
+
+                @Override
+                public void dismiss() {
+                    prefs.edit().putBoolean(PREFS_KEY_ACCEPT_PRIVACY_POLICY, true).apply();
+                }
+            });
         }
     }
 
@@ -448,6 +470,35 @@ public final class WalletActivity extends AbstractBindServiceActivity
 
     public void handleEncryptKeys() {
         EncryptKeysDialogFragment.show(getFragmentManager());
+    }
+
+    public void buttonToCardClick(View view)
+    {
+        goToUrl("https://coinex.im/?from=SIB&to=QIWI_RUR_2CARD&start=1");
+    }
+
+    public void buttonToPhoneClick(View view)
+    {
+        goToUrl("https://coinex.im/?from=SIB&to=QIWI_RUR_2PHONE&start=1");
+    }
+
+    public void buttonToBuyClick(View view)
+    {
+        Address address = wallet.currentReceiveAddress();
+        goToUrl("https://coinex.im/?from=QIWI_RUR_P2P&to=SIB&start=1&account="+address.toString());
+    }
+
+    private void goToUrl (String url)
+    {
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
+    }
+
+    private void handleDisconnect()
+    {
+        getWalletApplication().stopBlockchainService();
+        finish();
     }
 
     public void handleEncryptKeysRestoredWallet() {

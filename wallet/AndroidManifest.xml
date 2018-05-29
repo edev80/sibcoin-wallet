@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="de.schildbach.wallet_test"
+    package="rusapps.sibcoin.wallet"
     android:installLocation="internalOnly"
     android:versionCode="51800"
     android:versionName="5.18" >
@@ -60,7 +60,7 @@
     <application
         android:name="de.schildbach.wallet.WalletApplication"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_app_color"
+        android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:largeHeap="true">
         <activity
@@ -100,8 +100,7 @@
             <intent-filter android:label="@string/send_coins_activity_title" >
                 <action android:name="android.intent.action.VIEW" />
 
-                <data android:scheme="dash" />
-                <data android:scheme="darkcoin" />
+                <data android:scheme="sibcoin" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -109,22 +108,21 @@
             <intent-filter android:label="@string/send_coins_activity_title" >
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
-                <data android:scheme="dash" />
-                <data android:scheme="darkcoin" />
+				<data android:scheme="sibcoin" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter android:label="@string/send_coins_activity_title" >
                 <action android:name="android.intent.action.VIEW" />
 
-                <data android:mimeType="application/dash-paymentrequest" />
+				<data android:mimeType="application/sibcoin-paymentrequest" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter android:label="@string/send_coins_activity_title" >
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
-                <data android:mimeType="application/dash-paymentrequest" />
+				<data android:mimeType="application/sibcoin-paymentrequest" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -168,8 +166,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="application/x-darkcoin-wallet-backup" />
-                <data android:mimeType="application/x-dash-wallet-backup" />
+                <data android:mimeType="application/x-sibcoin-wallet-backup" />
             </intent-filter>
         </activity>
         <activity
