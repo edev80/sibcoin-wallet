@@ -43,7 +43,7 @@ import de.schildbach.wallet.util.Bluetooth;
 import de.schildbach.wallet.util.Nfc;
 import de.schildbach.wallet.util.Qr;
 import de.schildbach.wallet.util.Toast;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 import android.app.Activity;
 import android.app.Fragment;

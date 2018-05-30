@@ -18,7 +18,7 @@ import org.spongycastle.crypto.params.KeyParameter;
 
 import de.schildbach.wallet.ui.send.DecryptSeedTask;
 import de.schildbach.wallet.ui.send.DeriveKeyTask;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * Created by Hash Engineering on 4/5/2018.

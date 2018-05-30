@@ -22,7 +22,7 @@ import org.bitcoinj.wallet.Wallet;
 import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.ui.preference.PinRetryController;
 import de.schildbach.wallet.util.KeyboardUtil;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * Created by Hash Engineering on 4/8/2018.

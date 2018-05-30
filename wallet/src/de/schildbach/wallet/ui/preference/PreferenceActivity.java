@@ -19,7 +19,7 @@ package de.schildbach.wallet.ui.preference;
 
 import java.util.List;
 
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;

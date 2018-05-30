@@ -57,7 +57,7 @@ import de.schildbach.wallet.util.Crypto;
 import de.schildbach.wallet.util.Io;
 import de.schildbach.wallet.util.Nfc;
 import de.schildbach.wallet.util.WalletUtils;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 import android.Manifest;
 import android.app.Activity;
@@ -472,33 +472,23 @@ public final class WalletActivity extends AbstractBindServiceActivity
         EncryptKeysDialogFragment.show(getFragmentManager());
     }
 
-    public void buttonToCardClick(View view)
-    {
+    public void buttonToCardClick(View view) {
         goToUrl("https://coinex.im/?from=SIB&to=QIWI_RUR_2CARD&start=1");
     }
 
-    public void buttonToPhoneClick(View view)
-    {
+    public void buttonToPhoneClick(View view) {
         goToUrl("https://coinex.im/?from=SIB&to=QIWI_RUR_2PHONE&start=1");
     }
 
-    public void buttonToBuyClick(View view)
-    {
+    public void buttonToBuyClick(View view) {
         Address address = wallet.currentReceiveAddress();
         goToUrl("https://coinex.im/?from=QIWI_RUR_P2P&to=SIB&start=1&account="+address.toString());
     }
 
-    private void goToUrl (String url)
-    {
+    private void goToUrl (String url) {
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
-    }
-
-    private void handleDisconnect()
-    {
-        getWalletApplication().stopBlockchainService();
-        finish();
     }
 
     public void handleEncryptKeysRestoredWallet() {

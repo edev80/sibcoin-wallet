@@ -28,7 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import de.schildbach.wallet.ui.DialogBuilder;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 public class UpgradeWalletDisclaimerDialog extends DialogFragment {
 

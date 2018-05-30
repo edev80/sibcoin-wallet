@@ -23,7 +23,7 @@ import android.util.AttributeSet;
 
 import org.bitcoinj.utils.MonetaryFormat;
 
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 public class ToolbarCurrencyTextView extends CurrencyTextView
 {

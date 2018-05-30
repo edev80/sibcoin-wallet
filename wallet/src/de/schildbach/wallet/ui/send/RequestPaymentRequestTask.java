@@ -44,7 +44,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
 import android.os.Looper;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 /**
  * @author Andreas Schildbach
  */

@@ -38,7 +38,7 @@ import de.schildbach.wallet.ui.widget.UpgradeWalletDisclaimerDialog;
 import de.schildbach.wallet.util.Crypto;
 import de.schildbach.wallet.util.Io;
 import de.schildbach.wallet.util.WalletUtils;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

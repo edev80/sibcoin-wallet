@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 
 import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.data.WalletLock;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 import android.support.v7.app.AppCompatActivity;
 import android.app.ActivityManager.TaskDescription;

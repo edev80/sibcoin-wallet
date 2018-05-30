@@ -52,7 +52,7 @@ import de.schildbach.wallet.ui.preference.PinRetryController;
 import de.schildbach.wallet.ui.send.DecryptSeedTask;
 import de.schildbach.wallet.ui.send.DeriveKeyTask;
 import de.schildbach.wallet.util.KeyboardUtil;
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach

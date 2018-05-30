@@ -13,7 +13,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Toast;
 
-import de.schildbach.wallet_test.R;
+import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Tomasz Ludek
