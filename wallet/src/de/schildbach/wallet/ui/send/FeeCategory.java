@@ -17,32 +17,27 @@
 
 package de.schildbach.wallet.ui.send;
 
-import org.bitcoinj.core.Coin;
-
 /**
  * @author Andreas Schildbach
+ *
+ * NOTE: bitcoinj uses {@link de.schildbach.wallet.data.DynamicFeeLoader} to load fees dynamically
+ * and fees.txt as a fallback. Dynamic part is commented out in dashj, so only fees.txt is currently used.
  */
 public enum FeeCategory {
+    ZERO,
     /**
      * We don't care when it confirms, but it should confirm at some time. Can be days or weeks.
      */
-    ECONOMIC(Coin.valueOf(10000)), // 0.1 mBTC
+    ECONOMIC,
 
     /**
      * Under normal network conditions, confirms within the next 15 minutes. Can take longer, but this should
      * be an exception. And it should not take days or weeks.
      */
-    NORMAL(Coin.valueOf(50000)), // 0.5 mBTC
+    NORMAL,
 
     /**
      * Confirms within the next 2-10 minutes.
      */
-    PRIORITY(Coin.valueOf(100000)); // 1 mBTC
-
-    public final Coin feePerKb;
-
-    FeeCategory(final Coin feePerKb)
-    {
-        this.feePerKb = feePerKb;
-    }
+    PRIORITY;
 }

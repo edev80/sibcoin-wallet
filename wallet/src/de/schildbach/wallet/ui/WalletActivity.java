@@ -60,6 +60,7 @@ import de.schildbach.wallet.util.WalletUtils;
 import rusapps.sibcoin.wallet.R;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -570,6 +571,7 @@ public final class WalletActivity extends AbstractBindServiceActivity
         return dialog.create();
     }
 
+    @SuppressLint("StringFormatInvalid")
     private Dialog createRestoreWalletDialog() {
         final View view = getLayoutInflater().inflate(R.layout.restore_wallet_dialog, null);
         final TextView messageView = (TextView) view.findViewById(R.id.restore_wallet_dialog_message);
@@ -910,6 +912,7 @@ public final class WalletActivity extends AbstractBindServiceActivity
         return dialog.create();
     }
 
+    @SuppressLint("StringFormatInvalid")
     private void restoreWalletFromEncrypted(final File file, final String password) {
         try {
             final BufferedReader cipherIn = new BufferedReader(

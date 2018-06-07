@@ -21,7 +21,7 @@ import org.bitcoinj.core.VersionMessage;
 
 import de.schildbach.wallet.Constants;
 import de.schildbach.wallet.WalletApplication;
-import de.schildbach.wallet_test.BuildConfig;
+import rusapps.sibcoin.wallet.BuildConfig;
 import rusapps.sibcoin.wallet.R;
 
 import android.app.Activity;

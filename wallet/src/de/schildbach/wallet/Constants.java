@@ -37,7 +37,7 @@ import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
-import de.schildbach.wallet_test.BuildConfig;
+import rusapps.sibcoin.wallet.BuildConfig;
 
 import android.os.Build;
 import android.os.Environment;
