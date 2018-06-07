@@ -19,6 +19,7 @@ package de.schildbach.wallet.ui.send;
 
 import static com.google.common.base.Preconditions.checkState;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -505,6 +506,18 @@ public class SweepWalletFragment extends Fragment {
 
 		final RequestWalletBalanceTask.ResultCallback callback = new RequestWalletBalanceTask.ResultCallback() {
 			@Override
+			public void onResult(final Collection<Transaction> transactions) {
+				ProgressDialogFragment.dismissProgress(fragmentManager);
+
+				walletToSweep.clearTransactions(0);
+				for (final Transaction transaction : transactions)
+					walletToSweep.addWalletTransaction(new WalletTransaction(WalletTransaction.Pool.UNSPENT, transaction));
+
+				updateView();
+			}
+
+/* Replace with this impl. when JSONRPC lands
+			@Override
 			public void onResult(final Set<UTXO> utxos) {
 				ProgressDialogFragment.dismissProgress(fragmentManager);
 
@@ -552,7 +565,7 @@ public class SweepWalletFragment extends Fragment {
 				}
 				return false;
 			}
-
+*/
 			@Override
 			public void onFail(final int messageResId, final Object... messageArgs) {
 				ProgressDialogFragment.dismissProgress(fragmentManager);
@@ -573,7 +586,7 @@ public class SweepWalletFragment extends Fragment {
 
 		final Address address = walletToSweep.getImportedKeys().iterator().next()
 				.toAddress(Constants.NETWORK_PARAMETERS);
-		new RequestWalletBalanceTask(backgroundHandler, callback).requestWalletBalance(activity.getAssets(), address);
+		new RequestWalletBalanceTask(backgroundHandler, callback, application.httpUserAgent()).requestWalletBalance(address);
 	}
 
 	private void setState(final State state) {
