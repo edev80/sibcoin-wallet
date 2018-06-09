@@ -4,11 +4,11 @@
     <string name="help_wallet">
 <![CDATA[
 		<p>
-			O canto superior direito da tela exibe seu saldo em Dash e em alguma moeda selecionada.
+			O canto superior direito da tela exibe seu saldo em Sibcoin e em alguma moeda selecionada.
 			Toque para abrir a lista de moedas, e escolha uma delas para definir como padrão.
 		</p>
 		<p>
-			O QR code que contém seu endereço Dash é acessado pelo menu de navegação (canto superior esquerdo) e pode ser digitalizado pelos outros.
+			O QR code que contém seu endereço Sibcoin é acessado pelo menu de navegação (canto superior esquerdo) e pode ser digitalizado pelos outros.
 			Toque no QR code para exibir uma versão maior.
 		</p>
 		<p>
@@ -26,10 +26,10 @@
     <string name="help_request_coins">
 <![CDATA[
 		<p>
-			Usando esta tela, você consegue solicitar pagamentos para outra pessoa (que também tenha uma carteira Dash).
+			Usando esta tela, você consegue solicitar pagamentos para outra pessoa (que também tenha uma carteira Sibcoin).
 		</p>
 		<p>
-			Opcionalmente, você pode definir a quantidade de Dash a ser solicitada.
+			Opcionalmente, você pode definir a quantidade de Sibcoin a ser solicitada.
 		</p>
 		<p>
 			Um código QR será gerado e ele poderá ser digitalizado pela outra pessoa.
@@ -46,19 +46,19 @@
 <![CDATA[
 		<p>
 			Você iniciou o processo de envio de moedas.
-			Você chegou aqui através da tela principal ou clicando em um endereço Dash no seu navegador web.
+			Você chegou aqui através da tela principal ou clicando em um endereço Sibcoin no seu navegador web.
 		</p>
 		<p>
-			Primeiro, digite o endereço Dash de destino.
+			Primeiro, digite o endereço Sibcoin de destino.
 			O endereço será preenchido automaticamente a partir de entradas conhecidas no seu catálogo de endereços.
-			Você também pode digitalizar códigos QR com endereços Dash ou solicitações de pagamentos pressionando o botão QR.
+			Você também pode digitalizar códigos QR com endereços Sibcoin ou solicitações de pagamentos pressionando o botão QR.
 		</p>
 		<p>
-			Depois, serão exibidos quantos Dash você poderá gastar no momento.
+			Depois, serão exibidos quantos Sibcoin você poderá gastar no momento.
 			Qualquer diferença no saldo da tela principal ainda não foi confirmada e portanto ainda não poderá ser gasta.
 		</p>
 		<p>
-			Toque InstantSend se quiser fazer um pagamento imediato. Mas a taxa será maior (>0.001 DASH).
+			Toque InstantSend se quiser fazer um pagamento imediato. Mas a taxa será maior (>0.001 SIB).
 			No fim, você insere o valor a ser pago e, se houver, seu PIN de segurança.
 		</p>
 		<p>
@@ -80,7 +80,7 @@
 		</p>
 		<p>
 			As moedas são armazenados no dispositivo.
-			<b>Se o perder, perderá seus Dash.</b>
+			<b>Se o perder, perderá seus Sibcoin.</b>
 		</p>
 		<p>
 			Isso significa que você precisa <b>fazer backup da sua carteira</b>!
@@ -90,7 +90,7 @@
 		</p>
 		<p>
 			<b>Antes de desinstalar</b> (ou limpar dados da aplicação / fazer wipe do dispositivo), <b>transfira suas moedas para outra carteira</b>.
-			Os Dash restantes serão perdidos.
+			Os Sibcoin restantes serão perdidos.
 		</p>
 		<p>
 			<b>Pagamentos são irreversíveis</b>.

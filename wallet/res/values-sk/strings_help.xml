@@ -4,11 +4,11 @@
     <string name="help_wallet">
 <![CDATA[
 		<p>
-			V pravej hornej časti displeja sa zobrazuje Vaša bilancia v Dash a jednej zvolenej národnej mene.
+			V pravej hornej časti displeja sa zobrazuje Vaša bilancia v Sibcoin a jednej zvolenej národnej mene.
 			Poklepte na zoznam národných mien a zvoľte jednu ako predvolenú.
 		</p>
 		<p>
-			QR kód, ktorý obsahuje Vašu Dash adresu je dostupný z navigačného menu (v ľavo hore) a môže byť použitý pre načítanie inou osobou.
+			QR kód, ktorý obsahuje Vašu Sibcoin adresu je dostupný z navigačného menu (v ľavo hore) a môže byť použitý pre načítanie inou osobou.
 			Poklepaním na QR kód, získate väčšiu verziu.
 		</p>
 		<p>
@@ -26,10 +26,10 @@
     <string name="help_request_coins">
 <![CDATA[
 		<p>
-			Na tejto obrazovke môžete vyžiadať Dash od niekoho iného (kto má nainštalovanú aplikáciu Dash peňaženka). 
+			Na tejto obrazovke môžete vyžiadať Sibcoin od niekoho iného (kto má nainštalovanú aplikáciu Sibcoin peňaženka).
 		</p>
 		<p>
-			Najskôr zadajte sumu Dash, ktorú chcete vyžiadať.
+			Najskôr zadajte sumu Sibcoin, ktorú chcete vyžiadať.
 		</p>
 		<p>
 			Potom dajte druhej strane naskenovať vygenerovaný QR kód.
@@ -37,7 +37,7 @@
 			Ak majú oba telefóny spustenú funkciu NFC, stačí ich proložiť k sebe.
 		</p>
 		<p>
-			V oboch prípadoch druhá strana uvidí predvyplnenú obrazovku na odosielanie Dash.
+			V oboch prípadoch druhá strana uvidí predvyplnenú obrazovku na odosielanie Sibcoin.
 			Ak s transakciou súhlasí, tak ju iba jednoducho potvrdí.
 		</p>
 	]]>
@@ -45,25 +45,25 @@
     <string name="help_send_coins">
 <![CDATA[
 		<p>
-			Práve ste začali proces odosielania Dash.
-			Dostali ste sa sem z hlavnej obrazovky alebo kliknutím na Dash adresu v prehliadači.
+			Práve ste začali proces odosielania Sibcoin.
+			Dostali ste sa sem z hlavnej obrazovky alebo kliknutím na Sibcoin adresu v prehliadači.
 		</p>
 		<p>
 			Najprv zadajte adresu, na ktorú chcete odoslať platbu.
 			Ak sa adresa nachádza v adresári, tak sa automaticky doplní.
-			Môžete naskenovať QR kód s Dash adresou alebo požiadavkou na zaplatenie stlačením QR tlačítka.
+			Môžete naskenovať QR kód s Sibcoin adresou alebo požiadavkou na zaplatenie stlačením QR tlačítka.
 		</p>
 		<p>
-			Ďalej vidíte koľko Dash môžete aktuálne minúť.
-			Rozdiel medzi zostatkom na hlavnej obrazovke a počtom Dash, ktoré môžete minúť tvoria nepotvrdené transakcie.
+			Ďalej vidíte koľko Sibcoin môžete aktuálne minúť.
+			Rozdiel medzi zostatkom na hlavnej obrazovke a počtom Sibcoin, ktoré môžete minúť tvoria nepotvrdené transakcie.
 		</p>
 		<p>
-			Poklepte InstantSend ak chce urobíť okamžitú platbu. Poplatok bude väčší (> 0.001 DASH).
+			Poklepte InstantSend ak chce urobíť okamžitú platbu. Poplatok bude väčší (> 0.001 SIB).
 			Nakoniec zadajte sumu platby a PIN na míňanie ak ste si ho predtým nastavili.
 		</p>
 		<p>
 			Zadať platbu môžete aj keď ste bez pripojenia.
-			Platba bude odoslaná pri ďalšom spustení Dash peňaženky.
+			Platba bude odoslaná pri ďalšom spustení Sibcoin peňaženky.
 			Ak chcete, aby platba bola spracovaná v čo najkratšom čase, uistite sa že máte rýchle pripojenie (napríklad WiFi).
 		</p>
 		<p>
@@ -79,8 +79,8 @@
 			<b>Dôležité informácie o bezpečnosti:</b>
 		</p>
 		<p>
-			Dash sú uložené na Vašom zariadení.
-			<b>Ak zariadenie stratíte, prídete o všetky svoje Dash.</b>
+			Sibcoin sú uložené na Vašom zariadení.
+			<b>Ak zariadenie stratíte, prídete o všetky svoje Sibcoin.</b>
 		</p>
 		<p>
 			To znamená, že by ste mali <b>zálohovať svoju peňaženku</b>!
@@ -89,12 +89,12 @@
 			Toto je HD peňaženka. Stačí iba jedna záloha.
 		</p>
 		<p>
-			<b>Pred odinštalovaním</b> (alebo vymazaním dát/obnovením továrenských nastavení), <b>odošlite svoje Dash do inej peňaženky</b>.
-			Zvyšné Dash budú stratené.
+			<b>Pred odinštalovaním</b> (alebo vymazaním dát/obnovením továrenských nastavení), <b>odošlite svoje Sibcoin do inej peňaženky</b>.
+			Zvyšné Sibcoin budú stratené.
 		</p>
 		<p>
 			<b>Platby sú nevratné</b>.
-			Ak pošlete svoje Dash na nesprávnu adresu, je takmer nemožné získať ich späť.
+			Ak pošlete svoje Sibcoin na nesprávnu adresu, je takmer nemožné získať ich späť.
 		</p>
 		<p>
 			<b>Chráňte si svoje zariadenie!</b>

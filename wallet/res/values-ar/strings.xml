@@ -350,7 +350,7 @@
 	<string name="navigation_drawer_open">فتح درج التنقل</string>
 	<string name="navigation_drawer_close">فتح درج التنقل</string>
 
-	<string name="dash_slogan">لحظة - خاصة - آمنة</string>
-	<string name="dash_wallet">محفظة</string>
+	<string name="sibcoin_slogan">لحظة - خاصة - آمنة</string>
+	<string name="sibcoin_wallet">محفظة</string>
 
 </resources>

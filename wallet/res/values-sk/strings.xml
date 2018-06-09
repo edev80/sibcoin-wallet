@@ -12,7 +12,7 @@
     <string name="blockchain_state_progress_stalled">Synchronizácia pozastavená</string>
     <string name="blockchain_state_progress_problem_storage">Synchronizácia: Problém s dátovým úložiskom</string>
     <string name="blockchain_state_progress_problem_network">Synchronizácia: Problém so sieťou</string>
-    <string name="wallet_address_fragment_clipboard_msg">Adresa Dash skopírovaná do schránky</string>
+    <string name="wallet_address_fragment_clipboard_msg">Adresa Sibcoin skopírovaná do schránky</string>
     <string name="wallet_address_dialog_fragment_hint">Pre ochranu Vašeho súkromia sa Vaša adresa zmení vždy po prijatí platby.</string>
     <string name="wallet_balance_fragment_too_much">Tato čiastka je pomerne vysoká na nosenie vo vrecku. Presuňte nejakú čiastku na bezpečnejšie miesto.</string>
     <string name="wallet_balance_fragment_replaying">Zostatok je nedostupný počas synchronizácie.</string>
@@ -25,9 +25,9 @@
     <string name="exchange_rates_fragment_source">Cena získaná z %s</string>
     <string name="exchange_rates_options_search">Vyhľadať výmenný kurz</string>
     <string name="exchange_rates_context_set_as_default_title">Nastaviť ako predvolené</string>
-    <string name="wallet_transactions_fragment_empty_text_received">Zatiaľ neboli prijaté žiadne Dash</string>
-    <string name="wallet_transactions_fragment_empty_text_sent">Zatiaľ neboli odoslané žiadne Dash</string>
-    <string name="wallet_transactions_fragment_empty_text_howto">Ako získať Dash?\n\nVýmenou za tradičné peniaze,\npredajom tovarov a služieb,\nalebo prácou.</string>
+    <string name="wallet_transactions_fragment_empty_text_received">Zatiaľ neboli prijaté žiadne Sibcoin</string>
+    <string name="wallet_transactions_fragment_empty_text_sent">Zatiaľ neboli odoslané žiadne Sibcoin</string>
+    <string name="wallet_transactions_fragment_empty_text_howto">Ako získať Sibcoin?\n\nVýmenou za tradičné peniaze,\npredajom tovarov a služieb,\nalebo prácou.</string>
     <string name="wallet_transactions_row_warning_backup">Gratulujeme, obdržali ste svoju prvú platbu! Urobili ste &lt;u&gt;zálohu peňaženky&lt;/u&gt;, aby ste ju ochránili pred stratou?</string>
     <string name="wallet_transactions_row_warning_storage_encryption">Tip: pre zvýšenie zabezpečenia Vašej peňaženky môžete &lt;u&gt;zašifrovať Vaše zariadenie&lt;/u&gt;. Zabezpečíte tým aj dáta ostatných aplikácií.</string>
     <string name="wallet_transactions_fragment_coinbase">vyťažené</string>
@@ -41,20 +41,20 @@
     <string name="wallet_options_encrypt_keys_change">Zmeniť PIN pre míňanie</string>
     <string name="wallet_options_safety">Bezpečnosť</string>
     <string name="wallet_options_donate">Prispieť</string>
-    <string name="wallet_donate_address_label">Dar pre Dash peňaženku</string>
+    <string name="wallet_donate_address_label">Dar pre Sibcoin peňaženku</string>
     <string name="wallet_low_storage_dialog_title">Málo vnútornej pamäte!</string>
-    <string name="wallet_low_storage_dialog_msg">Peňaženka Dash používa internú pamäť pre uchovanie transakcií a blokov. Ak dôjde miesto, prestane pracovať and Vaše Dash-e budú v ohrození!\n\nChcete otvoriť správcu aplikácií a odinštalovať nepotrebné aplikácie?</string>
+    <string name="wallet_low_storage_dialog_msg">Peňaženka Sibcoin používa internú pamäť pre uchovanie transakcií a blokov. Ak dôjde miesto, prestane pracovať and Vaše Sibcoin-e budú v ohrození!\n\nChcete otvoriť správcu aplikácií a odinštalovať nepotrebné aplikácie?</string>
     <string name="wallet_low_storage_dialog_button_apps">Spravovať aplikácie</string>
     <string name="wallet_timeskew_dialog_title">Kontrola nastavenia času a dátumu</string>
-    <string name="wallet_timeskew_dialog_msg">Čas na Vašom zariadené je posunutý o %d minút. Kvôli tomuto problému pravdepodobne nemôžete odosielať alebo prijímať Dash.\n\nMali by ste skontrolovať a v prípade potreby opraviť dátum, čas a časové pásmo.</string>
+    <string name="wallet_timeskew_dialog_msg">Čas na Vašom zariadené je posunutý o %d minút. Kvôli tomuto problému pravdepodobne nemôžete odosielať alebo prijímať Sibcoin.\n\nMali by ste skontrolovať a v prípade potreby opraviť dátum, čas a časové pásmo.</string>
     <string name="wallet_version_dialog_title">Je dostupná nová verzia!</string>
     <string name="wallet_version_dialog_msg">Táto verzia opravuje kritické chyby. Pre viac informácií navštívte Google Play.</string>
     <string name="wallet_version_dialog_msg_deprecated">Ak nevidíte aktualizáciu, znamená to, že verzia Vašeho Android operačného systému už nie je podporovaná.</string>
     <string name="wallet_version_dialog_button_market">Google Play</string>
     <string name="wallet_version_dialog_button_binary">Stiahnuť</string>
     <string name="wallet_old_sdk_dialog_title">Verzia Vášho Androidu je zastaralá</string>
-    <string name="wallet_old_sdk_dialog_message">Je možné, že v novších verziách Dash Wallet už nebude podporované Vaše zariadenie. V určitých prípadoch môže byť obtiažne minúť Dash na tomto zariadení.\n\nJe odporúčané presunúť Dash z tohto zariadenia čo najskôr</string>
-    <string name="send_coins_activity_title">Poslať Dash</string>
+    <string name="wallet_old_sdk_dialog_message">Je možné, že v novších verziách Sibcoin Wallet už nebude podporované Vaše zariadenie. V určitých prípadoch môže byť obtiažne minúť Sibcoin na tomto zariadení.\n\nJe odporúčané presunúť Sibcoin z tohto zariadenia čo najskôr</string>
+    <string name="send_coins_activity_title">Poslať Sibcoin</string>
     <string name="send_coins_fragment_request_payment_request_progress">Získavanie podpisu z %s...</string>
     <string name="send_coins_fragment_request_payment_request_failed_title">Získavanie podpisu zlyhalo</string>
     <string name="send_coins_fragment_request_payment_request_wrong_signature">Nesprávny podpis!</string>
@@ -62,8 +62,8 @@
     <string name="send_coins_fragment_payee_verified_by_unknown">neznáme</string>
     <string name="send_coins_fragment_receiving_address_label">Zaplatiť</string>
     <string name="send_coins_fragment_receiving_address_hint">zadajte adresu alebo názov</string>
-    <string name="send_coins_fragment_receiving_address_error">Neplatná Dash adresa!</string>
-    <string name="send_coins_fragment_receiving_address_own">Chystáte sa poslať Dash sami sebe.</string>
+    <string name="send_coins_fragment_receiving_address_error">Neplatná Sibcoin adresa!</string>
+    <string name="send_coins_fragment_receiving_address_own">Chystáte sa poslať Sibcoin sami sebe.</string>
     <string name="send_coins_fragment_receiving_address_complex">komplexná\nadresa</string>
     <string name="send_coins_fragment_pending">(%s čaká na potvrdenie)</string>
     <string name="send_coins_fragment_amount_label">Suma na zaplatenie</string>
@@ -81,9 +81,9 @@
     <string name="send_coins_fragment_direct_payment_failed_msg">Platba bude odoslaná cez P2P sieť.</string>
     <string name="send_coins_fragment_button_send">Odoslať</string>
     <string name="send_coins_fragment_button_back">Späť</string>
-    <string name="send_coins_fragment_insufficient_money_title">Nedostatočné množstvo dostupných Dashov</string>
+    <string name="send_coins_fragment_insufficient_money_title">Nedostatočné množstvo dostupných Sibcoinov</string>
     <string name="send_coins_fragment_insufficient_money_msg1">Chýba %s.</string>
-    <string name="send_coins_fragment_insufficient_money_msg2">Chcete zaplatiť všetkými dostupnými Dashmi?</string>
+    <string name="send_coins_fragment_insufficient_money_msg2">Chcete zaplatiť všetkými dostupnými Sibcoinmi?</string>
     <string name="send_coins_fragment_empty_wallet_failed_title">Vyprázdnenie peňaženky zlyhalo</string>
     <string name="send_coins_fragment_state_decrypting">Dešifrovanie…</string>
     <string name="send_coins_preparation_msg">Podpisujem…</string>
@@ -124,21 +124,21 @@
     <string name="maintenance_dialog_state_decrypting">Dešifrovanie…</string>
     <string name="maintenance_dialog_state_done">Hotovo.</string>
     <string name="maintenance_dialog_button_move">Presunúť</string>
-    <string name="request_coins_activity_title">Vyžiadať Dash</string>
+    <string name="request_coins_activity_title">Vyžiadať Sibcoin</string>
     <string name="request_coins_fragment_amount_label">Vyžadovaná suma (nepovinné)</string>
     <string name="request_coins_fragment_accept_bluetooth_payment">Akceptovať platbu cez Bluetooth pre lepšie spracovanie</string>
     <string name="request_coins_fragment_initiate_request_qr">Dajte odosielateľovi oskenovať tento kód.</string>
     <string name="request_coins_fragment_initiate_request_nfc">Alebo stlačte, ak Vaše zariadenie podporuje NFC.</string>
-    <string name="request_coins_clipboard_msg">Požiadavok Dash skopírovaný do schránky</string>
-    <string name="request_coins_share_dialog_title">Zdieľať požiadavku na Dash…</string>
-    <string name="request_coins_no_local_app_msg">Nebola nájdená žiadna ďalšia Dash aplikácia</string>
+    <string name="request_coins_clipboard_msg">Požiadavok Sibcoin skopírovaný do schránky</string>
+    <string name="request_coins_share_dialog_title">Zdieľať požiadavku na Sibcoin…</string>
+    <string name="request_coins_no_local_app_msg">Nebola nájdená žiadna ďalšia Sibcoin aplikácia</string>
     <string name="request_coins_options_local_app_title">Vyžiadať z lokálnej aplikácie</string>
     <string name="address_book_activity_title">Adresár</string>
     <string name="address_book_list_receiving_title">Vaše adresy</string>
     <string name="address_book_list_receiving_random">Staré adresy</string>
     <string name="address_book_list_sending_title">Zoznam adries</string>
     <string name="address_book_empty_text">Žiadny záznam v adresári</string>
-    <string name="address_book_context_send_title">Odoslať Dash na adresu</string>
+    <string name="address_book_context_send_title">Odoslať Sibcoin na adresu</string>
     <string name="address_book_context_edit_title">Upraviť adresu</string>
     <string name="address_book_context_remove_title">Odstrániť adresu</string>
     <string name="address_book_context_copy_to_clipboard_title">Skopírovať do schránky</string>
@@ -149,7 +149,7 @@
     <string name="address_book_options_scan_title">Skenovať adresu</string>
     <string name="address_book_options_scan_invalid">Skenované dáta nebolo možné rozpoznať</string>
     <string name="address_book_options_scan_own_address">Naskenovaná adresa je Vaša vlastná.</string>
-    <string name="address_book_row_message_compromised_key">Táto adresa môže byť ohrozená. Nemali by ste ju už používať na prijímanie Dashov.</string>
+    <string name="address_book_row_message_compromised_key">Táto adresa môže byť ohrozená. Nemali by ste ju už používať na prijímanie Sibcoinov.</string>
     <string name="edit_address_book_entry_dialog_title_add">Pridať adresu</string>
     <string name="edit_address_book_entry_dialog_title_edit">Upraviť popis adresy</string>
     <string name="edit_address_book_entry_dialog_title_add_receive">Pridať štítok k Vašej adrese</string>
@@ -162,7 +162,7 @@
     <string name="transaction_row_message_purpose_raise_fee">Táto transakcia navýši sieťový poplatok za predchádzajúcu platbu.</string>
     <string name="transaction_row_message_own_unbroadcasted">Táto platba ešte nebola odoslaná.</string>
     <string name="transaction_row_message_received_direct">Táto platba bola prijatá priamo. Existuje určité riziko, že sa nikdy nebude dať minúť.</string>
-    <string name="transaction_row_message_received_unconfirmed_delayed">Došlo ku omeškaniu potvrdenia tejto platby, pravdepodobne kvôli preťaženiu site Dash.</string>
+    <string name="transaction_row_message_received_unconfirmed_delayed">Došlo ku omeškaniu potvrdenia tejto platby, pravdepodobne kvôli preťaženiu site Sibcoin.</string>
     <string name="transaction_row_message_received_unconfirmed_unlocked">Táto platba by mala byť potvrdená za pár minút.</string>
     <string name="transaction_row_message_received_in_conflict">Táto platba má zvýšené riziko jej odvolania odosielateľom. Pokiaľ môžete, počkajte na potvrdenie.</string>
     <string name="transaction_row_message_received_dead">Táto platba bola zrušená odosielateľom.</string>
@@ -202,8 +202,8 @@
     <string name="export_keys_dialog_success">Privátne kľúče boli zálohované do \n\n%s\n\nDržte ich v bezpečí, a taktiež držte v bezpečí Vaše heslo!\n\nChcete archivovať kľúče použitím aplikácie?</string>
     <string name="export_keys_dialog_failure">Vašu peňaženku sa nepodarilo zálohovať:\n%s</string>
     <string name="export_keys_dialog_button_archive">Archivovať</string>
-    <string name="export_keys_dialog_mail_subject">Záloha Dash peňaženky</string>
-    <string name="export_keys_dialog_mail_text">Príloha obsahuje zašifrované privátne kľúče Dash, uchovajte ich v bezpečí. Nezabudnite vaše heslo!</string>
+    <string name="export_keys_dialog_mail_subject">Záloha Sibcoin peňaženky</string>
+    <string name="export_keys_dialog_mail_text">Príloha obsahuje zašifrované privátne kľúče Sibcoin, uchovajte ich v bezpečí. Nezabudnite vaše heslo!</string>
     <string name="export_keys_dialog_mail_intent_chooser">Archivovať peňaženku použitím…</string>
     <string name="export_keys_dialog_mail_intent_failed">Archivácia peňaženky sa nepodarila.</string>
     <string name="import_export_keys_dialog_password">heslo</string>
@@ -230,8 +230,8 @@
     <string name="scan_camera_permission_dialog_message">Pre skenovanie QR kódu musíte povoliť používanie fotoaparátu.</string>
     <string name="input_parser_io_error">Nepodarilo sa prečítať:\n%s</string>
     <string name="input_parser_cannot_classify">Nepodarilo sa rozpoznať vstup:\n%s</string>
-    <string name="input_parser_invalid_bitcoin_uri">Neplatná Dash URI:\n%s</string>
-    <string name="input_parser_invalid_address">Neplatná Dash adresa!\n(Zamenené Mainnet/Testnet?)</string>
+    <string name="input_parser_invalid_bitcoin_uri">Neplatná Sibcoin URI:\n%s</string>
+    <string name="input_parser_invalid_address">Neplatná Sibcoin adresa!\n(Zamenené Mainnet/Testnet?)</string>
     <string name="input_parser_unverifyable_paymentrequest">Požiadavka na platbu sa nedá overiť:\n%s</string>
     <string name="input_parser_invalid_paymentrequest">Neplatná žiadosť o platbu:\n%s</string>
     <string name="input_parser_invalid_transaction">Neplatná transakcia:\n%s</string>
@@ -240,11 +240,11 @@
     <string name="preferences_category_labs">Experimentálne</string>
     <string name="preferences_precision_title">Jednotka a presnosť</string>
     <string name="preferences_precision_summary">Jednotka pre zobrazenie sumy. Neovplyvňuje výpočty.</string>
-    <string name="preferences_precision_labels_8">DASH, 8 desatinných miest</string>
-    <string name="preferences_precision_labels_6">DASH, 6 desatinných miest</string>
-    <string name="preferences_precision_labels_4">DASH, 4 desatinné miesta</string>
-    <string name="preferences_precision_labels_2_3">mDASH, 2 desatinné miesta</string>
-    <string name="preferences_precision_labels_0_6">µDASH, bez desatinných miest</string>
+    <string name="preferences_precision_labels_8">SIB, 8 desatinných miest</string>
+    <string name="preferences_precision_labels_6">SIB, 6 desatinných miest</string>
+    <string name="preferences_precision_labels_4">SIB, 4 desatinné miesta</string>
+    <string name="preferences_precision_labels_2_3">mSIB, 2 desatinné miesta</string>
+    <string name="preferences_precision_labels_0_6">µSIB, bez desatinných miest</string>
     <string name="preferences_own_name_title">Vlastné meno</string>
     <string name="preferences_own_name_summary">Vaše meno, ktoré sa pridá ku žiadosti o platbu. Snažte sa byť stručný.</string>
     <string name="preferences_send_coins_autoclose_title">Automaticky zatvoriť dialógové okno odosielania mincí</string>
@@ -292,7 +292,7 @@
     <string name="about_license_title">Licencia</string>
     <string name="about_source_title">Zdrojový kód</string>
     <string name="about_category_credits">Táto aplikácia používa...</string>
-    <string name="about_credits_bitcoinj_title">dashj %s, a implementáciu protokolu Dash</string>
+    <string name="about_credits_bitcoinj_title">sibcoinj %s, a implementáciu protokolu Sibcoin</string>
     <string name="about_credits_zxing_title">ZXing, knižnicu na spracovanie QR kódov</string>
     <string name="about_credits_icon_title">Táto aplikácia používa ikony od \"bitboy\"</string>
     <string name="about_credits_scrypt_title">Scrypt, implementovali Will Glozer a Colin Percival</string>
@@ -305,11 +305,11 @@
     <string name="notification_coins_received_msg">Prijaté %s</string>
     <string name="notification_peers_connected_msg">%d pripojených uzlov</string>
     <string name="notification_inactivity_title">Na zariadení máte stále ešte mince!</string>
-    <string name="notification_inactivity_message">Pamätajte, že stratíte zostatok %s v prípade, ak ho neodošlete skôr ako odinštalujete aplikáciu peňaženky Dash.</string>
-    <string name="notification_inactivity_message_donate">Ak je Vám to jedno, môžete tento zostatok venovať projektu Dash Wallet.</string>
+    <string name="notification_inactivity_message">Pamätajte, že stratíte zostatok %s v prípade, ak ho neodošlete skôr ako odinštalujete aplikáciu peňaženky Sibcoin.</string>
+    <string name="notification_inactivity_message_donate">Ak je Vám to jedno, môžete tento zostatok venovať projektu Sibcoin Wallet.</string>
     <string name="notification_inactivity_action_dismiss">Pripomenúť neskôr </string>
     <string name="notification_inactivity_action_dismiss_forever">Nepripomínať</string>
-    <string name="appwidget_wallet_balance_title">Bilancia Dash</string>
+    <string name="appwidget_wallet_balance_title">Bilancia Sibcoin</string>
 
     <!-- generic buttons -->
     <string name="button_ok">OK</string>
@@ -326,8 +326,8 @@
     <string name="button_paste">Vložiť</string>
     <string name="button_share">Zdieľať</string>
     <string name="button_set_as_default">Nastaviť ako predvolené</string>
-    <string name="button_request_coins">Vyžiadať Dash</string>
-    <string name="button_send_coins">Odoslať Dash</string>
+    <string name="button_request_coins">Vyžiadať Sibcoin</string>
+    <string name="button_send_coins">Odoslať Sibcoin</string>
     <string name="button_scan">Skenovať</string>
     <string name="button_settings">Nastavenia</string>
     <string name="action_show_qr">Ukázať QR kód</string>
@@ -350,7 +350,7 @@
     <string name="navigation_drawer_open">Otvoriť navigačný priečinok</string>
     <string name="navigation_drawer_close">Zatvoriť navigačný priečinok</string>
 
-    <string name="dash_slogan">Rýchla - Súkromná - Bezpečená</string>
-    <string name="dash_wallet">Peňaženka</string>
+    <string name="sibcoin_slogan">Rýchla - Súkromná - Bezpečená</string>
+    <string name="sibcoin_wallet">Peňaženka</string>
 
 </resources>

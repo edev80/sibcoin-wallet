@@ -4,11 +4,11 @@
     <string name="help_wallet">
 <![CDATA[
 		<p>
-			The upper right of the screen displays your balance in Dash and one selected national currency.
+			The upper right of the screen displays your balance in Sibcoin and one selected national currency.
 			Tap to go to the list of national currencies, and tap on one of the currencies to select it as default.
 		</p>
 		<p>
-			The QR code that contains your Dash address is accessed from the navigation menu (top left) and can be used for scanning by another party.
+			The QR code that contains your Sibcoin address is accessed from the navigation menu (top left) and can be used for scanning by another party.
 			Tap on the QR code to get a larger version of it.
 		</p>
 		<p>
@@ -26,10 +26,10 @@
     <string name="help_request_coins">
 <![CDATA[
 		<p>
-			Using this dialog, you can request coins from another person (who should already have installed Dash Wallet).
+			Using this dialog, you can request coins from another person (who should already have installed Sibcoin Wallet).
 		</p>
 		<p>
-			First, you can enter an amount of Dash to request.
+			First, you can enter an amount of Sibcoin to request.
 		</p>
 		<p>
 			Then, you either have the generated QR code scanned by the payer.
@@ -46,24 +46,24 @@
 <![CDATA[
 		<p>
 			You have initiated the process of sending coins.
-			You came here either through the main screen or by clicking on a Dash URL in your mobile browser.
+			You came here either through the main screen or by clicking on a Sibcoin URL in your mobile browser.
 		</p>
 		<p>
-			First, you enter the Dash address to pay to.
+			First, you enter the Sibcoin address to pay to.
 			The address will autocomplete from known entries in your address book.
-			You can also scan QR codes with Dash addresses or Dash requests by pressing the QR button.
+			You can also scan QR codes with Sibcoin addresses or Sibcoin requests by pressing the QR button.
 		</p>
 		<p>
-			Next, you can see how many Dash you can spend at the moment.
+			Next, you can see how many Sibcoin you can spend at the moment.
 			Any difference to the balance from the main screen is still unconfirmed and can thus not yet be spent.
 		</p>
 		<p>
-			Tap InstantSend if you intend to make an instant payment.  The fee is higher (> 0.001 DASH).
+			Tap InstantSend if you intend to make an instant payment.  The fee is higher (> 0.001 SIB).
 			Last, you enter the amount to pay and the spending PIN must be entered if one was set up beforehand.
 		</p>
 		<p>
 			You can enter a payment while being offline.
-			It will be sent on next restart of Dash Wallet.
+			It will be sent on next restart of Sibcoin Wallet.
 			If you want a payment to be processed as fast as possible, make sure you are well connected (i.e. on a WLAN).
 		</p>
 		<p>
@@ -79,8 +79,8 @@
 			<b>Important safety notes:</b>
 		</p>
 		<p>
-			Dash are stored on the device.
-			<b>If you lose it, you\'ll lose your Dash.</b>
+			Sibcoin are stored on the device.
+			<b>If you lose it, you\'ll lose your Sibcoin.</b>
 		</p>
 		<p>
 			This means you need to <b>back up your wallet</b>!
@@ -89,12 +89,12 @@
 			This is an HD wallet.  Only one backup is required.
 		</p>
 		<p>
-			<b>Before uninstalling</b> (or clearing app data/wiping your device), <b>transfer your Dash to another wallet</b>.
-			Remaining Dash will be lost.
+			<b>Before uninstalling</b> (or clearing app data/wiping your device), <b>transfer your Sibcoin to another wallet</b>.
+			Remaining Sibcoin will be lost.
 		</p>
 		<p>
 			<b>Payments are irreversible</b>.
-			If you send your Dash into the void, there is almost no way to get them back.
+			If you send your Sibcoin into the void, there is almost no way to get them back.
 		</p>
 		<p>
 			<b>Keep your mobile device safe!</b>

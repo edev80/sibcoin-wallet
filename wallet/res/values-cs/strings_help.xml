@@ -7,7 +7,7 @@
 
 ⇥⇥<p>
 
-⇥⇥⇥Na levé horní části displeje se zobrazuje vaše bilance v Dashi a jedna ve zvolené národní měně.
+⇥⇥⇥Na levé horní části displeje se zobrazuje vaše bilance v Sibcoini a jedna ve zvolené národní měně.
 
 ⇥⇥⇥Klepněte na seznam národních měn a zvolte jednu jako výchozí.
 
@@ -15,7 +15,7 @@
 
 ⇥⇥<p>
 
-⇥⇥⇥QR kód napravo obsahuje vaši Dash adresu, kterou si může oskenovat jiný uživatel .
+⇥⇥⇥QR kód napravo obsahuje vaši Sibcoin adresu, kterou si může oskenovat jiný uživatel .
 
 ⇥⇥⇥Chcete-li QR kód zvětšit, klepněte na něj .
 
@@ -45,18 +45,18 @@
 	<string name="help_request_coins">
 <![CDATA[
 		<p>
-			Pomocí tohoto dialogu můžete vyžádat Dashy od někoho jiného (kdo by měl také mít nainstalovanou aplikaci Dash Wallet).
+			Pomocí tohoto dialogu můžete vyžádat Sibcoiny od někoho jiného (kdo by měl také mít nainstalovanou aplikaci Sibcoin Wallet).
 		</p>
 		<p>
-			Nejprve zadejte množství Dashů, které chcete vyžádat.
+			Nejprve zadejte množství Sibcoinů, které chcete vyžádat.
 		</p>
 		<p>
 			Potom můžete protistraně nabídnout vygenerovaný QR kód k oskenování,
 			nebo můžete požadavek zaslat pomocí tlačítka sdílet v rychlé nabídce.
-			Druhá strana potom klikne na Dash URL.
+			Druhá strana potom klikne na Sibcoin URL.
 		</p>
 		<p>
-			V obou případech odesílatel uvidí dialog na zasílání Dashů s předvyplněnými údaji.
+			V obou případech odesílatel uvidí dialog na zasílání Sibcoinů s předvyplněnými údaji.
 			Pokud souhlasí, potvrdí zadané informace a dojde k transakci.
 		</p>
 	]]>
@@ -64,7 +64,7 @@
 	<string name="help_send_coins">
 <![CDATA[
 		<p>
-			Právě jste zahájil zasílání Dashů.
+			Právě jste zahájil zasílání Sibcoinů.
 			Sem jste se musel dostat buď přes hlavní obrazovku aplikace, nebo pomocí klepnutí na speciální adresu v prohlížeči.
 		</p>
 		<p>
@@ -73,7 +73,7 @@
 			Můžete také naskenovat QR kód s adresou nebo požadavkem na zaplacení, stisknutím tlačítka s ikonou QR kódu.
 		</p>
 		<p>
-			V dalším kroku uvidíte, kolik Dashů můžete momentálně utratit.
+			V dalším kroku uvidíte, kolik Sibcoinů můžete momentálně utratit.
 			Jakýkoliv rozdíl vůči zůstatku zobrazenému na výchozí obrazovce je stále nepotvrzen a tudíž nemůže být utracen.
 		</p>
 		<p>
@@ -81,7 +81,7 @@
 		</p>
 		<p>
 			Transakce můžete provádět, i když jste právě offline.
-			Budou provedeny při dalším spuštění aplikace Dash Wallet.
+			Budou provedeny při dalším spuštění aplikace Sibcoin Wallet.
 			Pokud chcete transakci provést co nejrychleji, ujistěte se, že máte rychlé připojení (například jste připojeni pomocí bezdrátové sítě).
 		</p>
 		<p>
@@ -94,20 +94,20 @@
 	<string name="help_safety">
 <![CDATA[
 		<p>
-			Několik slov o bezpečnosti vašich Dashů:
+			Několik slov o bezpečnosti vašich Sibcoinů:
 		</p>
 		<p>
-			Dashy v aplikaci Dash Wallet jsou uloženy ve vašem zařízení.
-			<b>Pokud o zařízení přijdete, přijdete i o Dashy v něm.</b>
+			Sibcoiny v aplikaci Sibcoin Wallet jsou uloženy ve vašem zařízení.
+			<b>Pokud o zařízení přijdete, přijdete i o Sibcoiny v něm.</b>
 			Stejně jako při ztrátě normální peněženky.
 		</p>
 		<p>
-			<b>Před odinstalací aplikace Dash Wallet</b> (nebo při odstraňování dat/wipe), <b> si přepošlete zůstatek do jiné peněženky</b>.
+			<b>Před odinstalací aplikace Sibcoin Wallet</b> (nebo při odstraňování dat/wipe), <b> si přepošlete zůstatek do jiné peněženky</b>.
 			Jakékoliv zůstavší Bitcony budou nenávratně ztraceny.
 		</p>
 		<p>
 			<b>Transakce nemohou být zrušeny</b>.
-			Pokud pošlete Dashy někam neznámo kam, neexistuje možnost, jak je získat zpět, jedině byste znali příjemce a on měl zrovna náladu je poctivě vrátit.
+			Pokud pošlete Sibcoiny někam neznámo kam, neexistuje možnost, jak je získat zpět, jedině byste znali příjemce a on měl zrovna náladu je poctivě vrátit.
 		</p>
 		<p>
 			<b>Provedené platby jsou nezvratné</b>.
@@ -117,11 +117,11 @@
 			<b>Udržujte svůj mobilní přístroj v bezpečí!</b>
 			Nepřivlastňujte si práva root svého přístoje.
 			Instalujte pouze aplikace, kterým plně důvěřujete.
-			Existují škodlivé aplikace, které vás mohou o vaše Dashy připravit.
+			Existují škodlivé aplikace, které vás mohou o vaše Sibcoiny připravit.
 		</p>
 		<p>
 			Neriskujte zbytečně!
-			<b>V aplikaci Dash Wallet mějte pouze malé částky</b> pro rychlé použití.
+			<b>V aplikaci Sibcoin Wallet mějte pouze malé částky</b> pro rychlé použití.
 		</p>
 	]]>
 	</string>

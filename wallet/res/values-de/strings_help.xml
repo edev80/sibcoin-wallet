@@ -4,11 +4,11 @@
     <string name="help_wallet">
 <![CDATA[
 		<p>
-			Im rechten oberen Teil des Bildschirms wird Dein aktuelles Guthaben in Dash und einer ausgewählten Währung angezeigt.
+			Im rechten oberen Teil des Bildschirms wird Dein aktuelles Guthaben in Sibcoin und einer ausgewählten Währung angezeigt.
 			Mit einem Tap darauf gelangst Du in die Liste der verfügbaren Währungen, ein weiterer Tap auf eine dieser Währungen setzt sie als Standardwährung fest.
 		</p>
 		<p>
-			Der QR-Code, der deine Dash-Adresse beinhaltet, wird über das Navigationsmenü (oben links) angewählt und kann von anderen Personen eingescannt werden.
+			Der QR-Code, der deine Sibcoin-Adresse beinhaltet, wird über das Navigationsmenü (oben links) angewählt und kann von anderen Personen eingescannt werden.
 			Mit einem Tap auf den QR-Code wird dieser vergrößert.
 		</p>
 		<p>
@@ -26,7 +26,7 @@
     <string name="help_request_coins">
 <![CDATA[
 		<p>
-			In diesem Dialogfeld kann eine Zahlung von einem anderen Teilnehmer angefordert werden (der dafür Dash Wallet auf seinem Gerät installiert haben sollte).
+			In diesem Dialogfeld kann eine Zahlung von einem anderen Teilnehmer angefordert werden (der dafür Sibcoin Wallet auf seinem Gerät installiert haben sollte).
 		</p>
 		<p>
 			Zuerst muss der angeforderte Betrag eingegeben werden.
@@ -46,24 +46,24 @@
 <![CDATA[
 		<p>
 			Dieses Dialogfeld wird geöffnet, wenn der Zahlungsprozess initiiert wurde.
-			Dies geschieht entweder durch einen Tap auf \"Zahlung senden\" auf der Startseite oder einen Tap auf eine Dash-URL im mobilen Browser.
+			Dies geschieht entweder durch einen Tap auf \"Zahlung senden\" auf der Startseite oder einen Tap auf eine Sibcoin-URL im mobilen Browser.
 		</p>
 		<p>
 			Im ersten Feld muss die Empfängeradresse eingegeben werden.
 			Wenn eine Adresse im Adressbuch gespeichert wurde, wird diese automatisch vervollständigt.
-			Es kann ebenfalls ein QR-Code mit Dash-Adressen oder Zahlungsanforderungen eingescannt werden, indem man den QR-Button in der Aktionsleiste tappt.
+			Es kann ebenfalls ein QR-Code mit Sibcoin-Adressen oder Zahlungsanforderungen eingescannt werden, indem man den QR-Button in der Aktionsleiste tappt.
 		</p>
 		<p>
-			Im nächsten Feld wird das verwendbare Dash-Guthaben angezeigt.
+			Im nächsten Feld wird das verwendbare Sibcoin-Guthaben angezeigt.
 			Falls dieses Guthaben vom angezeigten Guthaben auf der Hauptseite abweicht, sind noch nicht alle Transaktionen bestätigt.
 		</p>
 		<p>
-			Wenn InstantSend ausgewählt wurde wird die Bezahlung ohne Bearbeitungszeit ausgeführt. Die Gebühr dafür ist höher (> 0.001 DASH).
+			Wenn InstantSend ausgewählt wurde wird die Bezahlung ohne Bearbeitungszeit ausgeführt. Die Gebühr dafür ist höher (> 0.001 SIB).
 			Zuletzt muss die Zahlungsmenge sowie der Zahlungs-PIN eingegeben werden, falls einer eingestellt worden war.
 		</p>
 		<p>
 			Eine Zahlung kann auch offline eingegeben werden.
-			Beim nächsten Start von Dash Wallet wird diese durchgeführt.
+			Beim nächsten Start von Sibcoin Wallet wird diese durchgeführt.
 			Wenn eine Zahlung so schnell wie möglich bestätigt werden soll, ist eine gute Verbindung (z.B. über WLAN) zu empfehlen.
 		</p>
 		<p>
@@ -79,8 +79,8 @@
 			<b>Wichtige Sicherheitshinweise:</b>
 		</p>
 		<p>
-			Dash werden lokal auf dem Gerät gespeichert.
-			<b>Wenn das Gerät verloren geht, gehen alle Dash verloren.</b>
+			Sibcoin werden lokal auf dem Gerät gespeichert.
+			<b>Wenn das Gerät verloren geht, gehen alle Sibcoin verloren.</b>
 		</p>
 		<p>
 			Das bedeutet, <b>dass Du Deine Wallet sichern musst</b>!
@@ -88,18 +88,18 @@
 			Hebe Dein Backup gut auf und vergiss das Passwort bitte nicht.
 		</p>
 		<p>
-			<b>Vor der Deinstallation</b> (oder dem Löschen der App-Daten/Formatierung des Geräts), <b>müssen alle Dash auf eine andere Wallet übertragen werden</b>.
-			Auf dem Gerät verbleibende Dash gehen verloren.
+			<b>Vor der Deinstallation</b> (oder dem Löschen der App-Daten/Formatierung des Geräts), <b>müssen alle Sibcoin auf eine andere Wallet übertragen werden</b>.
+			Auf dem Gerät verbleibende Sibcoin gehen verloren.
 		</p>
 		<p>
 			<b>Zahlungen können nicht rückgängig gemacht werden</b>.
-			Wenn Dash ins Unbekannte geschickt wurden, gibt es kaum eine Möglichkeit, sie zurückzuerhalten.
+			Wenn Sibcoin ins Unbekannte geschickt wurden, gibt es kaum eine Möglichkeit, sie zurückzuerhalten.
 		</p>
 		<p>
 			<b>Halte Dein Mobilgerät bitte sicher!</b>
 			Bitte roote Dein Ihr Gerät nicht.
 			Bitte installiere nur Apps, denen Du vollkommen vertraust.
-			Bösartige Apps könnten versuchen, die in der Wallet gespeicherten Dash zu stehlen.
+			Bösartige Apps könnten versuchen, die in der Wallet gespeicherten Sibcoin zu stehlen.
 		</p>
 		<p>
 			Minimiere Dein Risiko!

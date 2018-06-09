@@ -3,10 +3,10 @@
 
 	<string name="send_coins_fragment_instantx_enable">Use InstantSend</string>
 	<string name="transaction_row_message_own_instantx_lock_request_notsent">This InstantSend payment has not been transmitted yet.</string>
-	<string name="transaction_row_message_own_instantx_lock_request">This InstantSend payment is awaiting verification by the Dash Network.</string>
+	<string name="transaction_row_message_own_instantx_lock_request">This InstantSend payment is awaiting verification by the Sibcoin Network.</string>
 	<string name="transaction_row_message_own_instantx_locked">Sent InstantSend transaction (locked)</string>
-	<string name="transaction_row_message_received_instantx_lock_request">This InstantSend payment is awaiting verification by the Dash Network.</string>
-	<string name="transaction_row_message_received_instantx_locked">This InstantSend payment has been verified by the Dash Network.</string>
+	<string name="transaction_row_message_received_instantx_lock_request">This InstantSend payment is awaiting verification by the Sibcoin Network.</string>
+	<string name="transaction_row_message_received_instantx_locked">This InstantSend payment has been verified by the Sibcoin Network.</string>
 	<string name="transaction_row_message_received_unconfirmed_instantx">Unconfirmed InstantSend</string>
 	<string name="transaction_row_message_received_instantx_locked2">Locked InstantSend</string>
 
@@ -16,20 +16,20 @@
 	<string name="export_keys_dialog_title_to_seed">View recovery phrase</string>
 	<string name="import_keys_dialog_title_from_seed">Restore from recovery phrase</string>
 	<string name="backup_to_seed_wallet_dialog_message">This is your recovery phrase.  Please write it down.</string>
-	<string name="backup_wallet_to_seed_dialog_warning">DO NOT let anyone see your recovery phrase or they can spend your Dash.</string>
+	<string name="backup_wallet_to_seed_dialog_warning">DO NOT let anyone see your recovery phrase or they can spend your Sibcoin.</string>
 	<string name="backup_to_seed_wallet_dialog_enter_pin_message">Your wallet is protected by a spending PIN.  Enter your PIN and press Show to view your recovery phrase.</string>
     <string name="import_keys_from_seed_dialog_message">Enter your recovery phrase here.</string>
 	<string name="import_export_keys_dialog_password_phrase">Recovery phrase goes here.</string>
 	<string name="navigation_configuration">Configuration</string>
     <string name="button_copy_address">Copy address</string>
-	<string name="request_coins_clipboard_address_msg">Dash address copied to clipboard</string>
+	<string name="request_coins_clipboard_address_msg">Sibcoin address copied to clipboard</string>
 	<string name="backup_wallet_to_seed_show_recovery_phrase">Show</string>
 	<string name="restore_wallet_from_invalid_seed_warning_message">%s is an invalid word.</string>
 
 	<string name="send_coins_options_fee_category_zero">No Fee</string>
 	<string name="send_coins_fragment_hint_fee_zero">No fee of will be paid. Use \'no fee\' only if you don\'t care about confirmation time.</string>
 
-	<string name="wallet_uri_handler_public_key_request_dialog_msg">Application %s would like to receive your Master Public Key.  This can be used to keep track of your wallet, this can not be used to move your Dash.</string>
+	<string name="wallet_uri_handler_public_key_request_dialog_msg">Application %s would like to receive your Master Public Key.  This can be used to keep track of your wallet, this can not be used to move your Sibcoin.</string>
 	<string name="wallet_uri_handler_address_request_dialog_msg">Application %s is requesting an address so it can pay you.  Would you like to authorize this?</string>
 
 	<string name="wallet_lock_unlock">Unlock</string>

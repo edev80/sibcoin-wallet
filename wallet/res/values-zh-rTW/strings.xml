@@ -240,11 +240,11 @@
 	<string name="preferences_category_labs">實驗室功能</string>
 	<string name="preferences_precision_title">顯示單位</string>
 	<string name="preferences_precision_summary">改變顯示單位，但不影響計算。</string>
-	<string name="preferences_precision_labels_8">DASH，小數點後8位</string>
-	<string name="preferences_precision_labels_6">DASH，小數點後6位</string>
-	<string name="preferences_precision_labels_4">DASH，小數點後4位</string>
-	<string name="preferences_precision_labels_2_3">mDASH，小數點後2位</string>
-	<string name="preferences_precision_labels_0_6">µDASH，沒有小數位</string>
+	<string name="preferences_precision_labels_8">SIB，小數點後8位</string>
+	<string name="preferences_precision_labels_6">SIB，小數點後6位</string>
+	<string name="preferences_precision_labels_4">SIB，小數點後4位</string>
+	<string name="preferences_precision_labels_2_3">mSIB，小數點後2位</string>
+	<string name="preferences_precision_labels_0_6">µSIB，沒有小數位</string>
 	<string name="preferences_own_name_title">自己的名字</string>
 	<string name="preferences_own_name_summary">為自己起名，可在支付請求中顯示。請盡量簡短。</string>
 	<string name="preferences_send_coins_autoclose_title">自動關閉發送錢幣對話框</string>
@@ -292,7 +292,7 @@
 	<string name="about_license_title">授權</string>
 	<string name="about_source_title">原始碼</string>
 	<string name="about_category_credits">這個程式正在使用...</string>
-	<string name="about_credits_bitcoinj_title">dashj%s，一個達世幣協議實施</string>
+	<string name="about_credits_bitcoinj_title">sibcoinj%s，一個達世幣協議實施</string>
 	<string name="about_credits_zxing_title">ZXing，一個二維碼處理庫</string>
 	<string name="about_credits_icon_title">這個應用程式正在使用\'bitboy\'的圖示</string>
 	<string name="about_credits_scrypt_title">由Will Glozer和Colin Percival所實施的Scrypt</string>
@@ -350,7 +350,7 @@
 	<string name="navigation_drawer_open">打開導覽列</string>
 	<string name="navigation_drawer_close">關閉導覽列</string>
 
-	<string name="dash_slogan">即時 - 私隱 - 安全</string>
-	<string name="dash_wallet">錢包</string>
+	<string name="sibcoin_slogan">即時 - 私隱 - 安全</string>
+	<string name="sibcoin_wallet">錢包</string>
 
 </resources>

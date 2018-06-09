@@ -3,10 +3,10 @@
 
 	<string name="send_coins_fragment_instantx_enable">InstantSend gebruiken</string>
 	<string name="transaction_row_message_own_instantx_lock_request_notsent">Deze InstantSend-betaling is nog niet overgedragen.</string>
-	<string name="transaction_row_message_own_instantx_lock_request">Deze InstantSend-betaling wacht op goedkeuring door Dash Network.</string>
+	<string name="transaction_row_message_own_instantx_lock_request">Deze InstantSend-betaling wacht op goedkeuring door Sibcoin Network.</string>
 	<string name="transaction_row_message_own_instantx_locked">InstantSend-transactie versturen (vergrendeld)</string>
-	<string name="transaction_row_message_received_instantx_lock_request">Deze InstantSend-betaling wacht op goedkeuring door Dash Network.</string>
-	<string name="transaction_row_message_received_instantx_locked">Deze InstantSend-betaling is goedgekeurd door Dash Network.</string>
+	<string name="transaction_row_message_received_instantx_lock_request">Deze InstantSend-betaling wacht op goedkeuring door Sibcoin Network.</string>
+	<string name="transaction_row_message_received_instantx_locked">Deze InstantSend-betaling is goedgekeurd door Sibcoin Network.</string>
 	<string name="transaction_row_message_received_unconfirmed_instantx">Niet-bevestigde InstantSend</string>
 	<string name="transaction_row_message_received_instantx_locked2">Vergrendelde InstantSend</string>
 
@@ -16,21 +16,21 @@
 	<string name="export_keys_dialog_title_to_seed">Toon herstelwachtwoord</string>
 	<string name="import_keys_dialog_title_from_seed">Herstel van herstelwachtwoord</string>
 	<string name="backup_to_seed_wallet_dialog_message">Dit is je herstelwachtwoord. Schrijf het a.ub. op.</string>
-	<string name="backup_wallet_to_seed_dialog_warning">Laat NIEMAND je herstelwachtwoord zien, anders kunnen ze je Dash uitgeven.</string>
+	<string name="backup_wallet_to_seed_dialog_warning">Laat NIEMAND je herstelwachtwoord zien, anders kunnen ze je Sibcoin uitgeven.</string>
 	<string name="backup_to_seed_wallet_dialog_enter_pin_message">Betalingen vanuit je portemonnee zijn bescherm met een pin. Voer je pin in en kies Toon je herstelwachtwoord te bekijken.</string>
     <string name="import_keys_from_seed_dialog_message">Voer je herstelwachtwoord hier in.</string>
 	<string name="import_export_keys_dialog_password_phrase">Voer hier je herstelwachtwoord in.</string>
 	<string name="preferences_report_issue_summary">Vergaar informatie aangaande uw probleem en verstuur via e-mail een melding aan de ontwikkelaars</string>
 	<string name="navigation_configuration">Configuratie</string>
     <string name="button_copy_address">Kopieer adres</string>
-	<string name="request_coins_clipboard_address_msg">Dash-adres is gekopieerd naar klembord</string>
+	<string name="request_coins_clipboard_address_msg">Sibcoin-adres is gekopieerd naar klembord</string>
 	<string name="backup_wallet_to_seed_show_recovery_phrase">Toon</string>
 	<string name="restore_wallet_from_invalid_seed_warning_message">%s is een ongeldig woord.</string>
 
 	<string name="send_coins_options_fee_category_zero">Geen marge</string>
 	<string name="send_coins_fragment_hint_fee_zero">Geen marge zal worden betaald. Gebruik \'geen marge\' alleen als niet geeft om de bevestigingstijd.</string>
 
-	<string name="wallet_uri_handler_public_key_request_dialog_msg">Applicatie %s wil je Master Public Key ontvangen.  Deze kan worden gebruikt om je portemonnee te volgen, maar kan niet gebruikt worden om Dash over te maken.</string>
+	<string name="wallet_uri_handler_public_key_request_dialog_msg">Applicatie %s wil je Master Public Key ontvangen.  Deze kan worden gebruikt om je portemonnee te volgen, maar kan niet gebruikt worden om Sibcoin over te maken.</string>
 	<string name="wallet_uri_handler_address_request_dialog_msg">Applicatie %s verzoekt een adres om je op te betalen. Wil je dit autoriseren?</string>
 
 	<string name="wallet_lock_unlock">Ontgrendel</string>

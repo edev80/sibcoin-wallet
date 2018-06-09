@@ -4,11 +4,11 @@
     <string name="help_wallet">
 <![CDATA[
 		<p>
-			La esquina derecha de la pantalla muestra tu balance en Dash y la moneda nacional seleccionada.
+			La esquina derecha de la pantalla muestra tu balance en Sibcoin y la moneda nacional seleccionada.
 			Presiona para obtener la lista de monedas nacionales, y presiona una de las monedas para seleccionarla como predeterminada.
 		</p>
 		<p>
-			Se accede al código QR que contiene tu dirección de Dash desde el menú de navegación (arriba a la izquierda) y se puede utilizar para ser escaneado por otra parte.
+			Se accede al código QR que contiene tu dirección de Sibcoin desde el menú de navegación (arriba a la izquierda) y se puede utilizar para ser escaneado por otra parte.
 			Presiona sobre el código QR para obtener una versión más grande.
 		</p>
 		<p>
@@ -26,10 +26,10 @@
 	<string name="help_request_coins">
 <![CDATA[
 		<p>
-			Al usar éste diálogo, puedes solicitar monedas de otras personas (que ya tengan instalado su Monedero Dash).
+			Al usar éste diálogo, puedes solicitar monedas de otras personas (que ya tengan instalado su Monedero Sibcoin).
 		</p>
 		<p>
-			Primero, puedes introducir la cantidad de Dash que deseas recibir.
+			Primero, puedes introducir la cantidad de Sibcoin que deseas recibir.
 		</p>
 		<p>
 			Luego, o tienes el código QR generado el cual será escaneado por el pagador.
@@ -46,24 +46,24 @@
 <![CDATA[
 		<p>
 			Has iniciado el proceso de enviar monedas.
-			Llegaste aquí a través de la pantalla principal o haciendo click en una URL de Dash en el navegador de tu dispositivo móvil.
+			Llegaste aquí a través de la pantalla principal o haciendo click en una URL de Sibcoin en el navegador de tu dispositivo móvil.
 		</p>
 		<p>
-			Primero, introduce la dirección de Dash a la cual se le hará el pago.
+			Primero, introduce la dirección de Sibcoin a la cual se le hará el pago.
 			La dirección se autocompletará a partir de entradas conocidas en su libreta de direcciones.
-			También puedes escanear códigos QR con las direcciones de Dash o solicitudes de Dash presionando el botón QR.
+			También puedes escanear códigos QR con las direcciones de Sibcoin o solicitudes de Sibcoin presionando el botón QR.
 		</p>
 		<p>
-			A continuación, puedes ver cuantos Dash puedes gastar en el momento.
+			A continuación, puedes ver cuantos Sibcoin puedes gastar en el momento.
 			Cualquier diferencia al saldo de la pantalla principal que aún no esté confirmada no se podrá gastar.
 		</p>
 		<p>
-			Presione InstantSend si tiene la intención de realizar un pago instantáneo. La tarifa es más alta (> 0.001 DASH).
+			Presione InstantSend si tiene la intención de realizar un pago instantáneo. La tarifa es más alta (> 0.001 SIB).
 			Por último, ingrese el monto a pagar. debe ingresar el PIN de gasto si se configuró previamente.
 		</p>
 		<p>
 			Puede igualmente ingresar un pago sin estar en línea.
-			Se enviará en el próximo reinicio del Monedero Dash
+			Se enviará en el próximo reinicio del Monedero Sibcoin
 			Si desea que un pago se procese lo más rápido posible, asegúrese de estar bien conectado (es decir, en una WLAN).
 		</p>
 		<p>
@@ -79,8 +79,8 @@
 			<b>Notas de seguridad importantes:</b>
 		</p>
 		<p>
-			Los Dash se almacenan en el dispositivo.
-			<b>Si lo extravía, perderá sus Dash.</b>
+			Los Sibcoin se almacenan en el dispositivo.
+			<b>Si lo extravía, perderá sus Sibcoin.</b>
 		</p>
 		<p>
 			Esto significa que usted tiene que<b>hacer una copia de seguridad de su monedero</b>!
@@ -89,22 +89,22 @@
 			Esta es un monedero HD, sólo se requiere una copia de seguridad.
 		</p>
 		<p>
-			<b>Antes de desintalar</b> (o eliminar los datos de la aplicación o almacenamiento del dispositivo), <b>transfiere tus Dash a otro monedero</b>.
-			Los Dash que queden en el dispositivo se perderán.
+			<b>Antes de desintalar</b> (o eliminar los datos de la aplicación o almacenamiento del dispositivo), <b>transfiere tus Sibcoin a otro monedero</b>.
+			Los Sibcoin que queden en el dispositivo se perderán.
 		</p>
 		<p>
 			<b>Los pagos son irreversibles</b>.
-			Si envía sus Dash por error, no hay manera de recuperarlos.
+			Si envía sus Sibcoin por error, no hay manera de recuperarlos.
 		</p>
 		<p>
 			<b>¡Mantenga su dispositivo móvil a salvo!</b>
 			No rootee su dispositivo.
 			Instala solamente aplicaciones en las que confíes plenamente.
-			Puede haber aplicaciones maliciosas que intenten robar tus Dash
+			Puede haber aplicaciones maliciosas que intenten robar tus Sibcoin
 		</p>
 		<p>
 			¡Minimiza el riesgo!
-			<b>Utliza Dash Wallet solamente para cantidades pequeñas</b>de uso diario.
+			<b>Utliza Sibcoin Wallet solamente para cantidades pequeñas</b>de uso diario.
 		</p>
 		]]>
 </string>

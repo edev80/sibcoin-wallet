@@ -239,11 +239,11 @@
     <string name="preferences_category_labs">实验</string>
     <string name="preferences_precision_title">面值和精度</string>
     <string name="preferences_precision_summary">金额的显示单位，不会影响计算。</string>
-    <string name="preferences_precision_labels_8">DASH, 8位小数</string>
-    <string name="preferences_precision_labels_6">DASH, 6位小数</string>
-    <string name="preferences_precision_labels_4">DASH, 4位小数</string>
-    <string name="preferences_precision_labels_2_3">mDASH, 2位小数</string>
-    <string name="preferences_precision_labels_0_6">µDASH, 无小数位</string>
+    <string name="preferences_precision_labels_8">SIB, 8位小数</string>
+    <string name="preferences_precision_labels_6">SIB, 6位小数</string>
+    <string name="preferences_precision_labels_4">SIB, 4位小数</string>
+    <string name="preferences_precision_labels_2_3">mSIB, 2位小数</string>
+    <string name="preferences_precision_labels_0_6">µSIB, 无小数位</string>
     <string name="preferences_own_name_title">自己的名字</string>
     <string name="preferences_own_name_summary">为自己起名，可在支付请求中显示。尽量简短。</string>
     <string name="preferences_send_coins_autoclose_title">自动关闭发送币窗口</string>
@@ -291,7 +291,7 @@
     <string name="about_license_title">许可协议</string>
     <string name="about_source_title">源代码</string>
     <string name="about_category_credits">此应用正在使用...</string>
-    <string name="about_credits_bitcoinj_title">dashj %s, 达世币实现协议</string>
+    <string name="about_credits_bitcoinj_title">sibcoinj %s, 达世币实现协议</string>
     <string name="about_credits_zxing_title">ZXing, 二维码处理函数库</string>
     <string name="about_credits_icon_title">此app使用的是‘bitboy’的图标</string>
     <string name="about_credits_scrypt_title">脚本, 由Will Glozer 和 Colin Percival制作</string>
@@ -349,7 +349,7 @@
     <string name="navigation_drawer_open">开启导航抽屉</string>
     <string name="navigation_drawer_close">关闭导航抽屉</string>
 
-    <string name="dash_slogan">即时-隐私-安全</string>
-    <string name="dash_wallet">钱包</string>
+    <string name="sibcoin_slogan">即时-隐私-安全</string>
+    <string name="sibcoin_wallet">钱包</string>
 
 </resources>

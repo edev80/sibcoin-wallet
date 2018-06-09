@@ -3,10 +3,10 @@
 
 	<string name="send_coins_fragment_instantx_enable">Usar InstantSend</string>
 	<string name="transaction_row_message_own_instantx_lock_request_notsent">Este pago enviado por InstantSend aún no ha sido transmitido.</string>
-	<string name="transaction_row_message_own_instantx_lock_request">Este pago enviado por InstantSend está a la espera de verificación por parte de la red de Dash.</string>
+	<string name="transaction_row_message_own_instantx_lock_request">Este pago enviado por InstantSend está a la espera de verificación por parte de la red de Sibcoin.</string>
 	<string name="transaction_row_message_own_instantx_locked">Transacción enviada por InstantSend (confirmada)</string>
-	<string name="transaction_row_message_received_instantx_lock_request">Este pago enviado por InstantSend está a la espera de verificación por la red de Dash.</string>
-	<string name="transaction_row_message_received_instantx_locked">Este pago enviado por InstantSend ha sido verificado por la red de Dash.</string>
+	<string name="transaction_row_message_received_instantx_lock_request">Este pago enviado por InstantSend está a la espera de verificación por la red de Sibcoin.</string>
+	<string name="transaction_row_message_received_instantx_locked">Este pago enviado por InstantSend ha sido verificado por la red de Sibcoin.</string>
 	<string name="transaction_row_message_received_unconfirmed_instantx">InstantSend no confirmado</string>
 	<string name="transaction_row_message_received_instantx_locked2">InstantSend confirmado</string>
 
@@ -16,21 +16,21 @@
 	<string name="export_keys_dialog_title_to_seed">Ver frase de recuperación</string>
 	<string name="import_keys_dialog_title_from_seed">Restablecer billetera con frase de recuperación</string>
 	<string name="backup_to_seed_wallet_dialog_message">Esta es tu frase de recuperación. Por favor anótala.</string>
-	<string name="backup_wallet_to_seed_dialog_warning">NO DEJES a nadie ver tu frase de recuperación o podrán gastar tus Dash.</string>
+	<string name="backup_wallet_to_seed_dialog_warning">NO DEJES a nadie ver tu frase de recuperación o podrán gastar tus Sibcoin.</string>
 	<string name="backup_to_seed_wallet_dialog_enter_pin_message">Tu billetera está protegida por un PIN. Introduce tu PIN y presiona Mostrar para ver tu frase de recuperación.</string>
     <string name="import_keys_from_seed_dialog_message">Introduce tu frase de recuperación aqui.</string>
 	<string name="import_export_keys_dialog_password_phrase">La frase de recuperación va aquí.</string>
 	<string name="preferences_report_issue_summary">Reúne información sobre tu problema y envía un email a los desarrolladores con tu reporte.</string>
 	<string name="navigation_configuration">Configuración</string>
     <string name="button_copy_address">Copiar dirección</string>
-	<string name="request_coins_clipboard_address_msg">Dirección Dash copiada en el portapapeles</string>
+	<string name="request_coins_clipboard_address_msg">Dirección Sibcoin copiada en el portapapeles</string>
 	<string name="backup_wallet_to_seed_show_recovery_phrase">Mostrar</string>
 	<string name="restore_wallet_from_invalid_seed_warning_message">%s es una palabra inválida.</string>
 
 	<string name="send_coins_options_fee_category_zero">Sin comisión</string>
 	<string name="send_coins_fragment_hint_fee_zero">No se pagará ninguna comisión. Usa \"Sin comisión\", solo si no te importa el tiempo de confirmación.</string>
 
-	<string name="wallet_uri_handler_public_key_request_dialog_msg">La aplicación %s le gustaría recibir tu Llave Pública Maestra. Esto puede ser usado para realizar un seguimiento de tu billetera, esto no puede ser usado para mover tus Dash.</string>
+	<string name="wallet_uri_handler_public_key_request_dialog_msg">La aplicación %s le gustaría recibir tu Llave Pública Maestra. Esto puede ser usado para realizar un seguimiento de tu billetera, esto no puede ser usado para mover tus Sibcoin.</string>
 	<string name="wallet_uri_handler_address_request_dialog_msg">La aplicación %s está solicitando una dirección para que pueda pagarte. ¿Te gustaría autorizar esto?</string>
 
 	<string name="wallet_lock_unlock">Desbloquear</string>

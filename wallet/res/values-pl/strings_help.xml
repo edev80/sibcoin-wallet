@@ -4,11 +4,11 @@
     <string name="help_wallet">
 <![CDATA[
 		<p>
-			W prawym górnym rogu możesz znaleźć twoje saldo w Dash oraz wybranej walucie narodowej
+			W prawym górnym rogu możesz znaleźć twoje saldo w Sibcoin oraz wybranej walucie narodowej
 			Puknij aby przejść do listy walut narodowych i wybierz jedną jako twoją domyślną
 		</p>
 		<p>
-			Możesz znaleźć kod QR z twoim adresem Dash menu nawigacji (lewy górny róg) i dać komuś do zeskanowania.
+			Możesz znaleźć kod QR z twoim adresem Sibcoin menu nawigacji (lewy górny róg) i dać komuś do zeskanowania.
 		Puknij w kod QR aby powiększyć
 		</p>
 		<p>
@@ -25,10 +25,10 @@
     <string name="help_request_coins">
 <![CDATA[
 		<p>
-			W tym oknie możesz prosić o przesłanie tobie monet przez inne osoby (które również powinny mieć zainstalowany portfel Dash).
+			W tym oknie możesz prosić o przesłanie tobie monet przez inne osoby (które również powinny mieć zainstalowany portfel Sibcoin).
 		</p>
 		<p>
-			Najpierw podaj ilość Dash, o które prosisz.
+			Najpierw podaj ilość Sibcoin, o które prosisz.
 		</p>
 		<p>
 			Następnie możesz dać płacącemu zeskanować wygenerowany kod QR.
@@ -45,23 +45,23 @@
 <![CDATA[
 		<p>
 			Zacząłeś proces wysyłania monet
-			Dostałeś się tutaj z ekranu głównego lub klikająć adres URL Dash w swojej przeglądarce mobilnej.
+			Dostałeś się tutaj z ekranu głównego lub klikająć adres URL Sibcoin w swojej przeglądarce mobilnej.
 		</p>
 		<p>
-			Na początku podaj adres Dash, na który chcesz zrobić przelew.
+			Na początku podaj adres Sibcoin, na który chcesz zrobić przelew.
 			Adres zostanie uzupełniony automatycznie na podstawie znanych adresów z twojej listy.
-			Możesz rónież zeskanować kody QR zawierające adresy Dash lub prośby o przelewy, naciskając przycisk QR.
+			Możesz rónież zeskanować kody QR zawierające adresy Sibcoin lub prośby o przelewy, naciskając przycisk QR.
 		</p>
 		<p>
-			Następnie możesz sprawdzić jak dużo Dash\'y możesz wydać.			
+			Następnie możesz sprawdzić jak dużo Sibcoin\'y możesz wydać.
 		</p>
 		<p>
-			Stuknij w InstantSend jeśli chcesz dokonać natychmiastowej płatności.  Opłata jest większa (> 0.001 DASH).
+			Stuknij w InstantSend jeśli chcesz dokonać natychmiastowej płatności.  Opłata jest większa (> 0.001 SIB).
 			Na końcu podajesz kwotę do przelewu oraz PIN do wysyłania, jeśli był wcześniej ustalony.
 		</p>
 		<p>
 			Możesz wprowadzić dane do płatności nawet jeśli nie masz dostępu do sieci.
-			Płatność zostanie dokonana przy ponownym uruchomieniu portfela Dash.
+			Płatność zostanie dokonana przy ponownym uruchomieniu portfela Sibcoin.
 			Jeśli chcesz, aby płatność została dokonana szybko, upewnij się, że masz dobre połączenie z siecią internet (np. po przez WiFi).
 		</p>
 		<p>
@@ -77,8 +77,8 @@
 			<b>Ważne uwagi bezpieczeństwa:</b>
 		</p>
 		<p>
-			Monety Dash są przechowywane na tym urządzeniu.
-			<b>Jeśli je zgubisz stracisz wszystkie Dash\'e.</b>
+			Monety Sibcoin są przechowywane na tym urządzeniu.
+			<b>Jeśli je zgubisz stracisz wszystkie Sibcoin\'e.</b>
 		</p>
 		<p>
 			To oznacza, że musisz <b>zrobić kopię swojego portfela</b>!
@@ -87,12 +87,12 @@
 			To jest portfel HD. Tylko jedna kopia zapasowa jest wymagana.
 		</p>
 		<p>
-			<b>Przed odinstalowaniem</b> (lub czyszczeniem danych aplikacji/wymazywaniem urządzenia), <b>przelej swoje Dash\'e na inny portfel</b>.
-			Pozostawione Dash\'e zostaną utracone.
+			<b>Przed odinstalowaniem</b> (lub czyszczeniem danych aplikacji/wymazywaniem urządzenia), <b>przelej swoje Sibcoin\'e na inny portfel</b>.
+			Pozostawione Sibcoin\'e zostaną utracone.
 		</p>
 		<p>
 			<b>Płatności są nieodwracalne</b>.
-			Jeśli wyślesz swoje Dash\'e w pustkę, nie ma prawie żadnego sposobu, aby je odzyskać.
+			Jeśli wyślesz swoje Sibcoin\'e w pustkę, nie ma prawie żadnego sposobu, aby je odzyskać.
 		</p>
 		<p>
 			<b>Utrzymuj bezpieczeństwo swojego urządzenia mobilnego!</b>

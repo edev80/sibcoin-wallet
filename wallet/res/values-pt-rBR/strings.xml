@@ -12,7 +12,7 @@
     <string name="blockchain_state_progress_stalled">Sincronização parada</string>
     <string name="blockchain_state_progress_problem_storage">Sincronizando: Problema de armazenamento</string>
     <string name="blockchain_state_progress_problem_network">Sincronizando: Problema na rede</string>
-    <string name="wallet_address_fragment_clipboard_msg">Endereço Dash copiado para a área de transferência</string>
+    <string name="wallet_address_fragment_clipboard_msg">Endereço Sibcoin copiado para a área de transferência</string>
     <string name="wallet_address_dialog_fragment_hint">Para proteger a sua privacidade, seu endereço irá mudar assim que você receber um pagamento.</string>
     <string name="wallet_balance_fragment_too_much">Este valor é bastante alto para transportar no seu bolso. Por favor, envie um pouco para um lugar mais seguro.</string>
     <string name="wallet_balance_fragment_replaying">Saldo indisponível durante a reavaliação.</string>
@@ -25,10 +25,10 @@
     <string name="exchange_rates_fragment_source">Preço de %s</string>
     <string name="exchange_rates_options_search">Pesquisar taxa de câmbio</string>
     <string name="exchange_rates_context_set_as_default_title">Definir como padrão</string>
-    <string name="wallet_transactions_fragment_empty_text_received">Nenhum Dash recebido até o momento.</string>
-    <string name="wallet_transactions_fragment_empty_text_sent">Nenhum Dash enviado até o momento.</string>
-    <string name="wallet_transactions_fragment_empty_text_howto">Como conseguir Dash?\n\nTroque por dinheiro tradicional,\nvenda bens ou serviços ou\nganhe trabalhando.</string>
-    <string name="wallet_transactions_row_warning_backup">Parabéns, você recebeu o seu primeiro pagamento! Deseja efetuar o &lt;u&gt;backup de sua carteira&lt;/u&gt;, para proteger seus Dash?</string>
+    <string name="wallet_transactions_fragment_empty_text_received">Nenhum Sibcoin recebido até o momento.</string>
+    <string name="wallet_transactions_fragment_empty_text_sent">Nenhum Sibcoin enviado até o momento.</string>
+    <string name="wallet_transactions_fragment_empty_text_howto">Como conseguir Sibcoin?\n\nTroque por dinheiro tradicional,\nvenda bens ou serviços ou\nganhe trabalhando.</string>
+    <string name="wallet_transactions_row_warning_backup">Parabéns, você recebeu o seu primeiro pagamento! Deseja efetuar o &lt;u&gt;backup de sua carteira&lt;/u&gt;, para proteger seus Sibcoin?</string>
     <string name="wallet_transactions_row_warning_storage_encryption">Dica: para aumentar a segurança da sua carteira, você pode &lt;u&gt;encriptar o seu dispositivo&lt;/u&gt;. Isto também protege os dados de outros aplicativos.</string>
     <string name="wallet_transactions_fragment_coinbase">minerados</string>
     <string name="wallet_transactions_fragment_internal">interno</string>
@@ -41,20 +41,20 @@
     <string name="wallet_options_encrypt_keys_change">Mudar PIN</string>
     <string name="wallet_options_safety">Indicações de segurança</string>
     <string name="wallet_options_donate">Doar</string>
-    <string name="wallet_donate_address_label">Doação para a Dash Wallet</string>
+    <string name="wallet_donate_address_label">Doação para a Sibcoin Wallet</string>
     <string name="wallet_low_storage_dialog_title">Espaço de armazenamento do dispositivo interno baixo!</string>
-    <string name="wallet_low_storage_dialog_msg">Dash Wallet usa armazenamento interno para guardar transações e blocos. Se ficar sem espaço, ele parará de funcionar e seu Dash estará em risco! \ N \ nVocê deseja abrir o Gerenciador de Aplicativos para desinstalar aplicativos desnecessários?</string>
+    <string name="wallet_low_storage_dialog_msg">Sibcoin Wallet usa armazenamento interno para guardar transações e blocos. Se ficar sem espaço, ele parará de funcionar e seu Sibcoin estará em risco! \ N \ nVocê deseja abrir o Gerenciador de Aplicativos para desinstalar aplicativos desnecessários?</string>
     <string name="wallet_low_storage_dialog_button_apps">Gerenciar aplicativos</string>
     <string name="wallet_timeskew_dialog_title">Verifique as configurações de data e hora</string>
-    <string name="wallet_timeskew_dialog_msg">A hora do seu dispositivo está atrasada em %d minutos. Você provavelmente não poderá enviar ou receber Dash devido a este problema.\n\nVocê deveria verificar e, se necessário for, corrigir a sua data, hora e fuso horário</string>
+    <string name="wallet_timeskew_dialog_msg">A hora do seu dispositivo está atrasada em %d minutos. Você provavelmente não poderá enviar ou receber Sibcoin devido a este problema.\n\nVocê deveria verificar e, se necessário for, corrigir a sua data, hora e fuso horário</string>
     <string name="wallet_version_dialog_title">Nova versão disponível!</string>
     <string name="wallet_version_dialog_msg">Esta versão corrige erros importantes. Para mais detalhes, consulte o log de alterações no Google Play.</string>
     <string name="wallet_version_dialog_msg_deprecated">Se você não vê uma atualização significa possivelmente que sua versão do Android não é mais suportada, desculpe.</string>
     <string name="wallet_version_dialog_button_market">Google Play</string>
     <string name="wallet_version_dialog_button_binary">Download</string>
     <string name="wallet_old_sdk_dialog_title">Versão do Android desatualizada</string>
-    <string name="wallet_old_sdk_dialog_message">É provável que uma das próximas versões do Dash Wallet não suporte mais o seu dispositivo. Em alguns casos, pode ficar difícil gastar moedas neste dispositivo.\n\nA menos que você saiba o que está fazendo, recomenda-se que mova suas moedas em breve.</string>
-    <string name="send_coins_activity_title">Enviar Dash</string>
+    <string name="wallet_old_sdk_dialog_message">É provável que uma das próximas versões do Sibcoin Wallet não suporte mais o seu dispositivo. Em alguns casos, pode ficar difícil gastar moedas neste dispositivo.\n\nA menos que você saiba o que está fazendo, recomenda-se que mova suas moedas em breve.</string>
+    <string name="send_coins_activity_title">Enviar Sibcoin</string>
     <string name="send_coins_fragment_request_payment_request_progress">Carregando assinatura de %s…</string>
     <string name="send_coins_fragment_request_payment_request_failed_title">Erro ao carregar assinatura</string>
     <string name="send_coins_fragment_request_payment_request_wrong_signature">Assinatura inválida!</string>
@@ -62,7 +62,7 @@
     <string name="send_coins_fragment_payee_verified_by_unknown">desconhecido</string>
     <string name="send_coins_fragment_receiving_address_label">Pagar a</string>
     <string name="send_coins_fragment_receiving_address_hint">insira o endereço ou nome</string>
-    <string name="send_coins_fragment_receiving_address_error">Endereço Dash inválido!</string>
+    <string name="send_coins_fragment_receiving_address_error">Endereço Sibcoin inválido!</string>
     <string name="send_coins_fragment_receiving_address_own">Você está prestes a enviar para si mesmo!</string>
     <string name="send_coins_fragment_receiving_address_complex">complexo\nendereço</string>
     <string name="send_coins_fragment_pending">(%s esperando confirmação)</string>
@@ -90,7 +90,7 @@
     <string name="send_coins_sending_msg">Enviando…</string>
     <string name="send_coins_sent_msg">Enviado!</string>
     <string name="send_coins_failed_msg">Erro!</string>
-    <string name="send_coins_error_msg">Erro ao enviar Dash!</string>
+    <string name="send_coins_error_msg">Erro ao enviar Sibcoin!</string>
     <string name="send_coins_options_fee_category">Taxa</string>
     <string name="send_coins_options_fee_category_economic">Econômico</string>
     <string name="send_coins_options_fee_category_normal">Normal</string>
@@ -124,21 +124,21 @@
     <string name="maintenance_dialog_state_decrypting">Desencriptando…</string>
     <string name="maintenance_dialog_state_done">Concluído.</string>
     <string name="maintenance_dialog_button_move">Mover</string>
-    <string name="request_coins_activity_title">Solicitar Dash</string>
+    <string name="request_coins_activity_title">Solicitar Sibcoin</string>
     <string name="request_coins_fragment_amount_label">Quantidade solicitada (opcional)</string>
     <string name="request_coins_fragment_accept_bluetooth_payment">Aceitar pagamento via Bluetooth para um processamento mais seguro</string>
     <string name="request_coins_fragment_initiate_request_qr">Tenha o código lido pelo emissor.</string>
     <string name="request_coins_fragment_initiate_request_nfc">Ou toque em um dispositivo NFC habilitado.</string>
-    <string name="request_coins_clipboard_msg">Pedido de Dash copiado para a área de transferência</string>
-    <string name="request_coins_share_dialog_title">Compartilhar pedido de Dash…</string>
-    <string name="request_coins_no_local_app_msg">Nenhum outro aplicativo Dash encontrado</string>
+    <string name="request_coins_clipboard_msg">Pedido de Sibcoin copiado para a área de transferência</string>
+    <string name="request_coins_share_dialog_title">Compartilhar pedido de Sibcoin…</string>
+    <string name="request_coins_no_local_app_msg">Nenhum outro aplicativo Sibcoin encontrado</string>
     <string name="request_coins_options_local_app_title">Pedir de um aplicativo local</string>
     <string name="address_book_activity_title">Livro de endereços</string>
     <string name="address_book_list_receiving_title">Seus endereços</string>
     <string name="address_book_list_receiving_random">Endereços antigos</string>
     <string name="address_book_list_sending_title">Endereços para envio</string>
     <string name="address_book_empty_text">Nenhum endereço no catálogo</string>
-    <string name="address_book_context_send_title">Enviar Dash ao endereço</string>
+    <string name="address_book_context_send_title">Enviar Sibcoin ao endereço</string>
     <string name="address_book_context_edit_title">Editar endereço</string>
     <string name="address_book_context_remove_title">Remover endereço</string>
     <string name="address_book_context_copy_to_clipboard_title">Copiar para a área de transferência</string>
@@ -162,7 +162,7 @@
     <string name="transaction_row_message_purpose_raise_fee">Esta transação aumenta a taxa da rede para um pagamento anterior.</string>
     <string name="transaction_row_message_own_unbroadcasted">Este pagamento ainda não foi transmitido.</string>
     <string name="transaction_row_message_received_direct">Esse pagamento foi recebido diretamente. Existe um certo risco dessa quantia nunca poder ser gasta no futuro.</string>
-    <string name="transaction_row_message_received_unconfirmed_delayed">A confirmação deste pagamento está atrasada, provavelmente devido a uma sobrecarga da rede Dash.</string>
+    <string name="transaction_row_message_received_unconfirmed_delayed">A confirmação deste pagamento está atrasada, provavelmente devido a uma sobrecarga da rede Sibcoin.</string>
     <string name="transaction_row_message_received_unconfirmed_unlocked">Este pagamento estará disponível em alguns minutos.</string>
     <string name="transaction_row_message_received_in_conflict">Este pagamento tem um alto risco de ser anulado pelo emissor! Se você puder, espere pela confirmação.</string>
     <string name="transaction_row_message_received_dead">Este pagamento foi anulado pelo emissor.</string>
@@ -202,8 +202,8 @@
     <string name="export_keys_dialog_success"><![CDATA[<p>O backup de sua carteira foi feito em <tt>%s</tt></p><p>Se o seu dispositivo possui um SD card removível, seu backup <i>deve</i> estar nesse cartão. Remova-o e mantenha-o em um local seguro. Se seu cartão <i>não</i> for removível, você precisa arquivar seu backup em outro lugar.</p><p><b>Se o único lugar que tem para fazer seu backup é seu dispositivo você corre o risco de perder tudo ao mesmo tempo!</b></p><p>De qualquer maneira, tenha certeza de que se lembra da sua senha de backup. Quer arquivar sua carteira agora?</p>]]></string>
     <string name="export_keys_dialog_failure">Sua carteira não pôde ser salva: \n%s</string>
     <string name="export_keys_dialog_button_archive">Arquivar</string>
-    <string name="export_keys_dialog_mail_subject">Backup da carteira Dash</string>
-    <string name="export_keys_dialog_mail_text">O arquivo criptografado em anexo contém chaves privadas Dash e deve ser mantido em segurança. Nunca se esqueça da senha de criptografia.</string>
+    <string name="export_keys_dialog_mail_subject">Backup da carteira Sibcoin</string>
+    <string name="export_keys_dialog_mail_text">O arquivo criptografado em anexo contém chaves privadas Sibcoin e deve ser mantido em segurança. Nunca se esqueça da senha de criptografia.</string>
     <string name="export_keys_dialog_mail_intent_chooser">Arquivar carteira usando…</string>
     <string name="export_keys_dialog_mail_intent_failed">Falha ao arquivar carteira.</string>
     <string name="import_export_keys_dialog_password">senha</string>
@@ -230,8 +230,8 @@
     <string name="scan_camera_permission_dialog_message">Para escanear códigos QR, é necessário conceder permissão para usar a câmera.</string>
     <string name="input_parser_io_error">Não é possível ler dados:\n%s</string>
     <string name="input_parser_cannot_classify">Impossível reconhecer entrada:\n%s</string>
-    <string name="input_parser_invalid_bitcoin_uri">Endereços Dash inválidos:\n%s</string>
-    <string name="input_parser_invalid_address">Endereço inválido de Dash!\n(Misturando Mainnet/Testnet?)</string>
+    <string name="input_parser_invalid_bitcoin_uri">Endereços Sibcoin inválidos:\n%s</string>
+    <string name="input_parser_invalid_address">Endereço inválido de Sibcoin!\n(Misturando Mainnet/Testnet?)</string>
     <string name="input_parser_unverifyable_paymentrequest">Não foi possível verificar cobrança:\n%s</string>
     <string name="input_parser_invalid_paymentrequest">Cobrança inválida:\n%s</string>
     <string name="input_parser_invalid_transaction">Transação inválida:\n%s</string>
@@ -240,11 +240,11 @@
     <string name="preferences_category_labs">Labs</string>
     <string name="preferences_precision_title">Denominação e precisão</string>
     <string name="preferences_precision_summary">Unidade para mostrar valores. Isso não afeta os cálculos.</string>
-    <string name="preferences_precision_labels_8">DASH, 8 casas decimais</string>
-    <string name="preferences_precision_labels_6">DASH, 6 casas decimais</string>
-    <string name="preferences_precision_labels_4">DASH, 4 casas decimais</string>
-    <string name="preferences_precision_labels_2_3">mDASH, 2 casas decimais</string>
-    <string name="preferences_precision_labels_0_6">µDASH, sem casas decimais</string>
+    <string name="preferences_precision_labels_8">SIB, 8 casas decimais</string>
+    <string name="preferences_precision_labels_6">SIB, 6 casas decimais</string>
+    <string name="preferences_precision_labels_4">SIB, 4 casas decimais</string>
+    <string name="preferences_precision_labels_2_3">mSIB, 2 casas decimais</string>
+    <string name="preferences_precision_labels_0_6">µSIB, sem casas decimais</string>
     <string name="preferences_own_name_title">Nome proprio</string>
     <string name="preferences_own_name_summary">Seu nome proprio, para ser adicionado nos pedidos de pagamento. Tente mantê-lo curto.</string>
     <string name="preferences_send_coins_autoclose_title">Fechar automaticamente diálogo de enviar moedas</string>
@@ -292,7 +292,7 @@
     <string name="about_license_title">Licença</string>
     <string name="about_source_title">Código fonte</string>
     <string name="about_category_credits">Este aplicativo está usando...</string>
-    <string name="about_credits_bitcoinj_title">dashj %s, uma implementação do protocolo Dash</string>
+    <string name="about_credits_bitcoinj_title">sibcoinj %s, uma implementação do protocolo Sibcoin</string>
     <string name="about_credits_zxing_title">ZXing, uma biblioteca de processamento de QR-code</string>
     <string name="about_credits_icon_title">Este aplicativo está usando um ícone por \'bitboy\'</string>
     <string name="about_credits_scrypt_title">Scrypt, implementado por Will Glozer e Colin Percival</string>
@@ -304,12 +304,12 @@
     <string name="about_community_googleplus_summary">Discutir sobre o aplicativo</string>
     <string name="notification_coins_received_msg">Recebido %s</string>
     <string name="notification_peers_connected_msg">%d pontos conectados</string>
-    <string name="notification_inactivity_title">Você ainda tem Dash neste dispositivo!</string>
-    <string name="notification_inactivity_message">Lembre-se do seu saldo de %s será perdido se você desinstalar o app carteira Dash sem enviar primeiro.</string>
-    <string name="notification_inactivity_message_donate">Se você não liga para suas moedas, você poderia doá-las para o projeto da carteira Dash.</string>
+    <string name="notification_inactivity_title">Você ainda tem Sibcoin neste dispositivo!</string>
+    <string name="notification_inactivity_message">Lembre-se do seu saldo de %s será perdido se você desinstalar o app carteira Sibcoin sem enviar primeiro.</string>
+    <string name="notification_inactivity_message_donate">Se você não liga para suas moedas, você poderia doá-las para o projeto da carteira Sibcoin.</string>
     <string name="notification_inactivity_action_dismiss">Me lembre depois</string>
     <string name="notification_inactivity_action_dismiss_forever">Não me lembre</string>
-    <string name="appwidget_wallet_balance_title">Saldo Dash</string>
+    <string name="appwidget_wallet_balance_title">Saldo Sibcoin</string>
 
     <!-- generic buttons -->
     <string name="button_ok">OK</string>
@@ -326,8 +326,8 @@
     <string name="button_paste">Colar</string>
     <string name="button_share">Compartilhar</string>
     <string name="button_set_as_default">Definir como padrão</string>
-    <string name="button_request_coins">Solicitar Dash</string>
-    <string name="button_send_coins">Enviar Dash</string>
+    <string name="button_request_coins">Solicitar Sibcoin</string>
+    <string name="button_send_coins">Enviar Sibcoin</string>
     <string name="button_scan">Escanear</string>
     <string name="button_settings">Configurações</string>
     <string name="action_show_qr">Mostrar Código QR</string>
@@ -350,7 +350,7 @@
     <string name="navigation_drawer_open">Abrir menu de navegação</string>
     <string name="navigation_drawer_close">Fechar menu de navegação</string>
 
-    <string name="dash_slogan">Rapido - Privado - Seguro</string>
-    <string name="dash_wallet">Carteira</string>
+    <string name="sibcoin_slogan">Rapido - Privado - Seguro</string>
+    <string name="sibcoin_wallet">Carteira</string>
 
 </resources>

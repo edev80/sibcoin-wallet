@@ -12,7 +12,7 @@
     <string name="blockchain_state_progress_stalled">Синхронизацията е спряла</string>
     <string name="blockchain_state_progress_problem_storage">Синхронизира се: Проблем с мястото за съхранение</string>
     <string name="blockchain_state_progress_problem_network">Синхронизира се: Проблем с мрежата</string>
-    <string name="wallet_address_fragment_clipboard_msg">Dash адреса е копиран в клипборда</string>
+    <string name="wallet_address_fragment_clipboard_msg">Sibcoin адреса е копиран в клипборда</string>
     <string name="wallet_address_dialog_fragment_hint">За да се защити вашата неприкосновеност, адресът ви ще се промени веднъж получил плащане.</string>
     <string name="wallet_balance_fragment_too_much">Тази сума е твърде голяма за да остане в джоба ви. Моля преместете част от нея на сигурно място.</string>
     <string name="wallet_balance_fragment_replaying">Балансът е недостъпен по време на проиграването.</string>
@@ -25,9 +25,9 @@
     <string name="exchange_rates_fragment_source">Цена от %s</string>
     <string name="exchange_rates_options_search">Търсене на обменен курс</string>
     <string name="exchange_rates_context_set_as_default_title">Задай по подразбиране</string>
-    <string name="wallet_transactions_fragment_empty_text_received">Не са получавани Dash скоро.</string>
-    <string name="wallet_transactions_fragment_empty_text_sent">Не са изпращани Dash скоро.</string>
-    <string name="wallet_transactions_fragment_empty_text_howto">Как да получите Dash?\\n\\nОбменете за конвенционална валута,\\nпродайте стоки или услуги или\\nспечелете с работа.</string>
+    <string name="wallet_transactions_fragment_empty_text_received">Не са получавани Sibcoin скоро.</string>
+    <string name="wallet_transactions_fragment_empty_text_sent">Не са изпращани Sibcoin скоро.</string>
+    <string name="wallet_transactions_fragment_empty_text_howto">Как да получите Sibcoin?\\n\\nОбменете за конвенционална валута,\\nпродайте стоки или услуги или\\nспечелете с работа.</string>
     <string name="wallet_transactions_row_warning_backup">Поздравления, Вие получихте първото си плащане! Направихте ли вече &lt;u&gt;архивно копие на вашия портфейл&lt;/u&gt;, за да го защитите срещу кражба?</string>
     <string name="wallet_transactions_row_warning_storage_encryption">Съвет: за да повишите сигурноста за вашият портфейл, може  &lt;u&gt;да криптирате вашето устройство&lt;/u&gt;. Това ще предпази също данните и на други приложения.</string>
     <string name="wallet_transactions_fragment_coinbase">изкопани</string>
@@ -41,20 +41,20 @@
     <string name="wallet_options_encrypt_keys_change">Промени PIN за плащане</string>
     <string name="wallet_options_safety">Бележки за безопастност</string>
     <string name="wallet_options_donate">Бакшиш / дари</string>
-    <string name="wallet_donate_address_label">Дарение за  Dash портфейла</string>
+    <string name="wallet_donate_address_label">Дарение за  Sibcoin портфейла</string>
     <string name="wallet_low_storage_dialog_title">Няма достатъчно място на вътрешното устройство за съхранение!</string>
-    <string name="wallet_low_storage_dialog_msg">Dash портфейла използва вътрешната памет за запомняне на транзакциите и блоковете. Ако няма достатъчно свободно пространство ще спре да работи и вашите Dash ще са в риск!\n\nЖелаете ли да отворите Мениджъра за приложенията за да деинсталирате ненужните?</string>
+    <string name="wallet_low_storage_dialog_msg">Sibcoin портфейла използва вътрешната памет за запомняне на транзакциите и блоковете. Ако няма достатъчно свободно пространство ще спре да работи и вашите Sibcoin ще са в риск!\n\nЖелаете ли да отворите Мениджъра за приложенията за да деинсталирате ненужните?</string>
     <string name="wallet_low_storage_dialog_button_apps">Управление на приложения</string>
     <string name="wallet_timeskew_dialog_title">Провери дата &amp; времеви настройки</string>
-    <string name="wallet_timeskew_dialog_msg">Вашето устройство е изключено от %d минути. Поради този проблем вероятно няма да може да изпращате и получавате Dash.\\n\\nТрябва да проверите и ако е необходимо да коригирате настройките за дата, час и часова зона.</string>
+    <string name="wallet_timeskew_dialog_msg">Вашето устройство е изключено от %d минути. Поради този проблем вероятно няма да може да изпращате и получавате Sibcoin.\\n\\nТрябва да проверите и ако е необходимо да коригирате настройките за дата, час и часова зона.</string>
     <string name="wallet_version_dialog_title">Нова версия е налична!</string>
     <string name="wallet_version_dialog_msg">Тази версия оправя важни проблеми. За детайли вижте списъка с промените в Google Play.</string>
     <string name="wallet_version_dialog_msg_deprecated">Ако не виждате обновяването, това вероятно значи, че вашата версия на Android не я поддържа.</string>
     <string name="wallet_version_dialog_button_market">Google Play</string>
     <string name="wallet_version_dialog_button_binary">Сваляне</string>
     <string name="wallet_old_sdk_dialog_title">Версията на Android е стара</string>
-    <string name="wallet_old_sdk_dialog_message">В някоя от следващите версии на Dash портфейла може да липсва поддръжка за вашето устройство. В някой случай може да е трудно да похарчите вашите монети от това устройство.\n\nАко не знаете какво да направите е препоръчително да преместите вашите монети възможно най-скоро.</string>
-    <string name="send_coins_activity_title">Изпрати Dash</string>
+    <string name="wallet_old_sdk_dialog_message">В някоя от следващите версии на Sibcoin портфейла може да липсва поддръжка за вашето устройство. В някой случай може да е трудно да похарчите вашите монети от това устройство.\n\nАко не знаете какво да направите е препоръчително да преместите вашите монети възможно най-скоро.</string>
+    <string name="send_coins_activity_title">Изпрати Sibcoin</string>
     <string name="send_coins_fragment_request_payment_request_progress">Извличане на подписа от %s…</string>
     <string name="send_coins_fragment_request_payment_request_failed_title">Извличането на подписа е неуспешно</string>
     <string name="send_coins_fragment_request_payment_request_wrong_signature">Грешен подпис!</string>
@@ -62,7 +62,7 @@
     <string name="send_coins_fragment_payee_verified_by_unknown">непознат</string>
     <string name="send_coins_fragment_receiving_address_label">Плати на</string>
     <string name="send_coins_fragment_receiving_address_hint">напишете адрес или име</string>
-    <string name="send_coins_fragment_receiving_address_error">Невалиден Dash адрес!</string>
+    <string name="send_coins_fragment_receiving_address_error">Невалиден Sibcoin адрес!</string>
     <string name="send_coins_fragment_receiving_address_own">На път сте да го изпратите на себе си!</string>
     <string name="send_coins_fragment_receiving_address_complex">комплексен\\nадрес</string>
     <string name="send_coins_fragment_pending">(%s чака за потвърждение)</string>
@@ -124,21 +124,21 @@
     <string name="maintenance_dialog_state_decrypting">Декриптира…</string>
     <string name="maintenance_dialog_state_done">Готово.</string>
     <string name="maintenance_dialog_button_move">Премести</string>
-    <string name="request_coins_activity_title">Заяви Dash</string>
+    <string name="request_coins_activity_title">Заяви Sibcoin</string>
     <string name="request_coins_fragment_amount_label">Заяви сума (опция)</string>
     <string name="request_coins_fragment_accept_bluetooth_payment">Приемане на плащане чрез Bluetooth за по надеждна преработка</string>
     <string name="request_coins_fragment_initiate_request_qr">Сканиран ли е този код от подателя.</string>
     <string name="request_coins_fragment_initiate_request_nfc">Или докосни до устройство с NFC.</string>
-    <string name="request_coins_clipboard_msg">Dash изисква копиране в клипборда</string>
-    <string name="request_coins_share_dialog_title">Споделете заявка за Dash…</string>
-    <string name="request_coins_no_local_app_msg">Няма намерени други Dash приложения</string>
+    <string name="request_coins_clipboard_msg">Sibcoin изисква копиране в клипборда</string>
+    <string name="request_coins_share_dialog_title">Споделете заявка за Sibcoin…</string>
+    <string name="request_coins_no_local_app_msg">Няма намерени други Sibcoin приложения</string>
     <string name="request_coins_options_local_app_title">Заявка от локално приложение</string>
     <string name="address_book_activity_title">Адресна книга</string>
     <string name="address_book_list_receiving_title">Вашите адреси</string>
     <string name="address_book_list_receiving_random">Стари адреси</string>
     <string name="address_book_list_sending_title">Изпращане на адреси</string>
     <string name="address_book_empty_text">Няма записи в адресната книга</string>
-    <string name="address_book_context_send_title">Изпратете Dash на адрес</string>
+    <string name="address_book_context_send_title">Изпратете Sibcoin на адрес</string>
     <string name="address_book_context_edit_title">Редактирай адрес</string>
     <string name="address_book_context_remove_title">Премахни адрес</string>
     <string name="address_book_context_copy_to_clipboard_title">Копирай в клипборда</string>
@@ -162,7 +162,7 @@
     <string name="transaction_row_message_purpose_raise_fee">Тази транзакция повишава таксата на мрежата за предишно плащане. </string>
     <string name="transaction_row_message_own_unbroadcasted">Това плащане все още не е предадено.</string>
     <string name="transaction_row_message_received_direct">Това плащане беше получено директно. Има риск да не може да бъде извършено.</string>
-    <string name="transaction_row_message_received_unconfirmed_delayed">Потвърждението на това плащане е забавено, вероятно се дължи на претоварване на Dash мрежата.</string>
+    <string name="transaction_row_message_received_unconfirmed_delayed">Потвърждението на това плащане е забавено, вероятно се дължи на претоварване на Sibcoin мрежата.</string>
     <string name="transaction_row_message_received_unconfirmed_unlocked">Това плащане ще бъде извършено в следващите минути.</string>
     <string name="transaction_row_message_received_in_conflict">Това плащане има повишен риск да бъде върнато от изпращача! Ако можете, изчакайте потвърждение.</string>
     <string name="transaction_row_message_received_dead">Плащането беше отменено от подателя.</string>
@@ -202,8 +202,8 @@
     <string name="export_keys_dialog_success"><![CDATA[<p>Резервното копие на портфейла е направено на <tt>%s</tt></p><p>Ако вашето устройство има сменяема SD карта, вашето резервно копие<i>трябва</i> да е на тази карта. Извадете я и я съхранете на сигурно място. Ако картата <i>не е</i> сменяема, да архивирате резервното копие на други устройство различно от вашето.</p><p><b>Ако резервното копие съществува само на вашето устройство, рискувате да изгубите и двете по едно и също време!</b></p><p>Във всеки случай, запомнете парола за резервното копие. Искате ли да архивирате вашия портфейл сега?</p>]]></string>
     <string name="export_keys_dialog_failure">Портфейлът не може да бъде архивиран:\\n%s</string>
     <string name="export_keys_dialog_button_archive">Архив</string>
-    <string name="export_keys_dialog_mail_subject">Dash портфейл резервно копие</string>
-    <string name="export_keys_dialog_mail_text">Приложеният криптиран файл съдържа Dash частни ключове трябва да бъде пазен на сигурно място постоянно. Не забравяйте паролата за криптиране!</string>
+    <string name="export_keys_dialog_mail_subject">Sibcoin портфейл резервно копие</string>
+    <string name="export_keys_dialog_mail_text">Приложеният криптиран файл съдържа Sibcoin частни ключове трябва да бъде пазен на сигурно място постоянно. Не забравяйте паролата за криптиране!</string>
     <string name="export_keys_dialog_mail_intent_chooser">Архив на портфейла използва...</string>
     <string name="export_keys_dialog_mail_intent_failed">Архивирането на портфейла е неуспешно.</string>
     <string name="import_export_keys_dialog_password">парола</string>
@@ -230,8 +230,8 @@
     <string name="scan_camera_permission_dialog_message">За да сканирате QR кодове, трябва да дадете разрешение за използване на камерата.</string>
     <string name="input_parser_io_error">Не може да прочете информацията:\\n%s</string>
     <string name="input_parser_cannot_classify">Не може да разпознае входа:\\n%s</string>
-    <string name="input_parser_invalid_bitcoin_uri">Невалиден Dash URI:\\n%s</string>
-    <string name="input_parser_invalid_address">Имате невалиден Dash адрес!\\n(смесване mainnet/testnet?)</string>
+    <string name="input_parser_invalid_bitcoin_uri">Невалиден Sibcoin URI:\\n%s</string>
+    <string name="input_parser_invalid_address">Имате невалиден Sibcoin адрес!\\n(смесване mainnet/testnet?)</string>
     <string name="input_parser_unverifyable_paymentrequest">Не може да се провери заявката за плащанеt:\\n%s</string>
     <string name="input_parser_invalid_paymentrequest">Невалидно искане за плащанеt:\\n%s</string>
     <string name="input_parser_invalid_transaction">Невалидна транзакция:\\n%s</string>
@@ -240,11 +240,11 @@
     <string name="preferences_category_labs">Labs</string>
     <string name="preferences_precision_title">Деноминация и прецизност</string>
     <string name="preferences_precision_summary">Единица за показване на наличност. Това не засяга изчисляването.</string>
-    <string name="preferences_precision_labels_8">DASH, 8 десетични знака</string>
-    <string name="preferences_precision_labels_6">DASH, 6 десетични знака</string>
-    <string name="preferences_precision_labels_4">DASH, 4 десетични знака</string>
-    <string name="preferences_precision_labels_2_3">mDASH, 2 десетични знака</string>
-    <string name="preferences_precision_labels_0_6">µDASH, без десетични знаци</string>
+    <string name="preferences_precision_labels_8">SIB, 8 десетични знака</string>
+    <string name="preferences_precision_labels_6">SIB, 6 десетични знака</string>
+    <string name="preferences_precision_labels_4">SIB, 4 десетични знака</string>
+    <string name="preferences_precision_labels_2_3">mSIB, 2 десетични знака</string>
+    <string name="preferences_precision_labels_0_6">µSIB, без десетични знаци</string>
     <string name="preferences_own_name_title">Собствено име</string>
     <string name="preferences_own_name_summary">Вашето име , ще бъде добавено към заявката за плащане. Опитайте се да бъде кратко.</string>
     <string name="preferences_send_coins_autoclose_title">Автоматично затваряне на диалоговия прозорец</string>
@@ -292,7 +292,7 @@
     <string name="about_license_title">Лиценз</string>
     <string name="about_source_title">Програмен код</string>
     <string name="about_category_credits">Това приложение използва...</string>
-    <string name="about_credits_bitcoinj_title">dashj %s, изпълнява Dash протокола</string>
+    <string name="about_credits_bitcoinj_title">sibcoinj %s, изпълнява Sibcoin протокола</string>
     <string name="about_credits_zxing_title">ZXing, обработва QR библиотеката</string>
     <string name="about_credits_icon_title">Това приложение използва икона от \"bitboy\"</string>
     <string name="about_credits_scrypt_title">Скрипт,осъществен от Will Glozer и Colin Percival</string>
@@ -304,12 +304,12 @@
     <string name="about_community_googleplus_summary">Дискусии за приложението</string>
     <string name="notification_coins_received_msg">Получен %s</string>
     <string name="notification_peers_connected_msg">%d пиъри са свързани</string>
-    <string name="notification_inactivity_title">Все още имате Dash на това устройство!</string>
-    <string name="notification_inactivity_message">Запомнете, вашият баланс от %s  ще бъде загубен, ако деинсталирате приложението на Dash портфейла преди да го прехвърлите.</string>
-    <string name="notification_inactivity_message_donate">Ако не ви е грижа за вашите монети, вие може да ги дарите за Dash проекта.</string>
+    <string name="notification_inactivity_title">Все още имате Sibcoin на това устройство!</string>
+    <string name="notification_inactivity_message">Запомнете, вашият баланс от %s  ще бъде загубен, ако деинсталирате приложението на Sibcoin портфейла преди да го прехвърлите.</string>
+    <string name="notification_inactivity_message_donate">Ако не ви е грижа за вашите монети, вие може да ги дарите за Sibcoin проекта.</string>
     <string name="notification_inactivity_action_dismiss">Напомни ми по-късно</string>
     <string name="notification_inactivity_action_dismiss_forever">Не ми напомняй</string>
-    <string name="appwidget_wallet_balance_title">Dash баланс</string>
+    <string name="appwidget_wallet_balance_title">Sibcoin баланс</string>
 
     <!-- generic buttons -->
     <string name="button_ok">OK</string>
@@ -350,7 +350,7 @@
     <string name="navigation_drawer_open">Отваряне на панела за навигация</string>
     <string name="navigation_drawer_close">Затваряне на панела за навигация</string>
 
-    <string name="dash_slogan">Мигновен-Личен-Сигурен</string>
-    <string name="dash_wallet">Портфейл</string>
+    <string name="sibcoin_slogan">Мигновен-Личен-Сигурен</string>
+    <string name="sibcoin_wallet">Портфейл</string>
 
 </resources>

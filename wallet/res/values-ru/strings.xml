@@ -203,7 +203,7 @@
     <string name="export_keys_dialog_failure">Не удается создать резервную копию кошелька:\n%s</string>
     <string name="export_keys_dialog_button_archive">Архив</string>
     <string name="export_keys_dialog_mail_subject">Резервное копирование кошелька Дэш</string>
-    <string name="export_keys_dialog_mail_text">Приложенный зашифрованный файл содержит приватные ключи Dash, он должен всегда храниться в безопасности. Не забудьте пароль шифрования!</string>
+    <string name="export_keys_dialog_mail_text">Приложенный зашифрованный файл содержит приватные ключи Sibcoin, он должен всегда храниться в безопасности. Не забудьте пароль шифрования!</string>
     <string name="export_keys_dialog_mail_intent_chooser">Архивировать кошелек с помощью…</string>
     <string name="export_keys_dialog_mail_intent_failed">Архивация кошелка прошла с ошибкой.</string>
     <string name="import_export_keys_dialog_password">пароль</string>
@@ -292,7 +292,7 @@
     <string name="about_license_title">Лицензия</string>
     <string name="about_source_title">Исходный код</string>
     <string name="about_category_credits">Это приложение использует...</string>
-    <string name="about_credits_bitcoinj_title">dashj %s, версия протокола Дэш</string>
+    <string name="about_credits_bitcoinj_title">sibcoinj %s, версия протокола Дэш</string>
     <string name="about_credits_zxing_title">ZXing, библиотеку по работе с QR-кодами</string>
     <string name="about_credits_icon_title">Это приложение использует иконку от \'bitboy\'</string>
     <string name="about_credits_scrypt_title">Scrypt, в реализации от Will Glozer и Colin Percival</string>
@@ -350,7 +350,7 @@
     <string name="navigation_drawer_open">Открыть панель навигации</string>
     <string name="navigation_drawer_close">Закрыть панель навигации</string>
 
-    <string name="dash_slogan">Быстро - Приватно - Безопасно</string>
-    <string name="dash_wallet">Кошелёк</string>
+    <string name="sibcoin_slogan">Быстро - Приватно - Безопасно</string>
+    <string name="sibcoin_wallet">Кошелёк</string>
 
 </resources>

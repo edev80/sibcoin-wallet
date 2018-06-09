@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-4dp"
             android:scaleY="0.7"
-            android:text="@string/dash_wallet"
+            android:text="@string/sibcoin_wallet"
             android:textAllCaps="true"
             android:textColor="#ffffff"
             android:textSize="15sp"
