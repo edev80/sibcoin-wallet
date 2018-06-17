@@ -5,7 +5,7 @@
 <b>VLASTNOSTI</b>
 
 • Není zapotřebí žádná registrace, webová služba ani cloud! Peněženka je decentralizovaná a funguje na bázi peer-to-peer sítě.
-• Dash si můžete zobrazit buď jako DASH, mDASH nebo µDASH.
+• Dash si můžete zobrazit buď jako SIB, mSIB nebo µSIB.
 • Dash lze vyměnit za běžné peníze nebo ho za ně koupit.
 • Dash lze posílat i přijímat skrze NFC, QR kódy nebo Dash URL.
 • Adresář pro často používané Dash adresy.

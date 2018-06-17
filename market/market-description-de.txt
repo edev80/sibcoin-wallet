@@ -5,7 +5,7 @@ Der Benutzer trägt das volle Risiko! (Android 4 oder höher erforderlich)
 <b>FUNKTIONEN</b>
 
 • Keine Registrierung, kein Webservice und keine Cloud nötig! Diese Wallet ist dezentral und Peer to Peer.
-• Dash-Guthaben kann in DASH, mDASH und µDASH dargestellt werden.
+• Dash-Guthaben kann in SIB, mSIB und µSIB dargestellt werden.
 • Wechselkurs in nationale Währungen kann angezeigt werden.
 • Dash per NFC, QR-Codes und Dash URLs senden und empfangen.
 • Adressbuch für regelmäßig verwendete Dash-Adressen.

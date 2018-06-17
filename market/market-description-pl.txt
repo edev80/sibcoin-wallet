@@ -5,7 +5,7 @@ Używaj na własne ryzyko (Wymagany Android 4 lub wyższy)
 <b>FUNKCJE</b>
 
 • Niewymagana rejestracja! Ten portfel bazuje na technologii peer to peer oraz jest w pełni zdecentralizowany.
-• Możliwość wyświetlania ilości Dash w formie: DASH, mDASH oraz µDASH.
+• Możliwość wyświetlania ilości Dash w formie: SIB, mSIB oraz µSIB.
 • Konwersja do lokalnej waluty.
 • Wysyłanie i odbieranie Dash przez NFC, kody QR oraz Dash URLs.
 • Książka adresowa do przechowywania często używanych adresów Dash.

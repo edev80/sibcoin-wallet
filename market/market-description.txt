@@ -5,7 +5,7 @@
 <b>FEATURES</b>
 
 • No registration, web service or cloud needed! This wallet is de-centralized and peer to peer.
-• Display of Dash amount in DASH, mDASH and µDASH.
+• Display of Dash amount in SIB, mSIB and µSIB.
 • Conversion to and from national currencies.
 • Sending and receiving of Dash via NFC, QR codes or Dash URLs.
 • Address book for regularly used Dash addresses.

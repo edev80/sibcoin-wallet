@@ -5,7 +5,7 @@ Gebruik op eigen risico! (Vereist Android 4 of hoger)
 <b>KENMERKEN</b>
 
 • Er is geen registratie, webservice of clouddienst benodigd. Deze portemonnee werkt decentraal en peer to peer. 
-• Toon de hoeveelheid Dash in DASH, mDASH of µDASH.
+• Toon de hoeveelheid Dash in SIB, mSIB of µSIB.
 • Conversie van en naar nationale munteenheden.
 • Verzenden en ontvangen van Dash via NFC, QR codes of Dash URL's.
 • Adresboek voor vaak gebruikte Dash adressen.

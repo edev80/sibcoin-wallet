@@ -5,7 +5,7 @@
 <b>CARACTERISTICAS</b>
 
 • Sin necesidad de registro, servicio web o cuenta en la nube! Esta cartera es decentralizada y operada entre pares (P2P).
-• Muestra cantidades en DASH, mDASH y µDASH.
+• Muestra cantidades en SIB, mSIB y µSIB.
 • Conversiones hacia y desde divisas nacionales.
 • Enviar y recibir Dash vía NFC, códigos QR o URLs Dash.
 • Registro para direcciones de uso regular en Dash.

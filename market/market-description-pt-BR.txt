@@ -5,7 +5,7 @@ Use por sua conta e risco! (Requer o Android 4 ou superior)
 <b>CARACTERÍSTICAS</b>
 
 • Nenhum registo, serviço web ou nuvem necessários! Esta carteira é descentralizada e peer to peer.
-• Display da quantidade de Dash em mDASH e µDASH.
+• Display da quantidade de Dash em mSIB e µSIB.
 • Conversão de e para outras moedas nacionais.
 • Envio e recebimento de Dash através de NFC, códigos QR ou URLs de Dash.
 • Livro de endereços Dash usados regularmente.

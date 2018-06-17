@@ -3,7 +3,7 @@
 <b>FUNKTIONER</b>
 
 • Ingen registrering, web- eller molntjänst behövs! Dash Wallet är decentraliserad och peer-to-peer.
-• Visa summa bitcoin i DASH, mDASH eller µDASH.
+• Visa summa bitcoin i SIB, mSIB eller µSIB.
 • Konventering till och från nationell valuta.
 • Skicka och ta emot bitcoin via NFC, QR-koder eller en Dash-URL.
 • Adressbok för de Dashadresser man använder ofta.

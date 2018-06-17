@@ -5,7 +5,7 @@ Hãy sử dụng và tự chấp nhận rủi ro (Cần Android 4 hoặc cao hơ
 <b>CÁC TÍNH NĂNG</b>
 
 • Không cần đăng ký, cần sử dụng đến dịch vụ web hoặc dịch vụ đám mây! Ví này là phi tập trung và kết nối ngang hàng.
-• Hiển thị số Dash theo các đơn vị DASH, mDASH và µDASH.
+• Hiển thị số Dash theo các đơn vị SIB, mSIB và µSIB.
 • Chuyển đổi theo các đơn vị tiền tệ quốc gia.
 • Gửi và nhận Dash thông qua NFC, mã QR hoặc địa chỉ URL Dash.
 • Sổ địa chỉ cho những địa chỉ Dash được dùng thường xuyên.

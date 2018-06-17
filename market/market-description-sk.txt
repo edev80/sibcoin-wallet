@@ -5,7 +5,7 @@ Používanie na vlastné riziko! (Vyžaduje Android 4 alebo novší
 <b>VLASTNOSTI</b>
 
 • Nie je potrebná žiadna registrácia, webová služba ani cloud! Peňaženka je decentralizovaná a funguje na báze peer-to-peer siete.
-• Dash si môžete zobraziť buď ako DASH, mDASH alebo µDASH.
+• Dash si môžete zobraziť buď ako SIB, mSIB alebo µSIB.
 • Konverzia na bežné peniaze alebo opačne.
 • Dash je možné posielať aj prijímať pomocou NFC, QR kódmi alebo Dash URL.
 • Adresár pre často používané Dash adresy.

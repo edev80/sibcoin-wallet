@@ -4,7 +4,7 @@
 <b>FUNKTIONER</b>
 
 • Ingen registrering, webservice eller sky behøves! Tegnebogen er decentraliseret og peer-to-peer.
-• Visning af Dash-beløb i DASH, mDASH og µDASH.
+• Visning af Dash-beløb i SIB, mSIB og µSIB.
 • Konvertering til og fra lokale valutaer.
 • Afsendelse og modtagelse af Dash via NFC, QR-koder eller Dash-URLer.
 • Adressebog til ofte brugte Dash-adresser.

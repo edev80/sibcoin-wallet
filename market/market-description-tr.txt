@@ -5,7 +5,7 @@ Riskin size ait olduğunu bilerek kullanın! (Android 4 veya üstünü gerektiri
 <b>ÖZELLİKLER</b>
 
 • Kayıt, web hizmeti, veya bulut gerektirmez! Bu cüzdan eşler arası ve merkezi olmayan bir cüzdandır.
-• Dash miktarını DASH, mDASH ve µDASH olarak görüntüle.
+• Dash miktarını SIB, mSIB ve µSIB olarak görüntüle.
 • Ulusal para birimlerine ve ulusal para birimlerinden dönüştürme.
 • NFC, QR kodları veya Dash URL'leri vasıtasıyla Dash gönderimi ve alımı.
 • Sürekli kullanılan Dash adresleri için adres rehberi.
