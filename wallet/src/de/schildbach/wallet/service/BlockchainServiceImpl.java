@@ -41,6 +41,7 @@ import org.bitcoinj.core.BlockChain;
 import org.bitcoinj.core.CheckpointManager;
 import org.bitcoinj.core.Coin;
 import org.bitcoinj.core.FilteredBlock;
+import org.bitcoinj.core.NetworkParameters;
 import org.bitcoinj.core.Peer;
 import org.bitcoinj.core.PeerGroup;
 import org.bitcoinj.core.Sha256Hash;
@@ -54,6 +55,7 @@ import org.bitcoinj.core.listeners.PeerDisconnectedEventListener;
 import org.bitcoinj.net.discovery.MultiplexingDiscovery;
 import org.bitcoinj.net.discovery.PeerDiscovery;
 import org.bitcoinj.net.discovery.PeerDiscoveryException;
+import org.bitcoinj.params.RegTestParams;
 import org.bitcoinj.store.BlockStore;
 import org.bitcoinj.store.BlockStoreException;
 import org.bitcoinj.store.SPVBlockStore;
@@ -398,30 +400,33 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
                     public InetSocketAddress[] getPeers(final long services, final long timeoutValue,
                             final TimeUnit timeoutUnit) throws PeerDiscoveryException {
                         final List<InetSocketAddress> peers = new LinkedList<InetSocketAddress>();
+                        if (Constants.NETWORK_PARAMETERS == RegTestParams.get()) {
+                            // For Regtest add local ip and port instead of PeerDiscovery
+                            peers.add(0, new InetSocketAddress("192.168.178.25", 19994));
+                        } else {
+                            boolean needsTrimPeersWorkaround = false;
 
-                        boolean needsTrimPeersWorkaround = false;
+                            if (hasTrustedPeer) {
+                                log.info(
+                                        "trusted peer '" + trustedPeerHost + "'" + (connectTrustedPeerOnly ? " only" : ""));
 
-                        if (hasTrustedPeer) {
-                            log.info(
-                                    "trusted peer '" + trustedPeerHost + "'" + (connectTrustedPeerOnly ? " only" : ""));
-
-                            final InetSocketAddress addr = new InetSocketAddress(trustedPeerHost,
-                                    Constants.NETWORK_PARAMETERS.getPort());
-                            if (addr.getAddress() != null) {
-                                peers.add(addr);
-                                needsTrimPeersWorkaround = true;
+                                final InetSocketAddress addr = new InetSocketAddress(trustedPeerHost,
+                                        Constants.NETWORK_PARAMETERS.getPort());
+                                if (addr.getAddress() != null) {
+                                    peers.add(addr);
+                                    needsTrimPeersWorkaround = true;
+                                }
                             }
+
+                            if (!connectTrustedPeerOnly)
+                                peers.addAll(
+                                        Arrays.asList(normalPeerDiscovery.getPeers(services, timeoutValue, timeoutUnit)));
+
+                            // workaround because PeerGroup will shuffle peers
+                            if (needsTrimPeersWorkaround)
+                                while (peers.size() >= maxConnectedPeers)
+                                    peers.remove(peers.size() - 1);
                         }
-
-                        if (!connectTrustedPeerOnly)
-                            peers.addAll(
-                                    Arrays.asList(normalPeerDiscovery.getPeers(services, timeoutValue, timeoutUnit)));
-
-                        // workaround because PeerGroup will shuffle peers
-                        if (needsTrimPeersWorkaround)
-                            while (peers.size() >= maxConnectedPeers)
-                                peers.remove(peers.size() - 1);
-
                         return peers.toArray(new InetSocketAddress[0]);
                     }
 
@@ -581,15 +586,18 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
             final long earliestKeyCreationTime = wallet.getEarliestKeyCreationTime();
 
             if (!blockChainFileExists && earliestKeyCreationTime > 0) {
-                try {
-                    final Stopwatch watch = Stopwatch.createStarted();
-                    final InputStream checkpointsInputStream = getAssets().open(Constants.Files.CHECKPOINTS_FILENAME);
-                    CheckpointManager.checkpoint(Constants.NETWORK_PARAMETERS, checkpointsInputStream, blockStore,
-                            earliestKeyCreationTime);
-                    watch.stop();
-                    log.info("checkpoints loaded from '{}', took {}", Constants.Files.CHECKPOINTS_FILENAME, watch);
-                } catch (final IOException x) {
-                    log.error("problem reading checkpoints, continuing without", x);
+                // Don't add checkpoints for Regtest
+                if (Constants.NETWORK_PARAMETERS != RegTestParams.get()) {
+                    try {
+                        final Stopwatch watch = Stopwatch.createStarted();
+                        final InputStream checkpointsInputStream = getAssets().open(Constants.Files.CHECKPOINTS_FILENAME);
+                        CheckpointManager.checkpoint(Constants.NETWORK_PARAMETERS, checkpointsInputStream, blockStore,
+                                earliestKeyCreationTime);
+                        watch.stop();
+                        log.info("checkpoints loaded from '{}', took {}", Constants.Files.CHECKPOINTS_FILENAME, watch);
+                    } catch (final IOException x) {
+                        log.error("problem reading checkpoints, continuing without", x);
+                    }
                 }
             }
         } catch (final BlockStoreException x) {

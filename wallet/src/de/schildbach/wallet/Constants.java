@@ -25,6 +25,7 @@ import org.bitcoinj.core.Context;
 import org.bitcoinj.core.NetworkParameters;
 import org.bitcoinj.crypto.ChildNumber;
 import org.bitcoinj.params.MainNetParams;
+import org.bitcoinj.params.RegTestParams;
 import org.bitcoinj.params.TestNet3Params;
 import org.bitcoinj.utils.MonetaryFormat;
 import org.bitcoinj.wallet.DeterministicKeyChain;
@@ -50,7 +51,7 @@ public final class Constants {
     public static final boolean TEST = BuildConfig.APPLICATION_ID.contains("_test");
 
     /** Network this wallet is on (e.g. testnet or mainnet). */
-    public static final NetworkParameters NETWORK_PARAMETERS = TEST ? TestNet3Params.get() : MainNetParams.get();
+    public static final NetworkParameters NETWORK_PARAMETERS = TEST ? RegTestParams.get() : MainNetParams.get();
 
     /** Bitcoinj global context. */
     public static final Context CONTEXT = new Context(NETWORK_PARAMETERS);
