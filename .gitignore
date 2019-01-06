@@ -5,6 +5,7 @@ local.properties
 .project
 .settings/
 .idea/
+*.iml
 bin/
 gen/
 target/
@@ -13,3 +14,5 @@ production/
 lib/
 out/
 *.iml
+*.so
+.DS_Store

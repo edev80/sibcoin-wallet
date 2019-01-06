@@ -24,13 +24,6 @@ import org.bitcoinj.crypto.DeterministicKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
 import de.schildbach.wallet.Constants;
 import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.ui.DialogBuilder;
@@ -38,11 +31,18 @@ import de.schildbach.wallet.ui.ReportIssueDialogBuilder;
 import de.schildbach.wallet.util.CrashReporter;
 import rusapps.sibcoin.wallet.R;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
+
 /**
  * @author Andreas Schildbach
  */
-public final class DiagnosticsFragment extends PreferenceFragment
-{
+public final class DiagnosticsFragment extends PreferenceFragment {
 	private Activity activity;
 	private WalletApplication application;
 
@@ -53,8 +53,7 @@ public final class DiagnosticsFragment extends PreferenceFragment
 	private static final Logger log = LoggerFactory.getLogger(DiagnosticsFragment.class);
 
 	@Override
-	public void onAttach(final Activity activity)
-	{
+    public void onAttach(final Activity activity) {
 		super.onAttach(activity);
 
 		this.activity = activity;
@@ -62,37 +61,29 @@ public final class DiagnosticsFragment extends PreferenceFragment
 	}
 
 	@Override
-	public void onCreate(final Bundle savedInstanceState)
-	{
+    public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		addPreferencesFromResource(R.xml.preference_diagnostics);
 	}
 
 	@Override
-	public boolean onPreferenceTreeClick(final PreferenceScreen preferenceScreen, final Preference preference)
-	{
+    public boolean onPreferenceTreeClick(final PreferenceScreen preferenceScreen, final Preference preference) {
 		final String key = preference.getKey();
 
-		if (PREFS_KEY_REPORT_ISSUE.equals(key))
-		{
+		if (PREFS_KEY_REPORT_ISSUE.equals(key)) {
 			handleReportIssue();
 			return true;
-		}
-		else if (PREFS_KEY_INITIATE_RESET.equals(key))
-		{
+		} else if (PREFS_KEY_INITIATE_RESET.equals(key)) {
 			handleInitiateReset();
 			return true;
-		}
-		else if (PREFS_KEY_EXTENDED_PUBLIC_KEY.equals(key))
-		{
+        } else if (PREFS_KEY_EXTENDED_PUBLIC_KEY.equals(key)) {
 			handleExtendedPublicKey();
 			return true;
 		}
 
 		return false;
 	}
-
 	private void handleReportIssue()
 	{
 		final ReportIssueDialogBuilder dialog = new ReportIssueDialogBuilder(activity, R.string.report_issue_dialog_title_issue,
@@ -134,17 +125,13 @@ public final class DiagnosticsFragment extends PreferenceFragment
 		};
 		dialog.show();
 	}
-
-	private void handleInitiateReset()
-	{
+    private void handleInitiateReset() {
 		final DialogBuilder dialog = new DialogBuilder(activity);
 		dialog.setTitle(R.string.preferences_initiate_reset_title);
 		dialog.setMessage(R.string.preferences_initiate_reset_dialog_message);
-		dialog.setPositiveButton(R.string.preferences_initiate_reset_dialog_positive, new OnClickListener()
-		{
+        dialog.setPositiveButton(R.string.preferences_initiate_reset_dialog_positive, new OnClickListener() {
 			@Override
-			public void onClick(final DialogInterface dialog, final int which)
-			{
+            public void onClick(final DialogInterface dialog, final int which) {
 				log.info("manually initiated blockchain reset");
 
 				application.resetBlockchain();
@@ -155,11 +142,10 @@ public final class DiagnosticsFragment extends PreferenceFragment
 		dialog.show();
 	}
 
-	private void handleExtendedPublicKey()
-	{
+    private void handleExtendedPublicKey() {
 		final DeterministicKey extendedKey = application.getWallet().getWatchingKey();
-		final String xpub = String.format(Locale.US, "%s?c=%d&h=bip32", extendedKey.serializePubB58(Constants.NETWORK_PARAMETERS),
-				extendedKey.getCreationTimeSeconds());
+        final String xpub = String.format(Locale.US, "%s?c=%d&h=bip32",
+                extendedKey.serializePubB58(Constants.NETWORK_PARAMETERS), extendedKey.getCreationTimeSeconds());
 		ExtendedPublicKeyFragment.show(getFragmentManager(), (CharSequence) xpub);
 	}
 }

@@ -17,15 +17,6 @@
 
 package de.schildbach.wallet.ui;
 
-import android.content.Context;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.ScaleXSpan;
-import android.util.AttributeSet;
-import android.widget.TextView;
-
 import org.bitcoinj.core.Monetary;
 import org.bitcoinj.utils.MonetaryFormat;
 
@@ -34,39 +25,44 @@ import de.schildbach.wallet.util.GenericUtils;
 import de.schildbach.wallet.util.MonetarySpannable;
 import rusapps.sibcoin.wallet.R;
 
+import android.content.Context;
+import android.graphics.Paint;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatTextView;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.ScaleXSpan;
+import android.util.AttributeSet;
+import android.graphics.drawable.Drawable;
+
 /**
  * @author Andreas Schildbach
  */
-public final class CurrencyTextView extends TextView
-{
-	private Monetary amount = null;
-	private MonetaryFormat format = null;
-	private boolean alwaysSigned = false;
-	private boolean isCodePositionPrefix = true;
-	private RelativeSizeSpan codeRelativeSizeSpan = null;
-	private ScaleXSpan codeScaleXSpan = null;
-	private ForegroundColorSpan codeColorSpan = null;
-	private RelativeSizeSpan insignificantRelativeSizeSpan = null;
-	private Drawable currencySymbolDrawable;
+public class CurrencyTextView extends AppCompatTextView {
+    private Monetary amount = null;
+    private MonetaryFormat format = null;
+    private boolean alwaysSigned = false;
+    private RelativeSizeSpan prefixRelativeSizeSpan = null;
+    private ScaleXSpan prefixScaleXSpan = null;
+    private ForegroundColorSpan prefixColorSpan = null;
+    private RelativeSizeSpan insignificantRelativeSizeSpan = null;
+    private boolean isCodePositionPrefix = true;
+    private Drawable currencySymbolDrawable;
 
-	public CurrencyTextView(final Context context)
-	{
-		super(context);
-	}
+    public CurrencyTextView(final Context context) {
+        super(context);
+    }
 
-	public CurrencyTextView(final Context context, final AttributeSet attrs)
-	{
-		super(context, attrs);
-	}
+    public CurrencyTextView(final Context context, final AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-	public void setAmount(final Monetary amount)
-	{
-		this.amount = amount;
-		updateView();
-	}
+    public void setAmount(final Monetary amount) {
+        this.amount = amount;
+        updateView();
+    }
 
-	public void setFormat(final MonetaryFormat format)
-	{
+	public void setFormat(final MonetaryFormat format) {
 		if (format.code() != null) {
 			// Special case for SIB
 			if (format.code().equalsIgnoreCase(MonetaryFormat.CODE_BTC)) {
@@ -103,65 +99,55 @@ public final class CurrencyTextView extends TextView
 		updateView();
 	}
 
-	public void setAlwaysSigned(final boolean alwaysSigned)
-	{
-		this.alwaysSigned = alwaysSigned;
-		updateView();
-	}
+    public void setAlwaysSigned(final boolean alwaysSigned) {
+        this.alwaysSigned = alwaysSigned;
+        updateView();
+    }
 
-	public void setStrikeThru(final boolean strikeThru)
-	{
-		if (strikeThru)
-			setPaintFlags(getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-		else
-			setPaintFlags(getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
-	}
+    public void setStrikeThru(final boolean strikeThru) {
+        if (strikeThru)
+            setPaintFlags(getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        else
+            setPaintFlags(getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+    }
 
-	public void setInsignificantRelativeSize(final float insignificantRelativeSize)
-	{
-		if (insignificantRelativeSize != 1)
-		{
-			this.codeRelativeSizeSpan = new RelativeSizeSpan(insignificantRelativeSize);
-			this.insignificantRelativeSizeSpan = new RelativeSizeSpan(insignificantRelativeSize);
-		}
-		else
-		{
-			this.codeRelativeSizeSpan = null;
-			this.insignificantRelativeSizeSpan = null;
-		}
-	}
+    public void setInsignificantRelativeSize(final float insignificantRelativeSize) {
+        if (insignificantRelativeSize != 1) {
+            this.prefixRelativeSizeSpan = new RelativeSizeSpan(insignificantRelativeSize);
+            this.insignificantRelativeSizeSpan = new RelativeSizeSpan(insignificantRelativeSize);
+        } else {
+            this.prefixRelativeSizeSpan = null;
+            this.insignificantRelativeSizeSpan = null;
+        }
+    }
 
-	public void setCodeColor(final int prefixColor)
-	{
-		this.codeColorSpan = new ForegroundColorSpan(prefixColor);
-		updateView();
-	}
+    public void setPrefixColor(final int prefixColor) {
+        this.prefixColorSpan = new ForegroundColorSpan(prefixColor);
+        updateView();
+    }
 
-	public void setCodeScaleX(final float prefixScaleX)
-	{
-		this.codeScaleXSpan = new ScaleXSpan(prefixScaleX);
-		updateView();
-	}
+    public void setPrefixScaleX(final float prefixScaleX) {
+        this.prefixScaleXSpan = new ScaleXSpan(prefixScaleX);
+        updateView();
+    }
 
-	public void setCodePosition(final boolean isPrefix)
-	{
-		isCodePositionPrefix = isPrefix;
-		updateView();
-	}
+    public void setCodePosition(final boolean isPrefix) {
+        isCodePositionPrefix = isPrefix;
+        updateView();
+    }
 
-	@Override
-	protected void onFinishInflate()
-	{
-		super.onFinishInflate();
 
-		setCodeColor(getResources().getColor(R.color.fg_less_significant));
-		setCodeScaleX(1);
-//		setInsignificantRelativeSize(0.85f);
-		setSingleLine();
-	}
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
 
-	private void updateView()
-	{
+        setPrefixColor(getResources().getColor(R.color.fg_less_significant));
+        setPrefixScaleX(1);
+        setInsignificantRelativeSize(0.85f);
+        setSingleLine();
+    }
+
+	private void updateView() {
 		final MonetarySpannable text;
 
 		if (amount != null) {
@@ -172,7 +158,7 @@ public final class CurrencyTextView extends TextView
 				format = format.noCode();
 			}
 			text = new MonetarySpannable(format, alwaysSigned, amount)
-			         .applyMarkup(new Object[]{codeRelativeSizeSpan, codeScaleXSpan, codeColorSpan},
+			         .applyMarkup(new Object[]{prefixRelativeSizeSpan, prefixScaleXSpan, prefixColorSpan},
 			                      new Object[]{insignificantRelativeSizeSpan});
 
 			if (isCodePositionPrefix) {

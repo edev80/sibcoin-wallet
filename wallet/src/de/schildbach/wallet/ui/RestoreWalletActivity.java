@@ -24,8 +24,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import org.bitcoinj.core.Wallet;
-import org.bitcoinj.core.Wallet.BalanceType;
+import org.bitcoinj.crypto.ChildNumber;
+import org.bitcoinj.wallet.Wallet;
+import org.bitcoinj.wallet.Wallet.BalanceType;
+
+import com.google.common.base.Charsets;
+import com.google.common.collect.ImmutableList;
+
+import de.schildbach.wallet.Configuration;
+import de.schildbach.wallet.Constants;
+import de.schildbach.wallet.WalletApplication;
+import de.schildbach.wallet.ui.widget.UpgradeWalletDisclaimerDialog;
+import de.schildbach.wallet.util.Crypto;
+import de.schildbach.wallet.util.Io;
+import de.schildbach.wallet.util.WalletUtils;
+import rusapps.sibcoin.wallet.R;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -39,209 +52,244 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.google.common.base.Charsets;
-
-import de.schildbach.wallet.Configuration;
-import de.schildbach.wallet.Constants;
-import de.schildbach.wallet.WalletApplication;
-import de.schildbach.wallet.util.Crypto;
-import de.schildbach.wallet.util.Io;
-import de.schildbach.wallet.util.WalletUtils;
-import rusapps.sibcoin.wallet.R;
-
 /**
  * @author Andreas Schildbach
  */
 public final class RestoreWalletActivity extends AbstractWalletActivity
-{
-	private static final int DIALOG_RESTORE_WALLET = 0;
+        implements UpgradeWalletDisclaimerDialog.OnUpgradeConfirmedListener {
+    private static final int DIALOG_RESTORE_WALLET = 0;
 
-	private WalletApplication application;
-	private Configuration config;
-	private Wallet wallet;
-	private ContentResolver contentResolver;
+    private WalletApplication application;
+    private Configuration config;
+    private Wallet wallet;
+    private ContentResolver contentResolver;
 
-	private Uri backupFileUri;
+    private Uri backupFileUri;
 
-	@Override
-	protected void onCreate(final Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+    enum State {
+        INPUT, UPGRADE, PINSET, DONE;
+    }
+    State state = State.INPUT;
 
-		application = getWalletApplication();
-		config = application.getConfiguration();
-		wallet = application.getWallet();
-		contentResolver = getContentResolver();
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		backupFileUri = getIntent().getData();
+        application = getWalletApplication();
+        config = application.getConfiguration();
+        wallet = application.getWallet();
+        contentResolver = getContentResolver();
 
-		showDialog(DIALOG_RESTORE_WALLET);
-	}
+        backupFileUri = getIntent().getData();
 
-	@Override
-	protected Dialog onCreateDialog(final int id)
-	{
-		if (id == DIALOG_RESTORE_WALLET)
-			return createRestoreWalletDialog();
-		else
-			throw new IllegalArgumentException();
-	}
+        showDialog(DIALOG_RESTORE_WALLET);
+    }
 
-	@Override
-	protected void onPrepareDialog(final int id, final Dialog dialog)
-	{
-		if (id == DIALOG_RESTORE_WALLET)
-			prepareRestoreWalletDialog(dialog);
-	}
+    @Override
+    protected Dialog onCreateDialog(final int id) {
+        if (id == DIALOG_RESTORE_WALLET)
+            return createRestoreWalletDialog();
+        else
+            throw new IllegalArgumentException();
+    }
 
-	private Dialog createRestoreWalletDialog()
-	{
-		final View view = getLayoutInflater().inflate(R.layout.restore_wallet_from_external_dialog, null);
-		final EditText passwordView = (EditText) view.findViewById(R.id.import_keys_from_content_dialog_password);
+    @Override
+    protected void onPrepareDialog(final int id, final Dialog dialog) {
+        if (id == DIALOG_RESTORE_WALLET)
+            prepareRestoreWalletDialog(dialog);
+    }
 
-		final DialogBuilder dialog = new DialogBuilder(this);
-		dialog.setTitle(R.string.import_keys_dialog_title);
-		dialog.setView(view);
-		dialog.setPositiveButton(R.string.import_keys_dialog_button_import, new OnClickListener()
-		{
-			@Override
-			public void onClick(final DialogInterface dialog, final int which)
-			{
-				final String password = passwordView.getText().toString().trim();
-				passwordView.setText(null); // get rid of it asap
+    private Dialog createRestoreWalletDialog() {
+        final View view = getLayoutInflater().inflate(R.layout.restore_wallet_from_external_dialog, null);
+        final EditText passwordView = (EditText) view.findViewById(R.id.import_keys_from_content_dialog_password);
 
-				try
-				{
-					final InputStream is = contentResolver.openInputStream(backupFileUri);
-					restoreWalletFromEncrypted(is, password);
-				}
-				catch (final FileNotFoundException x)
-				{
-					// should not happen
-					throw new RuntimeException(x);
-				}
-			}
-		});
-		dialog.setNegativeButton(R.string.button_cancel, new OnClickListener()
-		{
-			@Override
-			public void onClick(final DialogInterface dialog, final int which)
-			{
-				passwordView.setText(null); // get rid of it asap
-				finish();
-			}
-		});
-		dialog.setOnCancelListener(new OnCancelListener()
-		{
-			@Override
-			public void onCancel(final DialogInterface dialog)
-			{
-				passwordView.setText(null); // get rid of it asap
-				finish();
-			}
-		});
+        final DialogBuilder dialog = new DialogBuilder(this);
+        dialog.setTitle(R.string.import_keys_dialog_title);
+        dialog.setView(view);
+        dialog.setPositiveButton(R.string.import_keys_dialog_button_import, new OnClickListener() {
+            @Override
+            public void onClick(final DialogInterface dialog, final int which) {
+                final String password = passwordView.getText().toString().trim();
+                passwordView.setText(null); // get rid of it asap
 
-		return dialog.create();
-	}
+                try {
+                    final InputStream is = contentResolver.openInputStream(backupFileUri);
+                    restoreWalletFromEncrypted(is, password);
+                } catch (final FileNotFoundException x) {
+                    // should not happen
+                    throw new RuntimeException(x);
+                }
+            }
+        });
+        dialog.setNegativeButton(R.string.button_cancel, new OnClickListener() {
+            @Override
+            public void onClick(final DialogInterface dialog, final int which) {
+                passwordView.setText(null); // get rid of it asap
+                finish();
+            }
+        });
+        dialog.setOnCancelListener(new OnCancelListener() {
+            @Override
+            public void onCancel(final DialogInterface dialog) {
+                passwordView.setText(null); // get rid of it asap
+                finish();
+            }
+        });
 
-	private void prepareRestoreWalletDialog(final Dialog dialog)
-	{
-		final AlertDialog alertDialog = (AlertDialog) dialog;
+        return dialog.create();
+    }
 
-		final View replaceWarningView = alertDialog.findViewById(R.id.restore_wallet_from_content_dialog_replace_warning);
-		final boolean hasCoins = wallet.getBalance(BalanceType.ESTIMATED).signum() > 0;
-		replaceWarningView.setVisibility(hasCoins ? View.VISIBLE : View.GONE);
+    private void prepareRestoreWalletDialog(final Dialog dialog) {
+        final AlertDialog alertDialog = (AlertDialog) dialog;
 
-		final EditText passwordView = (EditText) alertDialog.findViewById(R.id.import_keys_from_content_dialog_password);
-		passwordView.setText(null);
+        final View replaceWarningView = alertDialog
+                .findViewById(R.id.restore_wallet_from_content_dialog_replace_warning);
+        final boolean hasCoins = wallet.getBalance(BalanceType.ESTIMATED).signum() > 0;
+        replaceWarningView.setVisibility(hasCoins ? View.VISIBLE : View.GONE);
 
-		final ImportDialogButtonEnablerListener dialogButtonEnabler = new ImportDialogButtonEnablerListener(passwordView, alertDialog)
-		{
-			@Override
-			protected boolean hasFile()
-			{
-				return true;
-			}
-		};
-		passwordView.addTextChangedListener(dialogButtonEnabler);
+        final EditText passwordView = (EditText) alertDialog
+                .findViewById(R.id.import_keys_from_content_dialog_password);
+        passwordView.setText(null);
 
-		final CheckBox showView = (CheckBox) alertDialog.findViewById(R.id.import_keys_from_content_dialog_show);
-		showView.setOnCheckedChangeListener(new ShowPasswordCheckListener(passwordView));
-	}
+        final ImportDialogButtonEnablerListener dialogButtonEnabler = new ImportDialogButtonEnablerListener(
+                passwordView, alertDialog) {
+            @Override
+            protected boolean hasFile() {
+                return true;
+            }
+        };
+        passwordView.addTextChangedListener(dialogButtonEnabler);
 
-	private void restoreWalletFromEncrypted(final InputStream cipher, final String password)
-	{
-		try
-		{
-			final BufferedReader cipherIn = new BufferedReader(new InputStreamReader(cipher, Charsets.UTF_8));
-			final StringBuilder cipherText = new StringBuilder();
-			Io.copy(cipherIn, cipherText, Constants.BACKUP_MAX_CHARS);
-			cipherIn.close();
+        final CheckBox showView = (CheckBox) alertDialog.findViewById(R.id.import_keys_from_content_dialog_show);
+        showView.setOnCheckedChangeListener(new ShowPasswordCheckListener(passwordView));
+    }
 
-			final byte[] plainText = Crypto.decryptBytes(cipherText.toString(), password.toCharArray());
-			final InputStream is = new ByteArrayInputStream(plainText);
+    private void restoreWalletFromEncrypted(final InputStream cipher, final String password) {
+        try {
+            final BufferedReader cipherIn = new BufferedReader(new InputStreamReader(cipher, Charsets.UTF_8));
+            final StringBuilder cipherText = new StringBuilder();
+            Io.copy(cipherIn, cipherText, Constants.BACKUP_MAX_CHARS);
+            cipherIn.close();
 
-			restoreWallet(WalletUtils.restoreWalletFromProtobufOrBase58(is));
+            final byte[] plainText = Crypto.decryptBytes(cipherText.toString(), password.toCharArray());
+            final InputStream is = new ByteArrayInputStream(plainText);
 
-			log.info("successfully restored encrypted wallet from external source");
-		}
-		catch (final IOException x)
-		{
-			final DialogBuilder dialog = DialogBuilder.warn(this, R.string.import_export_keys_dialog_failure_title);
-			dialog.setMessage(getString(R.string.import_keys_dialog_failure, x.getMessage()));
-			dialog.setPositiveButton(R.string.button_dismiss, finishListener).setOnCancelListener(finishListener);
-			dialog.setNegativeButton(R.string.button_retry, new DialogInterface.OnClickListener()
-			{
-				@Override
-				public void onClick(final DialogInterface dialog, final int id)
-				{
-					showDialog(DIALOG_RESTORE_WALLET);
-				}
-			});
-			dialog.show();
+            restoreWallet(WalletUtils.restoreWalletFromProtobufOrBase58(is, Constants.NETWORK_PARAMETERS));
 
-			log.info("problem restoring wallet", x);
-		}
-	}
+            log.info("successfully restored encrypted wallet from external source");
+        } catch (final IOException x) {
+            final DialogBuilder dialog = DialogBuilder.warn(this, R.string.import_export_keys_dialog_failure_title);
+            dialog.setMessage(getString(R.string.import_keys_dialog_failure, x.getMessage()));
+            dialog.setPositiveButton(R.string.button_dismiss, finishListener).setOnCancelListener(finishListener);
+            dialog.setNegativeButton(R.string.button_retry, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(final DialogInterface dialog, final int id) {
+                    showDialog(DIALOG_RESTORE_WALLET);
+                }
+            });
+            dialog.show();
 
-	private void restoreWallet(final Wallet wallet) throws IOException
-	{
-		application.replaceWallet(wallet);
+            log.info("problem restoring wallet", x);
+        }
+    }
 
-		config.disarmBackupReminder();
+    private void restoreWallet(final Wallet wallet) throws IOException {
+        application.replaceWallet(wallet);
+        this.wallet = application.getWallet();
 
-		final DialogBuilder dialog = new DialogBuilder(this);
-		final StringBuilder message = new StringBuilder();
-		message.append(getString(R.string.restore_wallet_dialog_success));
-		message.append("\n\n");
-		message.append(getString(R.string.restore_wallet_dialog_success_replay));
-		dialog.setMessage(message);
-		dialog.setNeutralButton(R.string.button_ok, new DialogInterface.OnClickListener()
-		{
-			@Override
-			public void onClick(final DialogInterface dialog, final int id)
-			{
-				getWalletApplication().resetBlockchain();
-				finish();
-			}
-		});
-		dialog.show();
-	}
+        config.disarmBackupReminder();
 
-	private class FinishListener implements DialogInterface.OnClickListener, DialogInterface.OnCancelListener
-	{
-		@Override
-		public void onClick(final DialogInterface dialog, final int which)
-		{
-			finish();
-		}
+        upgradeWalletKeyChains(Constants.BIP44_PATH);
+    }
 
-		@Override
-		public void onCancel(final DialogInterface dialog)
-		{
-			finish();
-		}
-	}
+    private class FinishListener implements DialogInterface.OnClickListener, DialogInterface.OnCancelListener {
+        @Override
+        public void onClick(final DialogInterface dialog, final int which) {
+            finish();
+        }
 
-	private final FinishListener finishListener = new FinishListener();
+        @Override
+        public void onCancel(final DialogInterface dialog) {
+            finish();
+        }
+    }
+
+    private final FinishListener finishListener = new FinishListener();
+
+    private void upgradeWalletKeyChains(final ImmutableList<ChildNumber> path) {
+
+        state = State.UPGRADE;
+        if (!wallet.hasKeyChain(path)) {
+            if (wallet.isEncrypted()) {
+                state = State.PINSET;
+                EncryptNewKeyChainDialogFragment.show(getFragmentManager(), new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        onUpgradeConfirmed();
+                    }
+                }, path);
+            } else {
+                //
+                // Upgrade the wallet now
+                //
+                wallet.addKeyChain(path);
+                application.saveWallet();
+                //
+                // Tell the user that the wallet is being upgraded (BIP44)
+                // and they will have to enter a PIN.
+                //
+                UpgradeWalletDisclaimerDialog.show(getFragmentManager());
+            }
+        }
+        else {
+            checkWalletEncryptionDialog();
+        }
+    }
+
+    //BIP44 Wallet Upgrade Dialog Dismissed (Ok button pressed)
+    @Override
+    public void onUpgradeConfirmed() {
+        if(state == State.PINSET) {
+            resetBlockchain();
+        }
+        if(state == State.UPGRADE) {
+            checkWalletEncryptionDialog();
+        }
+    }
+
+    private void resetBlockchain() {
+        state = State.DONE;
+        final DialogBuilder dialog = new DialogBuilder(this);
+        final StringBuilder message = new StringBuilder();
+        message.append(getString(R.string.restore_wallet_dialog_success));
+        message.append("\n\n");
+        message.append(getString(R.string.restore_wallet_dialog_success_replay));
+        dialog.setMessage(message);
+        dialog.setNeutralButton(R.string.button_ok, new OnClickListener() {
+            @Override
+            public void onClick(final DialogInterface dialog, final int id) {
+                getWalletApplication().resetBlockchain();
+                finish();
+            }
+        });
+        dialog.show();
+    }
+
+    private void checkWalletEncryptionDialog() {
+        state = State.PINSET;
+        if (!wallet.isEncrypted()) {
+            handleEncryptKeys();
+        } else {
+            onUpgradeConfirmed();
+        }
+    }
+
+    public void handleEncryptKeys() {
+        EncryptKeysDialogFragment.show(getFragmentManager(), new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                onUpgradeConfirmed();
+            }
+        });
+    }
 }

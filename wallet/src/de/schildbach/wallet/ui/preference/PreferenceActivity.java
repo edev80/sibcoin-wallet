@@ -19,30 +19,67 @@ package de.schildbach.wallet.ui.preference;
 
 import java.util.List;
 
-import android.view.MenuItem;
 import rusapps.sibcoin.wallet.R;
+
+import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.v7.widget.Toolbar;
+import android.support.v7.app.ActionBar;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 /**
  * @author Andreas Schildbach
  */
-public final class PreferenceActivity extends android.preference.PreferenceActivity
-{
-	@Override
-	public void onBuildHeaders(final List<Header> target)
-	{
-		loadHeadersFromResource(R.xml.preference_headers, target);
-	}
+public final class PreferenceActivity extends AppCompatPreferenceActivity {
 
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item)
-	{
-		switch (item.getItemId())
-		{
-			case android.R.id.home:
-				finish();
-				return true;
-		}
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
 
-		return super.onOptionsItemSelected(item);
-	}
+        initToolbar();
+    }
+
+    private void initToolbar()
+    {
+        LinearLayout root = (LinearLayout)findViewById(android.R.id.list).getParent().getParent().getParent();
+        AppBarLayout appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.app_bar_preferences, root, false);
+        root.addView(appBar, 0); // insert at top
+
+        Toolbar toolbarView = (Toolbar) appBar.findViewById(R.id.toolbar);
+        if (toolbarView != null)
+        {
+            setSupportActionBar(toolbarView);
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null)
+            {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+                actionBar.setDisplayShowHomeEnabled(true);
+            }
+        }
+    }
+    @Override
+    public void onBuildHeaders(final List<Header> target) {
+        loadHeadersFromResource(R.xml.preference_headers, target);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+        case android.R.id.home:
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected boolean isValidFragment(final String fragmentName) {
+        return SettingsFragment.class.getName().equals(fragmentName)
+                || DiagnosticsFragment.class.getName().equals(fragmentName)
+                || AboutFragment.class.getName().equals(fragmentName);
+    }
 }

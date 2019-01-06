@@ -1,20 +1,19 @@
 apply plugin: 'com.android.application'
 
-def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
 repositories {
-    maven { url localMavenRepo }
-    dependencies {
-        compile(project(':integration-android')) {
-            exclude(group: 'com.google.android', module: 'android')
-        }
-        compile 'org.bitcoinj:sibcoinj-core:0.13.2'
-    }
+    mavenLocal();
 }
 
+dependencies {
+    compile(project(':integration-android')) {
+        exclude(group: 'com.google.android', module: 'android')
+    }
+     compile 'org.bitcoinj:sibcoinj-core:0.14.4.4'
+}
 
 android {
-    compileSdkVersion 'android-27'
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 'android-15'
+    buildToolsVersion '25.0.2'
 
     lintOptions { abortOnError false }
 
@@ -37,5 +36,3 @@ android {
         exclude 'org/bitcoinj/crypto/cacerts'
     }
 }
-
-dependencies {}

@@ -26,9 +26,16 @@ import java.util.concurrent.RejectedExecutionException;
 import org.bitcoinj.core.Sha256Hash;
 import org.bitcoinj.core.StoredBlock;
 import org.bitcoinj.core.Transaction;
-import org.bitcoinj.core.Wallet;
+import org.bitcoinj.wallet.Wallet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import de.schildbach.wallet.Configuration;
+import de.schildbach.wallet.Constants;
+import de.schildbach.wallet.WalletApplication;
+import de.schildbach.wallet.service.BlockchainService;
+import de.schildbach.wallet.service.BlockchainServiceImpl;
+import rusapps.sibcoin.wallet.R;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -55,18 +62,11 @@ import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.ViewAnimator;
-import de.schildbach.wallet.Configuration;
-import de.schildbach.wallet.Constants;
-import de.schildbach.wallet.WalletApplication;
-import de.schildbach.wallet.service.BlockchainService;
-import de.schildbach.wallet.service.BlockchainServiceImpl;
-import rusapps.sibcoin.wallet.R;
 
 /**
  * @author Andreas Schildbach
  */
-public final class BlockListFragment extends Fragment implements BlockListAdapter.OnClickListener
-{
+public final class BlockListFragment extends Fragment implements BlockListAdapter.OnClickListener {
 	private AbstractWalletActivity activity;
 	private WalletApplication application;
 	private Configuration config;
@@ -82,13 +82,12 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 	private static final int ID_BLOCK_LOADER = 0;
 	private static final int ID_TRANSACTION_LOADER = 1;
 
-	private static final int MAX_BLOCKS = 32;
+	private static final int MAX_BLOCKS = 64;
 
 	private static final Logger log = LoggerFactory.getLogger(BlockListFragment.class);
 
 	@Override
-	public void onAttach(final Activity activity)
-	{
+    public void onAttach(final Activity activity) {
 		super.onAttach(activity);
 
 		this.activity = (AbstractWalletActivity) activity;
@@ -99,16 +98,15 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 	}
 
 	@Override
-	public void onActivityCreated(final Bundle savedInstanceState)
-	{
+    public void onActivityCreated(final Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-		activity.bindService(new Intent(activity, BlockchainServiceImpl.class), serviceConnection, Context.BIND_AUTO_CREATE);
+        activity.bindService(new Intent(activity, BlockchainServiceImpl.class), serviceConnection,
+                Context.BIND_AUTO_CREATE);
 	}
 
 	@Override
-	public void onCreate(final Bundle savedInstanceState)
-	{
+    public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		adapter = new BlockListAdapter(activity, wallet, this);
@@ -116,8 +114,8 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 	}
 
 	@Override
-	public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState)
-	{
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
+            final Bundle savedInstanceState) {
 		final View view = inflater.inflate(R.layout.block_list_fragment, container, false);
 
 		viewGroup = (ViewAnimator) view.findViewById(R.id.block_list_group);
@@ -125,6 +123,7 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 		recyclerView = (RecyclerView) view.findViewById(R.id.block_list);
 		recyclerView.setLayoutManager(new LinearLayoutManager(activity));
 		recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
 
 		return view;
 	}
@@ -132,8 +131,7 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 	private boolean resumed = false;
 
 	@Override
-	public void onResume()
-	{
+    public void onResume() {
 		super.onResume();
 
 		activity.registerReceiver(tickReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
@@ -145,18 +143,15 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 	}
 
 	@Override
-	public void onPause()
-	{
-		// workaround: under high load, it can happen that onPause() is called twice (recursively via destroyLoader)
-		if (resumed)
-		{
+    public void onPause() {
+        // workaround: under high load, it can happen that onPause() is called twice (recursively via
+        // destroyLoader)
+        if (resumed) {
 			resumed = false;
 
 			loaderManager.destroyLoader(ID_TRANSACTION_LOADER);
 			activity.unregisterReceiver(tickReceiver);
-		}
-		else
-		{
+        } else {
 			log.warn("onPause() called without onResume(), appending stack trace", new RuntimeException());
 		}
 
@@ -164,29 +159,24 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 	}
 
 	@Override
-	public void onDestroy()
-	{
+    public void onDestroy() {
 		activity.unbindService(serviceConnection);
 
 		super.onDestroy();
 	}
 
 	@Override
-	public void onBlockMenuClick(final View view, final StoredBlock block)
-	{
+    public void onBlockMenuClick(final View view, final StoredBlock block) {
 		final PopupMenu popupMenu = new PopupMenu(activity, view);
 		popupMenu.inflate(R.menu.blocks_context);
 
-		popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener()
-		{
+        popupMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			@Override
-			public boolean onMenuItemClick(final MenuItem item)
-			{
-				switch (item.getItemId())
-				{
+            public boolean onMenuItemClick(final MenuItem item) {
+                switch (item.getItemId()) {
 					case R.id.blocks_context_browse:
-						startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.EXPLORE_BASE_URL + Constants.EXPLORE_BLOCK_PATH
-								+ block.getHeader().getHashAsString())));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.withAppendedPath(config.getBlockExplorer(),
+                            "block/" + block.getHeader().getHashAsString())));
 						return true;
 				}
 				return false;
@@ -195,41 +185,34 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 		popupMenu.show();
 	}
 
-	private final ServiceConnection serviceConnection = new ServiceConnection()
-	{
+    private final ServiceConnection serviceConnection = new ServiceConnection() {
 		@Override
-		public void onServiceConnected(final ComponentName name, final IBinder binder)
-		{
+        public void onServiceConnected(final ComponentName name, final IBinder binder) {
 			service = ((BlockchainServiceImpl.LocalBinder) binder).getService();
 
 			loaderManager.initLoader(ID_BLOCK_LOADER, null, blockLoaderCallbacks);
 		}
 
 		@Override
-		public void onServiceDisconnected(final ComponentName name)
-		{
+        public void onServiceDisconnected(final ComponentName name) {
 			loaderManager.destroyLoader(ID_BLOCK_LOADER);
 
 			service = null;
 		}
 	};
 
-	private final BroadcastReceiver tickReceiver = new BroadcastReceiver()
-	{
+    private final BroadcastReceiver tickReceiver = new BroadcastReceiver() {
 		@Override
-		public void onReceive(final Context context, final Intent intent)
-		{
+        public void onReceive(final Context context, final Intent intent) {
 			adapter.notifyDataSetChanged();
 		}
 	};
 
-	private static class BlockLoader extends AsyncTaskLoader<List<StoredBlock>>
-	{
+    private static class BlockLoader extends AsyncTaskLoader<List<StoredBlock>> {
 		private LocalBroadcastManager broadcastManager;
 		private BlockchainService service;
 
-		private BlockLoader(final Context context, final BlockchainService service)
-		{
+        private BlockLoader(final Context context, final BlockchainService service) {
 			super(context);
 
 			this.broadcastManager = LocalBroadcastManager.getInstance(context.getApplicationContext());
@@ -237,57 +220,47 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 		}
 
 		@Override
-		protected void onStartLoading()
-		{
+        protected void onStartLoading() {
 			super.onStartLoading();
 
-			broadcastManager.registerReceiver(broadcastReceiver, new IntentFilter(BlockchainService.ACTION_BLOCKCHAIN_STATE));
+            broadcastManager.registerReceiver(broadcastReceiver,
+                    new IntentFilter(BlockchainService.ACTION_BLOCKCHAIN_STATE));
 
 			forceLoad();
 		}
 
 		@Override
-		protected void onStopLoading()
-		{
+        protected void onStopLoading() {
 			broadcastManager.unregisterReceiver(broadcastReceiver);
 
 			super.onStopLoading();
 		}
 
 		@Override
-		public List<StoredBlock> loadInBackground()
-		{
+        public List<StoredBlock> loadInBackground() {
 			return service.getRecentBlocks(MAX_BLOCKS);
 		}
 
-		private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver()
-		{
+        private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
 			@Override
-			public void onReceive(final Context context, final Intent intent)
-			{
-				try
-				{
+            public void onReceive(final Context context, final Intent intent) {
+                try {
 					forceLoad();
-				}
-				catch (final RejectedExecutionException x)
-				{
+                } catch (final RejectedExecutionException x) {
 					log.info("rejected execution: " + BlockLoader.this.toString());
 				}
 			}
 		};
 	}
 
-	private final LoaderCallbacks<List<StoredBlock>> blockLoaderCallbacks = new LoaderCallbacks<List<StoredBlock>>()
-	{
+    private final LoaderCallbacks<List<StoredBlock>> blockLoaderCallbacks = new LoaderCallbacks<List<StoredBlock>>() {
 		@Override
-		public Loader<List<StoredBlock>> onCreateLoader(final int id, final Bundle args)
-		{
+        public Loader<List<StoredBlock>> onCreateLoader(final int id, final Bundle args) {
 			return new BlockLoader(activity, service);
 		}
 
 		@Override
-		public void onLoadFinished(final Loader<List<StoredBlock>> loader, final List<StoredBlock> blocks)
-		{
+        public void onLoadFinished(final Loader<List<StoredBlock>> loader, final List<StoredBlock> blocks) {
 			adapter.replace(blocks);
 			viewGroup.setDisplayedChild(1);
 
@@ -297,31 +270,28 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 		}
 
 		@Override
-		public void onLoaderReset(final Loader<List<StoredBlock>> loader)
-		{
+        public void onLoaderReset(final Loader<List<StoredBlock>> loader) {
 			adapter.clear();
 		}
 	};
 
-	private static class TransactionsLoader extends AsyncTaskLoader<Set<Transaction>>
-	{
+    private static class TransactionsLoader extends AsyncTaskLoader<Set<Transaction>> {
 		private final Wallet wallet;
 
-		private TransactionsLoader(final Context context, final Wallet wallet)
-		{
+        private TransactionsLoader(final Context context, final Wallet wallet) {
 			super(context);
 
 			this.wallet = wallet;
 		}
 
 		@Override
-		public Set<Transaction> loadInBackground()
-		{
+        public Set<Transaction> loadInBackground() {
+			org.bitcoinj.core.Context.propagate(Constants.CONTEXT);
+
 			final Set<Transaction> transactions = wallet.getTransactions(true);
 
 			final Set<Transaction> filteredTransactions = new HashSet<Transaction>(transactions.size());
-			for (final Transaction tx : transactions)
-			{
+            for (final Transaction tx : transactions) {
 				final Map<Sha256Hash, Integer> appearsIn = tx.getAppearsInHashes();
 				if (appearsIn != null && !appearsIn.isEmpty()) // TODO filter by updateTime
 					filteredTransactions.add(tx);
@@ -331,23 +301,19 @@ public final class BlockListFragment extends Fragment implements BlockListAdapte
 		}
 	}
 
-	private final LoaderCallbacks<Set<Transaction>> transactionLoaderCallbacks = new LoaderCallbacks<Set<Transaction>>()
-	{
+    private final LoaderCallbacks<Set<Transaction>> transactionLoaderCallbacks = new LoaderCallbacks<Set<Transaction>>() {
 		@Override
-		public Loader<Set<Transaction>> onCreateLoader(final int id, final Bundle args)
-		{
+        public Loader<Set<Transaction>> onCreateLoader(final int id, final Bundle args) {
 			return new TransactionsLoader(activity, wallet);
 		}
 
 		@Override
-		public void onLoadFinished(final Loader<Set<Transaction>> loader, final Set<Transaction> transactions)
-		{
+        public void onLoadFinished(final Loader<Set<Transaction>> loader, final Set<Transaction> transactions) {
 			adapter.replaceTransactions(transactions);
 		}
 
 		@Override
-		public void onLoaderReset(final Loader<Set<Transaction>> loader)
-		{
+        public void onLoaderReset(final Loader<Set<Transaction>> loader) {
 			adapter.clearTransactions();
 		}
 	};

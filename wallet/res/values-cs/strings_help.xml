@@ -1,31 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="help_wallet">
+
+	<string name="help_wallet">
+
+<![CDATA[
+
+⇥⇥<p>
+
+⇥⇥⇥Na levé horní části displeje se zobrazuje vaše bilance v Sibcoini a jedna ve zvolené národní měně.
+
+⇥⇥⇥Klepněte na seznam národních měn a zvolte jednu jako výchozí.
+
+⇥⇥</p>
+
+⇥⇥<p>
+
+⇥⇥⇥QR kód napravo obsahuje vaši Sibcoin adresu, kterou si může oskenovat jiný uživatel .
+
+⇥⇥⇥Chcete-li QR kód zvětšit, klepněte na něj .
+
+⇥⇥</p>
+
+⇥⇥<p>
+
+⇥⇥⇥Ve spodní části obrazovky se nachází seznam vašich transakcí, který bude ze začátku prázdný.
+
+⇥⇥⇥Transakce čekající na schválení jsou vyznačené šedě, dokud se nepotvrdí.
+
+⇥⇥⇥Pokud si chcete do adresáře přidat adresy odesílatelů nebo příjemců, klepněte na jednu z položek.
+
+⇥⇥</p>
+
+⇥⇥<p>
+
+⇥⇥⇥Zaslat mince nebo si je vyžádat můžete prostřednictvím tlačítek v panelu akcí.
+
+⇥⇥⇥Více možností naleznete v menu „možností“.
+
+⇥⇥</p>
+
+⇥]]>
+
+⇥</string>
+	<string name="help_request_coins">
 <![CDATA[
 		<p>
-			Horní levá část obrazovky zobrazuje Vaši aktuální Sibcoin bilanci včetně odpovídající částky ve vaší lokální měně.
-			Kliknutím na částku přejdete do seznamu lokálních měn, kde si můžete vybrat jinou.
-		</p>
-		<p>
-			QR kód na pravé straně obsahuje Vaši Sibcoin adresu a může být použita pro naskenování druhou stranou.
-			Klepněte na QR kód pro zobrazení větší verze.
-		</p>
-		<p>
-			Ve spodní části obrazovky je seznam transakcí, který bude samozřejmě na začátku používání aplikace prázdný.
-			Probíhající transakce jsou zobrazeny šedě, dokud nejsou potvrzeny.
-			Kliknutím na řádek záznamu můžete příjemce či odesilatele přidat do adresáře.
-			Táhnutím vlevo či vpravo je možné aplikovat na seznam filtr.
-		</p>
-		<p>
-			Můžete poslat nebo si vyžádat Chervoncy klepnutím na patřičné tlačítko v akční nabídce.
-			Více možností je v nabídce nastavení.
-		</p>
-	]]>
-	</string>
-  <string name="help_request_coins">
-<![CDATA[
-		<p>
-			Pomocí tohoto dialogu můžete vyžádat Chervoncy od někoho jiného (kdo by měl také mít nainstalovanou aplikaci Sibcoin Wallet).
+			Pomocí tohoto dialogu můžete vyžádat Sibcoiny od někoho jiného (kdo by měl také mít nainstalovanou aplikaci Sibcoin Wallet).
 		</p>
 		<p>
 			Nejprve zadejte množství Sibcoinů, které chcete vyžádat.
@@ -33,7 +53,7 @@
 		<p>
 			Potom můžete protistraně nabídnout vygenerovaný QR kód k oskenování,
 			nebo můžete požadavek zaslat pomocí tlačítka sdílet v rychlé nabídce.
-			Druhá strana potom klikne na získanou adresu.
+			Druhá strana potom klikne na Sibcoin URL.
 		</p>
 		<p>
 			V obou případech odesílatel uvidí dialog na zasílání Sibcoinů s předvyplněnými údaji.
@@ -41,7 +61,7 @@
 		</p>
 	]]>
 	</string>
-  <string name="help_send_coins">
+	<string name="help_send_coins">
 <![CDATA[
 		<p>
 			Právě jste zahájil zasílání Sibcoinů.
@@ -49,8 +69,8 @@
 		</p>
 		<p>
 			Nejprve zadejte adresu, na kterou chcete provést platbu.
-			Adresa se bude automaticky doplňovat (našeptávač), pokud již existuje ve vašem adresáři.
-			Můžete také naskenovat QR kód s adresou peněženky nebo požadavek na zaplacení stisknutím tlačítka s QR kódem.
+			Adresa se bude automaticky doplňovat podle údajů dostupných ve vašem adresáři.
+			Můžete také naskenovat QR kód s adresou nebo požadavkem na zaplacení, stisknutím tlačítka s ikonou QR kódu.
 		</p>
 		<p>
 			V dalším kroku uvidíte, kolik Sibcoinů můžete momentálně utratit.
@@ -66,19 +86,19 @@
 		</p>
 		<p>
 			Poznámka:
-			Transakce nemohou být zrušeny!
-			Vždy zkontrolujte adresu příjemce.
+			Převody nelze vzít zpět!
+			Vždy pečlivě zkontrolujte adresu příjemce.
 		</p>
 	]]>
 	</string>
-  <string name="help_safety">
+	<string name="help_safety">
 <![CDATA[
 		<p>
 			Několik slov o bezpečnosti vašich Sibcoinů:
 		</p>
 		<p>
-			Chervoncy v aplikaci Sibcoin Wallet jsou uloženy ve vašem zařízení.
-			<b>Pokud o zařízení přijdete, přijdete i o Chervoncy v něm.</b>
+			Sibcoiny v aplikaci Sibcoin Wallet jsou uloženy ve vašem zařízení.
+			<b>Pokud o zařízení přijdete, přijdete i o Sibcoiny v něm.</b>
 			Stejně jako při ztrátě normální peněženky.
 		</p>
 		<p>
@@ -87,12 +107,17 @@
 		</p>
 		<p>
 			<b>Transakce nemohou být zrušeny</b>.
-			Pokud pošlete Chervoncy někam neznámo kam, neexistuje možnost, jak je získat zpět, jedině byste znali příjemce a on měl zrovna náladu je poctivě vrátit.
+			Pokud pošlete Sibcoiny někam neznámo kam, neexistuje možnost, jak je získat zpět, jedině byste znali příjemce a on měl zrovna náladu je poctivě vrátit.
 		</p>
 		<p>
-			<b>Udržujte Váš Android v bezpečí!</b>
+			<b>Provedené platby jsou nezvratné</b>.
+			Pokud pošlete Bitcoiny na špatnou adresu, možnost jejich získání zpět téměř neexistuje.
+		</p>
+		<p>
+			<b>Udržujte svůj mobilní přístroj v bezpečí!</b>
+			Nepřivlastňujte si práva root svého přístoje.
 			Instalujte pouze aplikace, kterým plně důvěřujete.
-			Existují škodlivé aplikace, které vás mohou o vaše Chervoncy připravit.
+			Existují škodlivé aplikace, které vás mohou o vaše Sibcoiny připravit.
 		</p>
 		<p>
 			Neriskujte zbytečně!
@@ -100,4 +125,5 @@
 		</p>
 	]]>
 	</string>
+
 </resources>

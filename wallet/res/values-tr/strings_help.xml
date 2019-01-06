@@ -1,103 +1,111 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="help_wallet">
+
+    <string name="help_wallet">
 <![CDATA[
 		<p>
-			Ekranın sol üst köşesi bakiyenizi Sibcoin olarak ve seçilen bir para biriminde gösterir.
-			Milli para birimleri listesine gitmek için dokununuz ve ardından herhangi bir para birimini varsayılan olarak seçmek için yine dokununuz.
+			Ekranın sol üst köşesi Sibcoin bakiyenizi seçmiş olduğunuz para biriminde gösterir.
+			Para birimleri listesini görmek için tıklayınız, ve dilediğiniz para birimini varsayılan olarak ayarlamak için tekrar tıklayınız.
 		</p>
 		<p>
-			Sağ taraftaki QR kodu Sibcoin adresinizi içerir ve başka birisinin ödeme yapmak için onu taraması mümkündür.
-			Daha büyük bir sürümünü elde etmek için QR koduna dokununuz.
+			(sol üstteki) Navigasyon menüsünden Sibcoin adresinizi içeren QR kodunuza ulaşabilirsiniz, bu kod karşı tarafın taraması için kullanılır.
+			QR kodunun büyütülmüş versiyonu için QR kodunun üzerine tıklayınız.
 		</p>
 		<p>
-			Ekranın alt kesimi muamele listenizi gösterir ve başlangıçta boştur.
-			Beklemedeki muameleler teyit edilinceye kadar gri olarak gösterilir.
-			Gönderici ya da alıcı adresini adres defterine eklemek için bir unsura dokununuz.
-			Listeye filtre uygulamak için sağa ya da sola doğru kaydırınız.
+			Ekranın alt kısmı işlem listenizi içerir, başlangıçta boştur.
+			Bekleyen işlemleriniz onaylanıncaya kadar gri renkte gösterilir.
+			İşlem detaylarını görmek veya göndericileri ya da alıcıları adres defterine eklemek için bir girişe tıklayınız.
+			(sol üstteki) Navigasyon menüsünden adres defterine ulaşabilirsiniz.
 		</p>
 		<p>
-			Sibcoin göndermek ya da talepte bulunmak için eylem çubuğundaki düğmelere dokunabilirsiniz.
-			Seçenekler menüsünde daha fazla seçenek bulabilirsiniz.
+			Sibcoin gönderimi veya talebinde bulunmak için işlem çubuğundaki butonlara tıklayınız.
+			(sol üstteki) Navigasyon ve seçenekler menüsünde daha fazla opsiyon mevcuttur.
 		</p>
 	]]>
-	</string>
-  <string name="help_request_coins">
+    </string>
+    <string name="help_request_coins">
 <![CDATA[
 		<p>
-			Bu diyaloğu kullanarak başka bir kişiden Sibcoin talep edebilirsiniz (bu kişinin Sibcoin Wallet uygulamasını cihazında kurmuş olması gerekir).
+			Bu diyaloğu kullanarak, başka bir kişiden Sibcoin talep edebilirsiniz (bu kişinin de Sibcoin Wallet uygulamasını yüklemiş olması gerekmektedir.)
 		</p>
 		<p>
-			İlk olarak talep edilen Sibcoin miktarını girebilirsiniz.
+			Öncelikle, talep edeceğiniz Sibcoin miktarını giriniz.
 		</p>
 		<p>
-			Ardından ya diğer kişi tarafından taranacak bir QR code oluşturmanız,
-			ya da uzaktaki bir kişiye etkinlik çubuğunda paylaş düğmesiyle talebinizi göndermeniz gerekir.
-			Bu kişinin Sibcoin bağlantısını tıklaması gerekecektir.
+			Ardından, ya karşı tarafın tarayabileceği QR kodu okutunuz;
+			ya da, işlem çubuğundaki paylaş butonuyla uzaktaki bir kişiye talebinizi iletebilirsiniz.
+			Eğer her iki telefonda da NFC özelliği etkinse, telefonları birbirine dokundurabilirsiniz.
 		</p>
 		<p>
-			Her durumda diğer kişiye Sibcoin göndermesi için tüm seçenekleri doldurulmuş bir diyalog gösterilecektir.
-			Kabul ederse tüm yapması gereken muameleyi yollamaktır.
-		</p>
+			Her halükarda, göndericiye SIB gönderebilmesi için tüm alanları önceden doldurulmuş bir dialog sunulacaktır.
+			Göndericinin kabul etmesi durumunda, gönderici işlemi kolayca gerçekleştirebilir.
 	]]>
-	</string>
-  <string name="help_send_coins">
+    </string>
+    <string name="help_send_coins">
 <![CDATA[
 		<p>
 			Sibcoin gönderme prosedürünü başlattınız.
-			Buraya ya ana ekrandan ya da mobil ağ tarayıcınızda bir Sibcoin bağlantısına tıklayarak geldiniz.
+			Buraya ya ana ekrandan ya da mobil ağ tarayıcınızdan bir Sibcoin linkine tıklayarak ulaşmış bulunmaktasınız.
 		</p>
 		<p>
-			İlk olarak ödeme yapacağınız Sibcoin adresini girmelisiniz.
-			Adres defterinizde bilinen adreslere dayanılarak adres otomatik olarak tamamlanacaktır.
-			Ayrıca etkinlik çubuğunda QR düğmesine dokunarak Sibcoin adresi ya da talebi içeren QR kodlarını tarayabilirsiniz.
+			Öncelikle, ödeme yapacağınız Sibcoin adresini giriniz.
+			Adres defterinize girilmiş olan adreslerinize dayanılarak adres otomatik olarak tamamlanacaktır.
+			Ayrıca, QR butonuna tıklayarak Sibcoin adresi veya Sibcoin talebi içeren QR kodlarını tarayabilirsiniz.
 		</p>
 		<p>
-			Bunun ardından o anda ne kadar Sibcoin harcayabileceğinizi görüntüleyebilirsiniz.
-			Varsa ana ekrandaki bakiye ile farklılıklar henüz teyit edilmemiştir ve dolayısıyla henüz harcanamaz.
+			Sonrasında, o an ne kadar Sibcoin harcayabileceğinizi görüntüleyebilirsiniz.
+			Ana ekrandaki bakiyeniz ile görüntülediğiniz rakam arasında bir farklılık var ise, bu henüz onaylanmamış işlemlerin harcanamamasından kaynaklanmaktadır.
 		</p>
 		<p>
-			Son olarak ödenecek miktarı ve sunduğunuz ücreti girmeniz gerekir.
+			InstantSend\'e tıklayarak anlık gönderi yapabilirsiniz. İşlem ücreti daha yüksektir (> 0.001 SIB).
+			Son olarak, ödemek istediğini miktarı ve önceden tanımlanmış ise harcama PİN\'inizi giriniz.
 		</p>
 		<p>
-			Çevrimdışı olduğunuz sırada bir muamele girebilirsiniz.
-			Sibcoin Wallet uygulamasının sonraki açılışında gönderilir.
-			Bir muamelenin mümkün olduğu kadar çabuk işlenmesini istiyorsanız bağlantınızın iyi olduğundan (mesela WLAN ile).
+			Çevrimdışı olsanız bile ödeme yapabilirsiniz.
+			Bu ödeme, Sibcoin Wallet uygulamasının sonraki açılışında gönderilecektir.
+			Eğer ödemenizin en hızlı şekilde gerçekleşmesini istiyorsanız, iyi bir internet bağlantınız olduğundan emin olunuz (mesela WLAN ile).
 		</p>
 		<p>
 			Not:
-			Muameleler geri alınamaz!
+			Ödemeler geri döndürülemez!
 			Alıcı adresini daima kontrol ediniz.
 		</p>
 	]]>
-	</string>
-  <string name="help_safety">
+    </string>
+    <string name="help_safety">
 <![CDATA[
 		<p>
-			<b>Sibcoinlerinizin güvenliği hakkında önemli noktalar:</b>
+			<b>Önemli güvenlik notları:</b>
 		</p>
 		<p>
-			Sibcoin cüzdanınızdaki Sibcoinler cihazınızda saklanır.
-			<b>Cihazınızı kaybederseniz Sibcoinlerinizi de kaybedersiniz.</b>
-			Tıpkı fiziki cüzdanınızdaki para gibi.
+			Sibcoin\'leriniz cihazınızda depolanır.
+			<b>Cihazınız kaybolursa, Sibcoin\'leriniz de kaybolur.</b>
 		</p>
 		<p>
-			<b>Sibcoin Wallet</b> uygulamasını kaldırmadan önce (ya da uygulama verilerini/cihazınızı sıfırlamadan önce) <b>tüm Sibcoinlerinizi başka bir cüzdana aktarınız</b>.
-			Kalan tüm Sibcoinler kaybolacaktır.
+			Bu da demek oluyor ki <b>cüzdanınızı yedeklemelisiniz</b>!
+			Bunun için üçüncü parti uygulamalar yerine, uygulamanın içindeki yedekleme servisini kullanınız.
+			Yedeğinizi güvenli bir yerde muhafaza ediniz ve şifrenizi unutmayınız.
+			Bu bir HD cüzdanıdır. Tek seferlik yedekleme gerektirir.
 		</p>
 		<p>
-			<b>Muameleler geri alınamaz</b>.
-			Sibcoinlerinizi yanlış bir adrese yollarsanız, bunları geri almak için alıcıyı tanımanız ve onun geri yollamayı kabul etmeniz dışında hiçbir yol yoktur.
+			<b>Uygulamayı kaldırmadan önce</b> (veya uygulama verilerini temizlemeden / cihazınızı formatlamadan önce), <b>Sibcoin\'lerinizi başka bir cüzda aktarınız</b>.
+			Kalan tüm Sibcoin\'leriniz kaybolacaktır.
 		</p>
 		<p>
-			<b>Android cihazınızı güvenli kullanın!</b>
-			Sadece tamamen güvendiğiniz uygulamaları indiriniz.
-			Kötücül uygulamalar cüzdanınızı çalmaya çalışabilir.
+			<b>Ödemeler geri döndürülemez</b>.
+			Eğer Sibcoin\'inizi yanlış bir adrese gönderirseniz, onları geri almanın neredeyse hiçbir yolu yoktur.
 		</p>
 		<p>
-			Riski sınırlayın!
-			<b>Sibcoin Wallet uygulamasını sadece küçük tutarlar için kullanınız</b>.
+			<b>Mobil cihazınızı güvenli tutun!</b>
+			Cihazınızı root etmeyin.
+			Sadece güvendiğiniz uygulamaları yükleyiniz.
+			Kötü niyetli uygulamalar cüzdanınızı çalmaya çalışabilir.
+		</p>
+		<p>
+			Riski minimuma indirin!
+			Sadece günlük kullanımınız için<b>makul miktarda Sibcoin saklayın</b>.
 		</p>
 	]]>
-	</string>
+    </string>
+
 </resources>

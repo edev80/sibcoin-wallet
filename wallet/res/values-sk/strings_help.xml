@@ -1,73 +1,69 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
-	<string name="help_wallet">
+    <string name="help_wallet">
 <![CDATA[
 		<p>
-			V ľavej hornej časti obrazovky je Vaša aktuálna Sibcoin adresa, túto adresu potrebuje poznať odosielateľ, aby Vám mohol poslať Sibcoiny.
-			Kliknutím na adresu ju môžte zmeniť.
+			V pravej hornej časti displeja sa zobrazuje Vaša bilancia v Sibcoin a jednej zvolenej národnej mene.
+			Poklepte na zoznam národných mien a zvoľte jednu ako predvolenú.
 		</p>
 		<p>
-			QR kód na pravej strane obsahuje Vašu Sibcoin adresu, odosielateľ ho môže jednoducho naskenovať.
-			Kliknite na QR kód, aby ste ho zväčšili.
+			QR kód, ktorý obsahuje Vašu Sibcoin adresu je dostupný z navigačného menu (v ľavo hore) a môže byť použitý pre načítanie inou osobou.
+			Poklepaním na QR kód, získate väčšiu verziu.
 		</p>
 		<p>
-			V strede obrazovky je zobrazený aktuálny zostatok.
-			Hodnota Vašich Sibcoinov je zobrazená aj v inej zvolenej mene.
-			Kliknutím na zostatok zobrazíte zoznam cudzích mien, následným kliknutím na menu ju môžte nastaviť ako predvolenú.
+			V spodnej časti obrazovky nájdete zoznam Vašich transakcií, ktorý je na začiatku prázdny.
+			Čakajúce transakcie sú zašednuté, pokiaľ nie sú potvrdené.
+			Poklepaním na záznam uvidíte detaily, alebo pridáte odosielateľov či prijímateľov do adresára.
+			Adresár je dostupný z navigačného menu (vľavo hore).
 		</p>
 		<p>
-			V spodnej časti obrazovky sa nachádza zoznam transakcií. Zoznam je na začiatku prázdny.
-			Aktuálne prebiehajúce transakcie sú šedé, až kým nie sú potvrdené.
-			Kliknutím na transakciu môžete pridať danú adresu do adresára.
-			Ťahom vľavo a vpravo môžte filtrovať prijaté a odoslané platby.
-		</p>
-		<p>
-			Kliknutím na tlačidlá naspodku môžte poslať alebo vyžiadať Sibcoiny.
-			Ďalšie možnosti sú v ponuke nastavení.
+			Poslať alebo vyžiadať platbu môžete poklepaním na tlačítka v spodnej časti.
+			Viac možností je dostupných v navigačnom menu (vľavo hore) a v menu nastavení.
 		</p>
 	]]>
-	</string>
-	<string name="help_request_coins">
+    </string>
+    <string name="help_request_coins">
 <![CDATA[
 		<p>
-			Na tejto obrazovke môžete vyžiadať Sibcoiny od niekoho iného (kto má nainštalovanú aplikáciu Sibcoin Wallet).
+			Na tejto obrazovke môžete vyžiadať Sibcoin od niekoho iného (kto má nainštalovanú aplikáciu Sibcoin peňaženka).
 		</p>
 		<p>
-			Najprv zadajte sumu Sibcoinov, ktoré chcete vyžiadať.
+			Najskôr zadajte sumu Sibcoin, ktorú chcete vyžiadať.
 		</p>
 		<p>
-			Potom dajte druhej strane naskenovať vygenerovaný QR kód
-			alebo môžte svoju žiadosť poslať použitím tlačidla zdieľať.
-			Druhá strana potom klikne na Sibcoin URL.
+			Potom dajte druhej strane naskenovať vygenerovaný QR kód.
+			Alebo môžete svoju žiadosť poslať použitím tlačidla zdieľať.
+			Ak majú oba telefóny spustenú funkciu NFC, stačí ich proložiť k sebe.
 		</p>
 		<p>
-			V oboch prípadoch druhá strana uvidí predvyplnenú obrazovku na odosielanie Sibcoinov.
-			Ak s transakciou súhlasí, tak ju iba potvrdí.
+			V oboch prípadoch druhá strana uvidí predvyplnenú obrazovku na odosielanie Sibcoin.
+			Ak s transakciou súhlasí, tak ju iba jednoducho potvrdí.
 		</p>
 	]]>
-	</string>
-	<string name="help_send_coins">
+    </string>
+    <string name="help_send_coins">
 <![CDATA[
 		<p>
-			Práve ste začali proces odosielania Sibcoinov.
+			Práve ste začali proces odosielania Sibcoin.
 			Dostali ste sa sem z hlavnej obrazovky alebo kliknutím na Sibcoin adresu v prehliadači.
 		</p>
 		<p>
 			Najprv zadajte adresu, na ktorú chcete odoslať platbu.
 			Ak sa adresa nachádza v adresári, tak sa automaticky doplní.
-			Kliknutím na ikonu fotoaparátu môžete naskenovať QR kód s Sibcoin adresou alebo požiadavkou na zaplatenie.
+			Môžete naskenovať QR kód s Sibcoin adresou alebo požiadavkou na zaplatenie stlačením QR tlačítka.
 		</p>
 		<p>
-			Ďalej vidíte koľko Sibcoinov môžete aktuálne minúť.
-			Rozdiel medzi zostatkom na hlavnej obrazovke a počtom Sibcoinov, ktoré môžete minúť tvoria nepotvrdené transakcie.
+			Ďalej vidíte koľko Sibcoin môžete aktuálne minúť.
+			Rozdiel medzi zostatkom na hlavnej obrazovke a počtom Sibcoin, ktoré môžete minúť tvoria nepotvrdené transakcie.
 		</p>
 		<p>
-			Nakoniec zadajte sumu platby.
+			Poklepte InstantSend ak chce urobíť okamžitú platbu. Poplatok bude väčší (> 0.001 SIB).
+			Nakoniec zadajte sumu platby a PIN na míňanie ak ste si ho predtým nastavili.
 		</p>
 		<p>
-			Môžete zadať platbu aj keď ste v offline režime.
-			Platba bude odoslaná pri ďalšom spustení aplikácie.
+			Zadať platbu môžete aj keď ste bez pripojenia.
+			Platba bude odoslaná pri ďalšom spustení Sibcoin peňaženky.
 			Ak chcete, aby platba bola spracovaná v čo najkratšom čase, uistite sa že máte rýchle pripojenie (napríklad WiFi).
 		</p>
 		<p>
@@ -76,40 +72,41 @@
 			Vždy skontrolujte adresu príjemcu.
 		</p>
 	]]>
-	</string>
-	<string name="help_safety">
+    </string>
+    <string name="help_safety">
 <![CDATA[
 		<p>
 			<b>Dôležité informácie o bezpečnosti:</b>
 		</p>
 		<p>
-			Sibcoiny sú uložené na Vašom zariadení.
-			<b>Ak zariadenie stratíte, prídete o všetky svoje Sibcoiny.</b>
+			Sibcoin sú uložené na Vašom zariadení.
+			<b>Ak zariadenie stratíte, prídete o všetky svoje Sibcoin.</b>
 		</p>
 		<p>
 			To znamená, že by ste mali <b>zálohovať svoju peňaženku</b>!
 			Využite funkciu zálohovania v tejto aplikácii, neodporúča sa na zálohovanie použiť aplikácie tretích strán.
 			Svoju zálohu bezpečne uchovajte a nezabudnite heslo.
+			Toto je HD peňaženka. Stačí iba jedna záloha.
 		</p>
 		<p>
-			<b>Pred odinštalovaním</b> (alebo vymazaním dát/obnovením továrenských nastavení), <b>odošlite svoje Sibcoiny do inej peňaženky</b>.
-			Inak o svoje Sibcoiny prídete.
+			<b>Pred odinštalovaním</b> (alebo vymazaním dát/obnovením továrenských nastavení), <b>odošlite svoje Sibcoin do inej peňaženky</b>.
+			Zvyšné Sibcoin budú stratené.
 		</p>
 		<p>
-			<b>Platby sa nedajú stornovať</b>.
-			Ak pošlete svoje Sibcoiny na nesprávnu adresu, je takmer nemožné získať ich späť.
+			<b>Platby sú nevratné</b>.
+			Ak pošlete svoje Sibcoin na nesprávnu adresu, je takmer nemožné získať ich späť.
 		</p>
 		<p>
 			<b>Chráňte si svoje zariadenie!</b>
 			Nepoužívajte rootnuté zariadenie.
-			Inštalujte len aplikácie, ktorým dôverujete.
+			Inštalujte len aplikácie, ktorým plne dôverujete.
 			Škodlivé aplikácie sa môžu pokúsiť ukradnúť Vašu peňaženku.
 		</p>
 		<p>
 			Znížte riziko na minimum!
-			<b>Aplikáciu používajte len na malé sumy.</b>
+			<b>Ukladajte len malé sumy</b> pre denné použitie.
 		</p>
 	]]>
-	</string>
+    </string>
 
 </resources>

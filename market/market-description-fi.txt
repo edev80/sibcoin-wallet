@@ -4,7 +4,7 @@
 <b>OMINAISUUDET</b>
 
 • Ei vaadi rekisteröintiä, verkkopalveluja tai pilvitallennusta! Tämä lompakko on hajautettu ja suorayhteyksinen.
-• Mahdollisuus näyttää Dash-varat määrissä DASH, mDASH ja µDASH.
+• Mahdollisuus näyttää Dash-varat määrissä SIB, mSIB ja µSIB.
 • Yksikkömuunnos valtioiden valuuttojen välillä.
 • Dashien lähettäminen ja vastaanottaminen NFC, QR-koodien tai Dash-URL-osotteiden avulla.
 • Osoitekirja säännöllisesti käytettyjä Dash-osoitteita varten.
@@ -23,13 +23,13 @@ Lähdekoodi saatavilla GitHub:sta:
 https://github.com/HashEngineering/darkcoin-wallet
 
 Kaikki käännökset on hallinnoitu Transifex:n kautta:
-https://www.transifex.com/projects/p/bitcoin-wallet/
+https://www.transifex.com/dash/dash-wallet/
 
 
 <b>SUOSITTELUMME</b>
 
-• Useat mobiililompakot perustuvat Dash Wallet-ohjelman lähdekoodiin, esimerkiksi: blockchain.info, Hive and KnC.
-• https://bitcoin.org: suosittelema mobiililompakko
+• Useat mobiililompakot perustuvat Bitcoin Wallet-ohjelman lähdekoodiin, esimerkiksi: blockchain.info ja BTCX.
+• https://dash.org: suosittelema mobiililompakko
 • BitPay:n suosittelema.
 
 

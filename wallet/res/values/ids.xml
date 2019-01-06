@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<item name="action_bar_fragment" type="id"/>
+    <item name="action_bar_fragment" type="id"/>
 	<item name="localcurrency_textview" type="id"/>
 
 </resources>

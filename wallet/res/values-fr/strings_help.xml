@@ -1,108 +1,112 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="help_wallet">
+
+    <string name="help_wallet">
 <![CDATA[
 		<p>
-			La partie supérieure gauche de l\'écran affiche votre solde en Sibcoin ainsi qu\'une monnaie nationale choisie.
-			Toquez pour vous rendre vers la liste des monnaies nationales et tapez sur l\'une d\'elles pour la choisir par défaut.
-		</p>
-		 <p>
-			Le QR code à droite contient votre adresse Sibcoin et peut être numérisé par un tiers.
-			Toquez sur le code QR pour l\'agrandir.
+			Le coin supérieur droit de l\'écran montre votre solde en sibcoins et en une monnaie nationale choisie.
+			Touchez pour accéder à la liste des monnaies nationales, et touchez une de ces monnaies pour en faire celle par défaut.
 		</p>
 		<p>
-			Le bas de l\'écran est couvert par votre liste de transactions, qui est vide initialement.
-			Les transactions en attente sont grisées jusqu\'à ce qu\'elles soient confirmées.
-			Toquez sur une transaction pour ajouter l\'adresse du destinataire ou de l\'envoyeur à votre carnet d\'adresses.
-			Glissez vers la gauche ou vers la droite pour appliquer des filtres à la liste.
+			Le code QR qui contient votre adresse Sibcoin est accessible par le menu de navigation (en haut à gauche) et peut être scanné par quelqu\'un d\'autre.
+			Touchez le code QR pour en voir une version plus grande.
 		</p>
 		<p>
-			Vous pouvez envoyer ou recevoir des Sibcoin en toquant les boutons dans la barre d\'action.
-			Plus d\'options sont offertes dans le menu des options.
+			Le bas de l\'écran montre la liste de vos transactions, qui, au début, est vide.
+			Les transactions en cours sont grisées jusqu\'à ce qu\'elles soient confirmées.
+			Touchez une transaction pour en voir les détails ou pour ajouter expéditeurs ou destinataires à votre carnet d\'adresses.
+			Le carnet d\'adresses est accessible par le menu de navigation (en haut à gauche).
+		</p>
+		<p>
+			Vous pouvez envoyer ou demander de l\'argent en touchant les boutons de la barre d\'action.
+			Plus d\'options sont disponibles dans les menus de navigation (en haut à gauche) et d\'options.
 		</p>
 	]]>
-	</string>
-  <string name="help_request_coins">
+    </string>
+    <string name="help_request_coins">
 <![CDATA[
 		<p>
-			En utilisant cette zone de dialogue vous pouvez demander des pièces à une autre personne (qui devrait déjà avoir installé le Sibcoin Wallet).
+			Dans ce formulaire, vous pouvez demander de l\'argent à une autre personne (qui doit avoir déjà installé le portefeuille Sibcoin).
 		</p>
 		<p>
-			Vous pouvez d\'abord saisir un montant de Sibcoin à demander.
+			D\'abord, vous pouvez indiquer le montant en sibcoins à demander.
 		</p>
 		<p>
-			Ensuite, l\'autre personne peut numériser le code QR généré.
-			Vous pouvez aussi envoyer votre demande à une personne éloignée avec le bouton Partager de la barre de menu.
-			L\'autre personne devra cliquer sur l\'URL Sibcoin.
+			Ensuite, vous pouvez demander au payeur de scanner le QR-code généré.
+			Ou bien vous pouvez envoyer votre demande à une personne qui n\'est pas sur place, en utilisant le bouton de partage dans la barre d\'actions.
+			Si les deux téléphones sont compatibles NFC, vous pouvez aussi les mettre tous deux en contact.
 		</p>
 		<p>
-			Dans les deux cas, l\'autre personne obtiendra une zone de dialogue préremplie pour envoyer les pièces.
-			Si elle accepte, elle n\'aura qu\'à envoyer le paiement.
+			Quelle que soit la méthode choisie, le payeur verra un message l\'invitant à envoyer de l\'argent, avec tous les champs pré-remplis.
+			Si le payeur est d\'accord, alors il ou elle peut valider facilement le paiement.
 		</p>
 	]]>
-	</string>
-  <string name="help_send_coins">
+    </string>
+    <string name="help_send_coins">
 <![CDATA[
 		<p>
-			Vous avez commencé le processus d\'envoi de Sibcoin.
-			Vous êtes arrivé ici depuis l\'écran principal ou en cliquant sur une URL Sibcoin dans votre navigateur.
+			Vous avez lancé la procédure pour envoyer de l\'argent.
+			Vous êtes arrivé(e) jusqu\'ici soit par l\'écran d\'accueil, soit en cliquant sur une URL Sibcoin dans votre navigateur Internet mobile.
 		</p>
 		<p>
-			D\'abord, saisir l\'adresse Sibcoin de destination.
-			L\'adresse sera complétée automatiquement pour les adresses enregistrées dans votre carnet.
-			Vous pouvez aussi numériser des codes QR avec des adresses Sibcoin ou des demandes de Sibcoin en pressant le bouton QR dans la barre d\'actions.
+			D\'abord, veuillez entrer l\'adresse Sibcoin à laquelle envoyer le paiement.
+			L\'adresse sera auto-complétée si elle fait partie de celles de votre carnet d\'adresses.
+			Vous pouvez aussi scanner des QR-codes comportant une adresse Sibcoin ou une requête Sibcoin, en appuyant sur le bouton QR.
 		</p>
 		<p>
-			Ensuite, vous pouvez voir combien de Sibcoin peuvent être dépensés actuellement.
-			Tout écart avec le solde de l\'écran principal n\'est pas encore confirmé et ne peut donc pas être dépensé.
+			Ensuite, vous pouvez voir combien de sibcoins vous pouvez actuellement dépenser.
+			Une éventuelle différence avec le solde indiqué sur l\'écran d\'accueil signifie que cette différence correspond à des fonds pas encore confirmés, et qui ne peuvent donc pas encore être dépensés.
 		</p>
 		<p>
-			Enfin, saisir le montant à payer.
+			Touchez InstantSend si vous souhaitez faire un paiement instantané. Les frais sont plus élevés (> 0.001 sibcoin).
+			Enfin, saisissez le montant à payer, et éventuellement le code PIN de paiement si vous en avez déjà défini un.
 		</p>
 		<p>
-			Vous pouvez saisir un paiement hors-ligne.
-			Il sera envoyé au prochain lancement du Sibcoin Wallet.
-			Pour le traitement le plus rapide possible de votre paiement, assurez vous d\'être bien connecté (c.-à-d. sur un WLAN).
+			Vous pouvez saisir un paiement tout en étant hors ligne.
+			Il sera envoyé au prochain démarrage du portefeuille Sibcoin.
+			Si vous souhaitez envoyer un paiement le plus rapide possible, assurez-vous d\'avoir une bonne connexion (par ex. celle d\'un WLAN).
 		</p>
 		<p>
-			Note :
+			À noter :
 			Les paiements sont irréversibles !
-			Toujours vérifier l\'adresse de destination.
+			Veuillez toujours vérifier l\'adresse de réception.
 		</p>
 	]]>
-	</string>
-  <string name="help_safety">
+    </string>
+    <string name="help_safety">
 <![CDATA[
 		<p>
-			<b>Notes de sécurité importantes :</b>
+			<b>Notes importantes sur la sécurité :</b>
 		</p>
 		<p>
-			Les Sibcoin sont stockés sur l\'appareil.
-			<b>Si vous le perdez, vous perdez vos Sibcoin.</b>
+			Vos sibcoins sont stockés sur votre appareil.
+			<b>Si vous le perdez, vous perdrez vos sibcoins.</b>
 		</p>
 		<p>
 			Cela signifie que vous devez <b>sauvegarder votre portefeuille</b> !
-			Utilisez la fonction de sauvegarde de l\'appli plutôt qu\'une appli de sauvegarde tierce.
-			Gardez votre sauvegarde en sûreté et souvenez-vous de votre mot de passe.
+			Pour cela, veuillez utiliser la fonction de sauvegarde proposée par l\'application, plutôt qu\'une application tierce de sauvegarde.
+			Gardez votre sauvegarde dans un endroit sûr, et n\'oubliez pas le mot de passe.
+			Ceci est un portefeuille HD : une seule sauvegarde est nécessaire.
 		</p>
 		<p>
-			<b>Avant de désinstaller Sibcoin Wallet</b> (ou d\'effacer les données de l\'appli/effacer les données de votre appareil), <b>transférez vos Sibcoin vers un autre portefeuille</b>.
-			Les Sibcoin restants seront perdus.
+			<b>Avant de désinstaller l\'application</b> (ou d\'effacer ses données, ou de remettre à zéro votre appareil), <b>transférez vos sibcoins dans un autre portefeuille</b>.
+			Tous les sibcoins éventuellement restants seront perdus.
 		</p>
 		<p>
-			<b>Les paiements sont irréversibles</b>.
-			Si vous envoyez vos Sibcoin dans le vide, il n\'y a presque aucun moyen de les récupérer.
+			<b>Les paiements sont irréversibles.</b>
+			Si vous envoyez vos sibcoins dans le vide, il n\'existe presque aucune façon de les récupérer.
 		</p>
 		<p>
-			<b>Assurez la sécurité de votre appareil mobile !</b>
-			Ne rootez pas votre appareil.
-			N\'installez que des applications de confiance.
-			Des applications malveillantes pourraient essayer de voler votre portefeuille.
+			<b>Protégez la sécurité de votre appareil mobile !</b>
+			Ne \"rootez\" pas votre appareil.
+			N\'installez que des applications en lesquelles vous avez une entière confiance.
+			Des applications malveillantes pourraient essayer de voler les fonds de votre portefeuille.
 		</p>
 		<p>
-			Minimisez les risques !
-			<b>N\'utilisez que pour des petits montants,</b> pour un usage quotidien.
+			Réduisez au maximum les risques !
+			<b>Ne stockez que des sommes raisonnables</b> pour un usage quotidien.
 		</p>
 	]]>
-	</string>
+    </string>
+
 </resources>

@@ -1,123 +1,161 @@
 apply plugin: 'com.android.application'
-apply plugin: 'androidsvgdrawable'
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+}
+dependencies {
+    compile 'com.android.support:design:25.1.1'
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support:support-v4:25.1.1'
+    compile(project(':integration-android')) {
+        exclude(group: 'com.google.android', module: 'android')
+    }
+    compile 'com.android.support:support-annotations:25.1.1'
+    compile 'com.android.support:support-compat:25.1.1'
+    compile('com.android.support:support-v13:25.1.1') {
+        exclude(group: 'com.android.support', module: 'support-fragment')
+        exclude(group: 'com.android.support', module: 'support-media-compat')
+    }
+    compile 'com.android.support:support-core-utils:25.1.1'
+    compile 'com.android.support:recyclerview-v7:25.1.1'
+    compile 'com.android.support:cardview-v7:25.1.1'
+     compile 'org.bitcoinj:sibcoinj-core:0.14.4.4'
+    compile 'com.google.protobuf:protobuf-java:2.6.1'
+    compile 'com.google.guava:guava:20.0'
+    compile 'com.google.zxing:core:3.3.0'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+    compile 'com.squareup.okhttp:logging-interceptor:2.7.5'
+    compile 'com.squareup.moshi:moshi:1.3.1'
+    //compile 'com.netki:wallet-name-resolver:0.1.3'
+    compile ('com.hashengineering:dash-wallet-name-resolver:0.1.4-12.1') {
+        // This module requires dashj-core as dependency.
+        // If both sibcoinj-core and dashj-core are imported into project,
+        // since they have the same package name, all imports will use dashj-core and build will fail
+        exclude (group: 'org.dashj', module:'dashj-core')
+    }
+    compile 'org.slf4j:slf4j-api:1.7.22'
+    compile('com.github.tony19:logback-android-classic:1.1.1-6') {
+        exclude(group: 'com.google.android', module: 'android')
+    }
+    compile 'com.github.tony19:logback-android-core:1.1.1-6'
+    compile 'com.google.code.findbugs:jsr305:2.0.3'
+    testCompile 'junit:junit:4.12'
+    //Memory Leak Detection
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    //Espresso
+    androidTestCompile ('com.android.support.test:runner:1.0.1') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile ('com.android.support.test.espresso:espresso-core:3.0.1') {
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+}
+
+ext {
+     archivesBaseName = 'sibcoin-wallet'
+}
+
 android {
-    signingConfigs {
-        release {
-            storeFile file("/home/edev/keystore/sibwallet.jks")
-            storePassword "password"
-            keyAlias 'keyAlias'
-            keyPassword "keypassword"
-        }
+    compileSdkVersion 'android-25'
+    buildToolsVersion '25.0.2'
+
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation'
     }
     defaultConfig {
-        applicationId "rusapps.sibcoin.wallet"
+        generatedDensities = ['hdpi', 'xhdpi']
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
-        release {
-            signingConfig signingConfigs.release
+        all {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg', 'proguardTest-rules.txt'
+        }
+        debug {
+            debuggable true
         }
     }
-}
-def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-repositories {
-    maven { url localMavenRepo }
-
-    dependencies {
-        compile(project(':integration-android')) {
-            exclude(group: 'com.google.android', module: 'android')
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
         }
-        compile 'com.android.support:support-annotations:22.2.1'
-        compile 'com.android.support:support-v4:22.2.1'
-        compile 'com.android.support:support-v13:22.2.1'
-        compile 'com.android.support:recyclerview-v7:22.2.1'
-        compile 'com.android.support:cardview-v7:22.2.1'
-        compile 'org.bitcoinj:sibcoinj-core:0.13.2'
-        compile 'com.google.protobuf:protobuf-java:2.5.0'
-        compile 'com.google.guava:guava:16.0.1'
-        compile 'com.google.zxing:core:3.2.0'
-        compile 'org.slf4j:slf4j-api:1.7.12'
-        compile('com.github.tony19:logback-android-classic:1.1.1-3') {
-            exclude(group: 'com.google.android', module: 'android')
+        test {
+            java.srcDirs = ['test']
+            resources.srcDirs = ['test']
         }
-        compile 'com.github.tony19:logback-android-core:1.1.1-3'
-        compile 'com.google.code.findbugs:jsr305:2.0.3'
-        testCompile 'junit:junit:4.11'
-    }
-
-    ext {
-        archivesBaseName = 'sibcoin-wallet'
-    }
-
-    android {
-        compileSdkVersion 'android-27'
-        buildToolsVersion '27.0.1'
-
-
-        lintOptions {
-            abortOnError false
-            disable 'MissingTranslation'
-            disable 'ExtraTranslation'
+        androidTest {
+            java.srcDirs = ['androidTest']
+            resources.srcDirs = ['androidTest/java']
+            res.srcDirs = ['androidTest/testNet3/res']
         }
-
-        buildTypes {
-            all {
-                minifyEnabled true
-                proguardFile 'proguard.cfg'
-            }
-            debug {
-                debuggable true
-            }
+        _testNet3 {
+            res.srcDirs = ["testNet3/res"]
         }
-
-        sourceSets {
-            main {
-                manifest.srcFile 'AndroidManifest.xml'
-                java.srcDirs = ['src']
-                res.srcDirs = ['res']
-                assets.srcDirs = ['assets']
-
-                jniLibs.srcDir 'src/main/libs'
-                jni.srcDirs = []           //disable automatic ndk-build call
-                jniLibs.srcDirs = ['libs']
-                jniLibs.srcDir new File(buildDir, 'lib')
-            }
-            test {
-                java.srcDirs = ['test']
-                resources.srcDirs = ['test']
-            }
-        }
-
-        packagingOptions {
-            exclude 'lib/x86_64/darwin/libscrypt.dylib'
-            exclude 'lib/x86_64/freebsd/libscrypt.so'
-            exclude 'lib/x86_64/linux/libscrypt.so'
-            exclude 'com/google/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml'
-            exclude 'com/google/thirdparty/publicsuffix/PublicSuffixType.gwt.xml'
-            exclude 'org/bitcoinj/crypto/mnemonic/wordlist/english.txt'
-            exclude 'org/bitcoinj/crypto/cacerts'
+        beta {
+            res.srcDirs = ["beta/res"]
         }
     }
+    productFlavors {
+        beta {
+            applicationId = "rusapps.sibcoin.wallet.beta"
+        }
+        prod {
+            applicationId "rusapps.sibcoin.wallet"
+        }
+        _testNet3 {
+            applicationId = "rusapps.sibcoin.wallet_test"
+        }
+    }
+    packagingOptions {
+        exclude 'lib/x86_64/darwin/libscrypt.dylib'
+        exclude 'lib/x86_64/freebsd/libscrypt.so'
+        exclude 'lib/x86_64/linux/libscrypt.so'
+        exclude 'com/google/thirdparty/publicsuffix/PublicSuffixPatterns.gwt.xml'
+        exclude 'com/google/thirdparty/publicsuffix/PublicSuffixType.gwt.xml'
+        exclude 'org/bitcoinj/crypto/mnemonic/wordlist/english.txt'
+        exclude 'org/bitcoinj/crypto/cacerts'
+        exclude 'org.bitcoin.production.checkpoints.txt'
+        exclude 'org.bitcoin.test.checkpoints.txt'
+        exclude 'messages.properties'
+        exclude 'META-INF/services/sun.net.spi.nameservice.NameServiceDescriptor'
+        exclude 'META-INF/services/org.xmlpull.v1.XmlPullParserFactory'
+    }
 }
-// most important part to include .so files into the project
-task copyNativeLibs(type: Copy) {
-    from(new File(getProjectDir(), 'src/main/native-libs')) { include '**/*.so' }
-    into new File(buildDir, 'native-libs')
-}
-tasks.withType(org.gradle.api.tasks.compile.JavaCompile) {
-    compileTask -> compileTask.dependsOn copyNativeLibs
-}
-clean.dependsOn 'cleanCopyNativeLibs'
-//tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
-//    pkgTask ->
-//        pkgTask.jniFolders = new HashSet()
-//        pkgTask.jniFolders.add(new File(buildDir, 'native-libs'))
-//}
-//task svgToPng(type: fr.avianey.androidsvgdrawable.gradle.SvgDrawableTask) {
-//    from = file('graphics')
-//    to = file('res')
-//    targetedDensities = ['hdpi', 'xhdpi', 'xxhdpi']
-//    outputFormat = 'PNG'
-//}
 
-dependencies {
+task buildNativeScrypt(type: GradleBuild) {
+    buildFile = '../native-scrypt/build.gradle'
+    tasks = ['copy']
 }
+
+task buildNativeX11(type: GradleBuild) {
+    buildFile = '../native-x11/build.gradle'
+    tasks = ['copy']
+}
+
+preBuild.dependsOn 'buildNativeScrypt'
+preBuild.dependsOn 'buildNativeX11'
+
+clean {
+    file('src/main/jniLibs').deleteDir()
+}
+
+/*task svgToPngMipmap(type: fr.avianey.androidsvgdrawable.gradle.SvgDrawableTask) {
+    from = files('graphics/mipmap')
+    to = file('res')
+    targetedDensities = ['hdpi', 'xhdpi', 'xxhdpi', 'xxxhdpi']
+    outputFormat = 'PNG'
+    outputType = 'mipmap'
+}*/

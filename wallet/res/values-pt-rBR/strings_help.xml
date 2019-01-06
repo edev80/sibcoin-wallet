@@ -1,108 +1,112 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="help_wallet">
+
+    <string name="help_wallet">
 <![CDATA[
 		<p>
-			O canto superior esquerdo da tela exibe o seu saldo da sua carteira.
-			Toque para ver as listas das moedas nacionais, e toque em uma delas para selecioná-la como padrão.
+			O canto superior direito da tela exibe seu saldo em Sibcoin e em alguma moeda selecionada.
+			Toque para abrir a lista de moedas, e escolha uma delas para definir como padrão.
 		</p>
 		<p>
-			O código QR à direita contém o seu endereço Sibcoin e pode ser usado para ser lido por outro dispositivo.
-			Toque no código QR para ampliá-lo.
+			O QR code que contém seu endereço Sibcoin é acessado pelo menu de navegação (canto superior esquerdo) e pode ser digitalizado pelos outros.
+			Toque no QR code para exibir uma versão maior.
 		</p>
 		<p>
-			A parte inferior da tela é preenchida com sua lista de transações, que está vazia no início.
-			Transações pendentes são exibidas na cor cinza até que sejam confirmadas.
-			Toque em uma transação para adicionar o endereço de remetentes ou destinatários para o livro de endereços.
-			Deslize para a esquerda ou direita para aplicar filtros na lista.
+			A parte inferior da tela exibe sua lista de transações, que começa vazia.
+			Transações pendentes são exibidas desbotadas até que sejam confirmadas.
+			Toque em um item para consultar detalhes ou para adicionar os endereços de origem ou destino no catálogo de endereços.
+			O catálogo de endereços é acessado pelo menu de navegação (canto superior esquerdo).
 		</p>
 		<p>
-			Você pode enviar ou solicitar Sibcoin tocando os botões na barra de ações.
-			Mais opções estão disponíveis no menu de opções.
+			Você pode enviar ou solicitar pagamentos tocando nos respectivos botões na barra de ações.
+			Mais opções estão disponíveis nos menus de navegação e opções.
 		</p>
 	]]>
-	</string>
-  <string name="help_request_coins">
+    </string>
+    <string name="help_request_coins">
 <![CDATA[
 		<p>
-			Usando essa tela, você consegue solicitar Sibcoin para outra pessoa (que também já tenha instalado uma carteira Sibcoin).
+			Usando esta tela, você consegue solicitar pagamentos para outra pessoa (que também tenha uma carteira Sibcoin).
 		</p>
 		<p>
-			Primeiro, você pode opcionalmente inserir uma quantidade de Sibcoin a ser solicitada.
+			Opcionalmente, você pode definir a quantidade de Sibcoin a ser solicitada.
 		</p>
 		<p>
-			Um código QR será gerado e ele deve ser escaneado pela outra pessoa.
-			Você também pode enviar sua solicitação para uma pessoa remotamente, usando o botão compartilhar na barra de ações.
-			A outra pessoa deverá clicar na Sibcoin URL.
+			Um código QR será gerado e ele poderá ser digitalizado pela outra pessoa.
+			Ou você poderá enviar a solicitação para ela usando o botão compartilhar na barra de ações.
+			Se os dois celulares tiverem NFC, você poderá aproximar os mesmos para enviar a solicitação.
 		</p>
 		<p>
-			A solicitação irá mostrar para a outra pessoa uma caixa de diálogo para o envio de Sibcoin com todos os campos pré-preenchidos.
-			Se ela concordar com o valor, tudo o que ela precisa fazer é enviar o pagamento.
+			Uma caixa de diálogo com a solicitação preenchida automaticamente será exibida para a outra pessoa.
+			Se ela concordar com o pagamento, poderá realizar a operação com facilidade.
 		</p>
 	]]>
-	</string>
-  <string name="help_send_coins">
+    </string>
+    <string name="help_send_coins">
 <![CDATA[
 		<p>
 			Você iniciou o processo de envio de moedas.
-			Você veio aqui, quer através da tela principal ou clicando em uma URL Sibcoin no seu nabegador mobile.
+			Você chegou aqui através da tela principal ou clicando em um endereço Sibcoin no seu navegador web.
 		</p>
 		<p>
-			Primeiro insira o endereço Sibcoin para o qual quer realizar o pagamento.
-			O endereço será completado automaticamente através de entradas conhecidas em seu catálogo de endereços.
-			Você também pode escanear QR codes com endereços Sibcoin ou requisitar pressionando o botão QR na barra de ações.
+			Primeiro, digite o endereço Sibcoin de destino.
+			O endereço será preenchido automaticamente a partir de entradas conhecidas no seu catálogo de endereços.
+			Você também pode digitalizar códigos QR com endereços Sibcoin ou solicitações de pagamentos pressionando o botão QR.
 		</p>
 		<p>
-			Em seguida, você pode ver quantas Sibcoin você pode gasta no momento.
-			Qualquer diferença para o saldo da tela principal ainda não está confirmado e pode ainda não ser gasto.
+			Depois, serão exibidos quantos Sibcoin você poderá gastar no momento.
+			Qualquer diferença no saldo da tela principal ainda não foi confirmada e portanto ainda não poderá ser gasta.
 		</p>
 		<p>
-			Por último, você digite a quantia a pagar.
+			Toque InstantSend se quiser fazer um pagamento imediato. Mas a taxa será maior (>0.001 SIB).
+			No fim, você insere o valor a ser pago e, se houver, seu PIN de segurança.
 		</p>
 		<p>
-			Você pode inserir um pagamento estando offline.
-			Ele será enviado na próxima reinicialização do Sibcoin Wallet.
-			Se você quer que um pagamento seja processado o mais rápido possível, certifique-se que você está bem conectado (i.e. em uma WLAN).
+			Você também pode agendar pagamentos quando estiver offline.
+			Mas eles só serão executados quando abrir o aplicativo novamente.
+			Se desejar que o pagamento seja processado o mais rápido possível, garanta uma boa conexão à internet (ou seja, em uma WLAN).
 		</p>
 		<p>
-			Nota:
-			Pagamentos são irreversíveis.
-			Sempre cheque o endereço de destino.
+			Aviso:
+			Os pagamentos são irreversíveis!
+			Sempre confira o endereço de destino.
 		</p>
 	]]>
-	</string>
-  <string name="help_safety">
+    </string>
+    <string name="help_safety">
 <![CDATA[
 		<p>
-			<b>Notas importantes sobre segurança:</b>
+			<b>Avisos importantes de segurança:</b>
 		</p>
 		<p>
-			Sibcoin são armazenadas no dispositivo.
-			<b>Se você o perder, também perde suas Sibcoin.</b>
+			As moedas são armazenados no dispositivo.
+			<b>Se o perder, perderá seus Sibcoin.</b>
 		</p>
 		<p>
-			Isso significa que você tem que fazer um <b>back up de sua carteira</b>!
-			Utilize o recurso de backup in-app para isso, ao invés de um aplicativo de backup de terceiros.
-			Mantenha o seu backup seguro e lembre a senha.
+			Isso significa que você precisa <b>fazer backup da sua carteira</b>!
+			Use o backup deste aplicativo para isso, ao invés de outros aplicativos de backup.
+			Mantenha o backup seguro e lembre-se da senha.
+			Esta é uma carteira HD. Somente um backup é necessário.
 		</p>
 		<p>
-			<b>Antes de Instalar</b> (ou limpar as informações do app ou realizar um reset em seu dispositivo), <b>transfira seus Sibcoin para outra carteira</b>.
-			Sibcoin restantes serão perdidas.
+			<b>Antes de desinstalar</b> (ou limpar dados da aplicação / fazer wipe do dispositivo), <b>transfira suas moedas para outra carteira</b>.
+			Os Sibcoin restantes serão perdidos.
 		</p>
 		<p>
 			<b>Pagamentos são irreversíveis</b>.
-			Se você enviar seus Sibcoin no vazio, não há quase nenhuma maneira de obtê-los de volta.
+			Se você perder suas moedas, não há jeito de recuperá-las.
 		</p>
 		<p>
-			<b>Mantenha o seu dispositivo mobile seguro!</b>
-			Não faça root em seu dispositivo.
-			Não instale aplicativos que não confia.
-			Aplicativos maliciosos podem tentar roubar sua carteira.
+			<b>Mantenha seu celular seguro!</b>
+			Não faça root no seu aparelho.
+			Só instale aplicativos em que confie totalmente.
+			Aplicativos maliciosos podem roubar sua carteira.
 		</p>
 		<p>
-			Mantenha o risco baixo.
-			<b>Use com pequenas quantias</b> por dia de uso.
+			Diminua o risco!
+			<b>Mantenha apenas pequenas quantias</b> para uso diário.
 		</p>
 	]]>
-	</string>
+    </string>
+
 </resources>

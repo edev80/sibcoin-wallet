@@ -1,0 +1,2 @@
+tcp:electrum.dash.siampm.com
+tcp:electrum-drk.club

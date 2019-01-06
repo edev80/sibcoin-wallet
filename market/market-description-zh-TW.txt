@@ -1,29 +1,36 @@
-讓你的比特幣只放在自己的口袋裡! 你可以利用QR二維條碼快速進行比特幣付款，商家可以更快速安全的完成比特幣請款，Dash Wallet 是第一個在移動裝置可以使用的比特幣 App，並自認為是最安全的比特幣 App!
+使用者須自行承擔風險! (需要安卓4或以上的版本)
 
+<b>您的達世幣總是在您的口袋裡，與你同在! </b> 您可以透過快速掃描QR碼來付款。 作為商家，您可以立即收到付款。達世幣錢包第一款流動的達世幣應用程序，也可以說是最安全的!
 
-<b>功能</b>
+<b>產品特點</b>
 
-• 不需註冊，不需登記網路服務或是任何雲端服務! 這個錢包App完全去中心化並利用點對點節點來服務。
-• 可顯示不同比特幣單位如 DASH、 mDASH 與 µDASH。
-• 自動轉換各國貨幣。
-• 可以藉由藍芽/NFC/QR二維條碼或是比特幣網址來接收或是支付比特幣。
-• 提供地址簿供常用比特幣地址使用。
-• 離線中仍然可以使用藍芽付款。
-• 收到比特幣會通知提醒。
-• 紙錢包移轉(例如冷存放使用)
-• 比特幣餘額桌面小工具。
+• 不需要註冊，網頁服務或雲端服務! 這個錢包是採用去中心化點對點技術。
+• 以SIB，mSIB，或μSIB顯示達世幣金額。
+• 以國家貨幣顯示幣值。
+• 通過NFC，QR碼或Dash URL發送和接收達世幣。
+• 地址簿中經常使用的達世幣位址。
+• 當你離線時，你仍然可以通過藍牙付款。
+• 收到款項後會顯示系統通知。
+• 掃瞄紙錢包 (例如用於冷藏的那些錢包)。
+• 顯示達世幣結餘的應用程式小部件。
 
 
 <b>貢獻</b>
 
-Dash Wallet is <b>open source</b> and <b>free software</b>. License: GPLv3
+達世幣錢包是 <b>開源</b> 和<b>免費軟件</b>。許可證: GPLv3
 https://www.gnu.org/licenses/gpl-3.0.en.html
 
-Our source code is available at GitHub:
-https://github.com/HashEngineering/darkcoin-wallet
+我們的源代碼在GitHub上提供:
+https://github.com/HashEngineering/dash-wallet
 
-All translations are managed via Transifex:
-https://www.transifex.com/projects/p/bitcoin-wallet/
+所有翻譯均通過Transifex進行管理:
+https://www.transifex.com/dash/dash-wallet/
 
+你可以找到更多關於達世幣的信息
+https://www.dash.org/
 
-<i>注意使用風險!</i>
+<b>用戶評價</b>
+
+• 推薦的手機錢包 https://www.dash.org
+
+<i>用者風險自負!</i>
