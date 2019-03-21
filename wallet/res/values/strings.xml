@@ -358,4 +358,6 @@
     <string name="sibcoin_slogan">Instant - Private - Secure</string>
     <string name="sibcoin_wallet">Wallet</string>
 
+    <string name="dash_slogan"> </string>
+
 </resources>

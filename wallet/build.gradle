@@ -63,8 +63,8 @@ ext {
 }
 
 android {
-    compileSdkVersion 'android-25'
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 'android-28'
+    buildToolsVersion '28.0.3'
 
     lintOptions {
         abortOnError false
@@ -73,6 +73,16 @@ android {
     defaultConfig {
         generatedDensities = ['hdpi', 'xhdpi']
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'x86'
+        }
+
+        externalNativeBuild {
+            cmake {
+                cFlags '-DHAVE_CONFIG_H'
+            }
+        }
     }
 
     buildTypes {
@@ -108,6 +118,13 @@ android {
             res.srcDirs = ["beta/res"]
         }
     }
+
+    externalNativeBuild {
+        cmake {
+            path 'cpp/CMakeLists.txt'
+        }
+    }
+
     productFlavors {
         beta {
             applicationId = "rusapps.sibcoin.wallet.beta"
@@ -132,21 +149,9 @@ android {
         exclude 'messages.properties'
         exclude 'META-INF/services/sun.net.spi.nameservice.NameServiceDescriptor'
         exclude 'META-INF/services/org.xmlpull.v1.XmlPullParserFactory'
+        exclude 'META-INF/*.version'
     }
 }
-
-task buildNativeScrypt(type: GradleBuild) {
-    buildFile = '../native-scrypt/build.gradle'
-    tasks = ['copy']
-}
-
-task buildNativeX11(type: GradleBuild) {
-    buildFile = '../native-x11/build.gradle'
-    tasks = ['copy']
-}
-
-preBuild.dependsOn 'buildNativeScrypt'
-preBuild.dependsOn 'buildNativeX11'
 
 clean {
     file('src/main/jniLibs').deleteDir()
